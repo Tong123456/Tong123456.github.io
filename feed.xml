@@ -1,73 +1,76 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://localhost:4000/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2016-10-31T10:07:10+08:00</updated><id>http://localhost:4000//</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
-</subtitle><entry><title type="html">php-one</title><link href="http://localhost:4000/jekyll/update/2016/10/31/php-one.html" rel="alternate" type="text/html" title="php-one" /><published>2016-10-31T09:19:35+08:00</published><updated>2016-10-31T09:19:35+08:00</updated><id>http://localhost:4000/jekyll/update/2016/10/31/php-one</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2016/10/31/php-one.html">&lt;p&gt;1：PHP使用PDO操作数据库&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2016-10-31T10:14:41+08:00</updated><id>//</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+</subtitle><entry><title type="html">php-one</title><link href="/jekyll/update/2016/10/31/php-one.html" rel="alternate" type="text/html" title="php-one" /><published>2016-10-31T09:19:35+08:00</published><updated>2016-10-31T09:19:35+08:00</updated><id>/jekyll/update/2016/10/31/php-one</id><content type="html" xml:base="/jekyll/update/2016/10/31/php-one.html">&lt;p&gt;1：PHP使用PDO操作数据库&lt;/p&gt;
 
-&lt;p&gt;PDO扩展为PHP访问数据库定义了一个轻量级的、一致性的接口，它提供了一个数据访问抽象层，
-这样，无论使用什么数据库，都可以通过一致的函数执行查询和获取数据。&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;PDO扩展为PHP访问数据库定义了一个轻量级的、一致性的接口，它提供了一个数据访问抽象层，
+这样，无论使用什么数据库，都可以通过一致的函数执行查询和获取数据。
 
-&lt;p&gt;PDO支持的PHP版本为PHP5.1以及更高的版本,而且在PHP5.2下PDO默认为开启状态,
-下面是在php.ini中PDO的配置:&lt;/p&gt;
+PDO支持的PHP版本为PHP5.1以及更高的版本,而且在PHP5.2下PDO默认为开启状态,
+下面是在php.ini中PDO的配置:
 
-&lt;p&gt;extension=php_pdo.dll&lt;/p&gt;
+extension=php_pdo.dll
 
-&lt;p&gt;为了启用对某个数据库的支持,需要在php配置文件中将相应的扩展打开,例如要支持MySQL,需要开启下面的扩展&lt;/p&gt;
+为了启用对某个数据库的支持,需要在php配置文件中将相应的扩展打开,例如要支持MySQL,需要开启下面的扩展
 
-&lt;p&gt;extension=php_pdo_mysql.dll&lt;/p&gt;
+extension=php_pdo_mysql.dll
 
-&lt;p&gt;&amp;lt;?php
-     header(“content-type:text/html;charset=utf-8”);&lt;/p&gt;
+   &amp;lt;?php
+     header(&quot;content-type:text/html;charset=utf-8&quot;);
 
-&lt;p&gt;$dsn=”mysql:dbname=test;host=localhost”;
-$db_user=’root’;
-$db_pass=’admin’;&lt;/p&gt;
+$dsn=&quot;mysql:dbname=test;host=localhost&quot;;
+$db_user='root';
+$db_pass='admin';
 
-&lt;p&gt;try{
+try{
  $pdo=new PDO($dsn,$db_user,$db_pass);
 }catch(PDOException $e){
- echo ‘数据库连接失败’.$e-&amp;gt;getMessage();
-}&lt;/p&gt;
+ echo '数据库连接失败'.$e-&amp;gt;getMessage();
+}
 
-&lt;p&gt;//新增
-$sql=”insert into buyer (username,password,email) values (‘ff’,’123456’,’admin@admin.com’)”;
+//新增
+$sql=&quot;insert into buyer (username,password,email) values ('ff','123456','admin@admin.com')&quot;;
 $res=$pdo-&amp;gt;exec($sql);
-echo ‘影响行数：’.$res;&lt;/p&gt;
+echo '影响行数：'.$res;
 
-&lt;p&gt;//修改
-$sql=”update buyer set username=’ff123’ where id&amp;gt;3”;
+
+//修改
+$sql=&quot;update buyer set username='ff123' where id&amp;gt;3&quot;;
 $res=$pdo-&amp;gt;exec($sql);
-echo ‘影响行数：’.$res;&lt;/p&gt;
+echo '影响行数：'.$res;
 
-&lt;p&gt;//查询
-$sql=”select * from buyer”;
-$res=$pdo-&amp;gt;query($sql);&lt;/p&gt;
+//查询
+$sql=&quot;select * from buyer&quot;;
+$res=$pdo-&amp;gt;query($sql);
 
-&lt;p&gt;foreach($res as $row){
- echo $row[‘username’].’&lt;br /&gt;’;
-}&lt;/p&gt;
+foreach($res as $row){
+ echo $row['username'].'&amp;lt;br/&amp;gt;';
+}
 
-&lt;p&gt;//删除
-$sql=”delete from buyer where id&amp;gt;5”;
+//删除
+$sql=&quot;delete from buyer where id&amp;gt;5&quot;;
 $res=$pdo-&amp;gt;exec($sql);
-echo ‘影响行数：’.$res;
-   ?&amp;gt;&lt;/p&gt;
+echo '影响行数：'.$res;
+   ?&amp;gt;
 
-&lt;p&gt;PDO 是基于向对象方式，那么错误处理也最好使用面向对象的方式来处理。在 PDOException 中定义了如下方法用于捕获错误信息：&lt;/p&gt;
+ PDO 是基于向对象方式，那么错误处理也最好使用面向对象的方式来处理。在 PDOException 中定义了如下方法用于捕获错误信息：
 
-&lt;p&gt;方法 	说明
+方法 	说明
 getMessage() 	取得文本化的错误信息
 getCode() 	取得 SQLSTATE 错误代号
 getFile() 	取得发生异常的文件名
 getLine() 	取得 PHP 程序产生异常的代码所在行号
 getTrace() 	backtrace() 数组
-getTraceAsString() 	取得已格成化成字符串的 getTrace() 信息&lt;/p&gt;
+getTraceAsString() 	取得已格成化成字符串的 getTrace() 信息
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
-&lt;p&gt;2:数据库命令行
-（1）运行命令行
-（2）进入到MySQL路径下，然后输入mysql -u  user -p
-（3）选择数据库 use test
-（4）检查它是最近版本 mysql \r
-好了，现在你已经连接到test db，接下来你就可以执行SQL语句了。&lt;/p&gt;
+&lt;p&gt;二:数据库命令行
+	（1）运行命令行
+	（2）进入到MySQL路径下，然后输入mysql -u  user -p
+	（3）选择数据库 use test
+	（4）检查它是最近版本 mysql \r
+	好了，现在你已经连接到test db，接下来你就可以执行SQL语句了。&lt;/p&gt;
 
-&lt;p&gt;3:搜索词高亮显示
+&lt;p&gt;三:搜索词高亮显示
   将sql语句中包含的%$info%交给DBMS执行的时候，他会查找字段中含有变量$info的值的信息，&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;%$info---&amp;gt;查找以$info的值结束的信息
@@ -84,7 +87,7 @@ $info%---&amp;gt;查找以$info的值开头的信息
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;如果要搜索多个关键字的话，可以对接收到值$info进行分割，比如$info_more=explode(&quot; &quot;,$info);//这种方式能对以空格隔开的关键字进行分割，再对分割后的结果挨个进行查询，同样，可以使用正则表达式函数进行替换工作，以高亮显示关键字
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;</content><summary type="html">1：PHP使用PDO操作数据库</summary></entry><entry><title type="html">php-two</title><link href="http://localhost:4000/jekyll/update/2016/10/31/php-two.html" rel="alternate" type="text/html" title="php-two" /><published>2016-10-31T08:19:35+08:00</published><updated>2016-10-31T08:19:35+08:00</updated><id>http://localhost:4000/jekyll/update/2016/10/31/php-two</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2016/10/31/php-two.html">&lt;p&gt;一：：session和cookie
+&lt;/div&gt;</content><summary type="html">1：PHP使用PDO操作数据库</summary></entry><entry><title type="html">php-two</title><link href="/jekyll/update/2016/10/31/php-two.html" rel="alternate" type="text/html" title="php-two" /><published>2016-10-31T08:19:35+08:00</published><updated>2016-10-31T08:19:35+08:00</updated><id>/jekyll/update/2016/10/31/php-two</id><content type="html" xml:base="/jekyll/update/2016/10/31/php-two.html">&lt;p&gt;一：：session和cookie
 	二者的定义：&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;当你在浏览网站的时候，WEB 服务器会先送一小小资料放在你的计算机上，Cookie 会帮你在网站上所打的文字或是一些选择，
@@ -344,7 +347,7 @@ cookie 和session 的区别：
         list($a[0], $a[1], $a[2]) = $info;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;</content><summary type="html">一：：session和cookie
-	二者的定义：</summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/jekyll/update/2016/10/29/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2016-10-29T10:19:35+08:00</published><updated>2016-10-29T10:19:35+08:00</updated><id>http://localhost:4000/jekyll/update/2016/10/29/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2016/10/29/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+	二者的定义：</summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="/jekyll/update/2016/10/29/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2016-10-29T10:19:35+08:00</published><updated>2016-10-29T10:19:35+08:00</updated><id>/jekyll/update/2016/10/29/welcome-to-jekyll</id><content type="html" xml:base="/jekyll/update/2016/10/29/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
 
 &lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
 

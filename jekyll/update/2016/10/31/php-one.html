@@ -10,7 +10,7 @@
   <meta name="description" content="1：PHP使用PDO操作数据库">
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="http://localhost:4000/jekyll/update/2016/10/31/php-one.html">
+  <link rel="canonical" href="/jekyll/update/2016/10/31/php-one.html">
   <link rel="alternate" type="application/rss+xml" title="Your awesome title" href="/feed.xml">
   
   
@@ -68,73 +68,76 @@
   <div class="post-content" itemprop="articleBody">
     <p>1：PHP使用PDO操作数据库</p>
 
-<p>PDO扩展为PHP访问数据库定义了一个轻量级的、一致性的接口，它提供了一个数据访问抽象层，
-这样，无论使用什么数据库，都可以通过一致的函数执行查询和获取数据。</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>PDO扩展为PHP访问数据库定义了一个轻量级的、一致性的接口，它提供了一个数据访问抽象层，
+这样，无论使用什么数据库，都可以通过一致的函数执行查询和获取数据。
 
-<p>PDO支持的PHP版本为PHP5.1以及更高的版本,而且在PHP5.2下PDO默认为开启状态,
-下面是在php.ini中PDO的配置:</p>
+PDO支持的PHP版本为PHP5.1以及更高的版本,而且在PHP5.2下PDO默认为开启状态,
+下面是在php.ini中PDO的配置:
 
-<p>extension=php_pdo.dll</p>
+extension=php_pdo.dll
 
-<p>为了启用对某个数据库的支持,需要在php配置文件中将相应的扩展打开,例如要支持MySQL,需要开启下面的扩展</p>
+为了启用对某个数据库的支持,需要在php配置文件中将相应的扩展打开,例如要支持MySQL,需要开启下面的扩展
 
-<p>extension=php_pdo_mysql.dll</p>
+extension=php_pdo_mysql.dll
 
-<p>&lt;?php
-     header(“content-type:text/html;charset=utf-8”);</p>
+   &lt;?php
+     header("content-type:text/html;charset=utf-8");
 
-<p>$dsn=”mysql:dbname=test;host=localhost”;
-$db_user=’root’;
-$db_pass=’admin’;</p>
+$dsn="mysql:dbname=test;host=localhost";
+$db_user='root';
+$db_pass='admin';
 
-<p>try{
+try{
  $pdo=new PDO($dsn,$db_user,$db_pass);
 }catch(PDOException $e){
- echo ‘数据库连接失败’.$e-&gt;getMessage();
-}</p>
+ echo '数据库连接失败'.$e-&gt;getMessage();
+}
 
-<p>//新增
-$sql=”insert into buyer (username,password,email) values (‘ff’,’123456’,’admin@admin.com’)”;
+//新增
+$sql="insert into buyer (username,password,email) values ('ff','123456','admin@admin.com')";
 $res=$pdo-&gt;exec($sql);
-echo ‘影响行数：’.$res;</p>
+echo '影响行数：'.$res;
 
-<p>//修改
-$sql=”update buyer set username=’ff123’ where id&gt;3”;
+
+//修改
+$sql="update buyer set username='ff123' where id&gt;3";
 $res=$pdo-&gt;exec($sql);
-echo ‘影响行数：’.$res;</p>
+echo '影响行数：'.$res;
 
-<p>//查询
-$sql=”select * from buyer”;
-$res=$pdo-&gt;query($sql);</p>
+//查询
+$sql="select * from buyer";
+$res=$pdo-&gt;query($sql);
 
-<p>foreach($res as $row){
- echo $row[‘username’].’<br />’;
-}</p>
+foreach($res as $row){
+ echo $row['username'].'&lt;br/&gt;';
+}
 
-<p>//删除
-$sql=”delete from buyer where id&gt;5”;
+//删除
+$sql="delete from buyer where id&gt;5";
 $res=$pdo-&gt;exec($sql);
-echo ‘影响行数：’.$res;
-   ?&gt;</p>
+echo '影响行数：'.$res;
+   ?&gt;
 
-<p>PDO 是基于向对象方式，那么错误处理也最好使用面向对象的方式来处理。在 PDOException 中定义了如下方法用于捕获错误信息：</p>
+ PDO 是基于向对象方式，那么错误处理也最好使用面向对象的方式来处理。在 PDOException 中定义了如下方法用于捕获错误信息：
 
-<p>方法 	说明
+方法 	说明
 getMessage() 	取得文本化的错误信息
 getCode() 	取得 SQLSTATE 错误代号
 getFile() 	取得发生异常的文件名
 getLine() 	取得 PHP 程序产生异常的代码所在行号
 getTrace() 	backtrace() 数组
-getTraceAsString() 	取得已格成化成字符串的 getTrace() 信息</p>
+getTraceAsString() 	取得已格成化成字符串的 getTrace() 信息
+</code></pre>
+</div>
 
-<p>2:数据库命令行
-（1）运行命令行
-（2）进入到MySQL路径下，然后输入mysql -u  user -p
-（3）选择数据库 use test
-（4）检查它是最近版本 mysql \r
-好了，现在你已经连接到test db，接下来你就可以执行SQL语句了。</p>
+<p>二:数据库命令行
+	（1）运行命令行
+	（2）进入到MySQL路径下，然后输入mysql -u  user -p
+	（3）选择数据库 use test
+	（4）检查它是最近版本 mysql \r
+	好了，现在你已经连接到test db，接下来你就可以执行SQL语句了。</p>
 
-<p>3:搜索词高亮显示
+<p>三:搜索词高亮显示
   将sql语句中包含的%$info%交给DBMS执行的时候，他会查找字段中含有变量$info的值的信息，</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>%$info---&gt;查找以$info的值结束的信息
