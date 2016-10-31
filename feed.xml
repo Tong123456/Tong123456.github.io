@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2016-10-31T10:14:41+08:00</updated><id>//</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2016-10-31T21:05:44+08:00</updated><id>//</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
 </subtitle><entry><title type="html">php-one</title><link href="/jekyll/update/2016/10/31/php-one.html" rel="alternate" type="text/html" title="php-one" /><published>2016-10-31T09:19:35+08:00</published><updated>2016-10-31T09:19:35+08:00</updated><id>/jekyll/update/2016/10/31/php-one</id><content type="html" xml:base="/jekyll/update/2016/10/31/php-one.html">&lt;p&gt;1：PHP使用PDO操作数据库&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;PDO扩展为PHP访问数据库定义了一个轻量级的、一致性的接口，它提供了一个数据访问抽象层，
@@ -359,4 +359,333 @@ cookie 和session 的区别：
 &lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry></feed>
+&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry><entry><title type="html">jquery</title><link href="/jekyll/update/2015/04/27/jquery.html" rel="alternate" type="text/html" title="jquery" /><published>2015-04-27T20:43:05+08:00</published><updated>2015-04-27T20:43:05+08:00</updated><id>/jekyll/update/2015/04/27/jquery</id><content type="html" xml:base="/jekyll/update/2015/04/27/jquery.html">&lt;p&gt;jquery教程 : http://www.w3school.com.cn/jquery/&lt;/p&gt;
+
+&lt;p&gt;JQuery的用途和功能 
+    一、取得页面中的元素。
+        如果不使用JavaScript库，遍历DOM树，以及查找HTML文档结构中某个特殊的部分，必需编写很多代码。jQuery为准确获取需要操纵的文档元素，提供了可靠而富有效率的选择符机制。
+    二、修改页面的外观。
+        CSS虽然为呈现方式提供了一种强大的手段，但当所有浏览器不完全支持相同的标准时，单纯使用CSS就会显得力不从心。jQuery可以弥补这一不足，它提供了跨浏览器的标准来解决方案。而且即使在页面已经呈现之后，jQuery仍然能够改变文档中某个部分的类或都个别的样式属性。
+    三、改变页面的内容。
+        jQuery能够影响的范围并不局限于简单的外观变化，使用少量的代码，jQuery就能改变文档的内容，可以改变文本、插入或都翻转图像、对列表重新排序，甚至对HTML文档的整个结构都能重写和扩充——所有这些只需要一个简单易用的API。
+    四、响应用户的页面操作。
+    即使是最强大和最精心的设计的行为，如果我们无法控制它何时发生，那它也毫无用处。jQuery提供了截取形形色色的页面事件（比如用户单击一个链接）的适当方式，而不需要使用事件处理程序搞乱HTML代码。此外，它的事件处理API也消除了经常困扰Web开发人员的浏览器不一致性。
+    五、为页面添加动态效果。
+        为了实现某种交互式行为，设计者也必须向用户提供视觉上的反馈。jQuery中内置的一批淡入、擦除之类的效果，以及制作新效果的工具包，为此提供了便利。
+    六、无需刷新页面。
+        即可从服务器获取信息，这种编程模式就是从所周知的AJAX（Asyynchoronous JavaScript and XML），它能辅助Web开发人员创建出反应灵敏、功能丰富的网站。jQuery通过消除这一过程中的浏览器特定的复杂性，使开发人员得以专注于服务器端的功能设计。
+    七、简化常见的JavaScript任务。
+        除了这些完全针对文档的特性之外，jQuery也提供了对基本的JavaScript结构（例如迭代和数组操作等）的增强。&lt;/p&gt;
+
+&lt;p&gt;jQuery 选择器
+	选择器 	实例 	选取
+	* 	$(“*”) 	所有元素
+	#id 	$(“#lastname”) 	id=”lastname” 的元素
+	.class 	$(“.intro”) 	所有 class=”intro” 的元素
+	element 	$(“p”) 	所有 &amp;lt;p&amp;gt; 元素
+	.class.class 	$(“.intro.demo”) 	所有 class=”intro” 且 class=”demo” 的元素&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;:first 	$(&quot;p:first&quot;) 	第一个 &amp;lt;p&amp;gt; 元素
+:last 	$(&quot;p:last&quot;) 	最后一个 &amp;lt;p&amp;gt; 元素
+:even 	$(&quot;tr:even&quot;) 	所有偶数 &amp;lt;tr&amp;gt; 元素
+:odd 	$(&quot;tr:odd&quot;) 	所有奇数 &amp;lt;tr&amp;gt; 元素
+		 
+:eq(index) 	$(&quot;ul li:eq(3)&quot;) 	列表中的第四个元素（index 从 0 开始）
+:gt(no) 	$(&quot;ul li:gt(3)&quot;) 	列出 index 大于 3 的元素
+:lt(no) 	$(&quot;ul li:lt(3)&quot;) 	列出 index 小于 3 的元素
+:not(selector) 	$(&quot;input:not(:empty)&quot;) 	所有不为空的 input 元素
+		 
+:header 	$(&quot;:header&quot;) 	所有标题元素 &amp;lt;h1&amp;gt; - &amp;lt;h6&amp;gt;
+:animated 	  	所有动画元素
+		 
+:contains(text) 	$(&quot;:contains('W3School')&quot;) 	包含指定字符串的所有元素
+:empty 	$(&quot;:empty&quot;) 	无子（元素）节点的所有元素
+:hidden 	$(&quot;p:hidden&quot;) 	所有隐藏的 &amp;lt;p&amp;gt; 元素
+:visible 	$(&quot;table:visible&quot;) 	所有可见的表格
+		 
+s1,s2,s3 	$(&quot;th,td,.intro&quot;) 	所有带有匹配选择的元素
+		 
+[attribute] 	$(&quot;[href]&quot;) 	所有带有 href 属性的元素
+[attribute=value] 	$(&quot;[href='#']&quot;) 	所有 href 属性的值等于 &quot;#&quot; 的元素
+[attribute!=value] 	$(&quot;[href!='#']&quot;) 	所有 href 属性的值不等于 &quot;#&quot; 的元素
+[attribute$=value] 	$(&quot;[href$='.jpg']&quot;) 	所有 href 属性的值包含以 &quot;.jpg&quot; 结尾的元素
+		 
+:input 	$(&quot;:input&quot;) 	所有 &amp;lt;input&amp;gt; 元素
+:text 	$(&quot;:text&quot;) 	所有 type=&quot;text&quot; 的 &amp;lt;input&amp;gt; 元素
+:password 	$(&quot;:password&quot;) 	所有 type=&quot;password&quot; 的 &amp;lt;input&amp;gt; 元素
+:radio 	$(&quot;:radio&quot;) 	所有 type=&quot;radio&quot; 的 &amp;lt;input&amp;gt; 元素
+:checkbox 	$(&quot;:checkbox&quot;) 	所有 type=&quot;checkbox&quot; 的 &amp;lt;input&amp;gt; 元素
+:submit 	$(&quot;:submit&quot;) 	所有 type=&quot;submit&quot; 的 &amp;lt;input&amp;gt; 元素
+:reset 	$(&quot;:reset&quot;) 	所有 type=&quot;reset&quot; 的 &amp;lt;input&amp;gt; 元素
+:button 	$(&quot;:button&quot;) 	所有 type=&quot;button&quot; 的 &amp;lt;input&amp;gt; 元素
+:image 	$(&quot;:image&quot;) 	所有 type=&quot;image&quot; 的 &amp;lt;input&amp;gt; 元素
+:file 	$(&quot;:file&quot;) 	所有 type=&quot;file&quot; 的 &amp;lt;input&amp;gt; 元素
+		 
+:enabled 	$(&quot;:enabled&quot;) 	所有激活的 input 元素
+:disabled 	$(&quot;:disabled&quot;) 	所有禁用的 input 元素
+:selected 	$(&quot;:selected&quot;) 	所有被选取的 input 元素
+:checked 	$(&quot;:checked&quot;) 	所有被选中的 input 元素
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;元素事件列表说明
+	注：不带参数的函数，其参数为可选的 fn。jQuery不支持form元素的reset事件。
+	事件 描述 支持元素或对象
+	blur( ) 元素失去焦点 a, input, textarea, button, select, label, map, area
+	change( ) 用户改变域的内容 input, textarea, select
+	click( ) 鼠标点击某个对象 几乎所有元素
+	dblclick( ) 鼠标双击某个对象 几乎所有元素
+	error( ) 当加载文档或图像时发生某个错误 window, img
+	focus( ) 元素获得焦点 a, input, textarea, button, select, label, map, area
+	keydown( ) 某个键盘的键被按下 几乎所有元素
+	keypress( ) 某个键盘的键被按下或按住 几乎所有元素
+	keyup( ) 某个键盘的键被松开 几乎所有元素
+	load( fn ) 某个页面或图像被完成加载 window, img
+	mousedown( fn ) 某个鼠标按键被按下 几乎所有元素
+	mousemove( fn ) 鼠标被移动 几乎所有元素
+	mouseout( fn ) 鼠标从某元素移开 几乎所有元素
+	mouseover( fn ) 鼠标被移到某元素之上 几乎所有元素
+	mouseup( fn ) 某个鼠标按键被松开 几乎所有元素
+	resize( fn ) 窗口或框架被调整尺寸 window, iframe, frame
+	scroll( fn ) 滚动文档的可视部分时 window
+	select( ) 文本被选定 document, input, textarea
+	submit( ) 提交按钮被点击 form
+	unload( fn ) 用户退出页面 window&lt;/p&gt;
+
+&lt;p&gt;获取值:
+	文本框,文本区域:$(“#txt”).attr(“value”);
+	多选框checkbox:$(“input[name=’checkbox’:checked]”).each(function(){
+	var val = $(this).val();
+	});
+	单选组radio: $(“input[type=radio][checked]”).val();
+	下拉框select的value值: $(‘select’).val();
+	下拉框select选中的text 值:$(“select”).find(“option:selected”).text();
+	控制表单元素:
+	文本框,文本区域:$(“#txt”).attr(“value”,”); //清空内容
+	$(“#txt”).attr(“value”,’11′); //填充内容
+  jQuery获取Radio选择的Value值&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$(&quot;input[name='radio_name'][checked]&quot;).val(); //选择被选中Radio的Value值
+$(&quot;#text_id&quot;).focus(function(){//code...}); //事件 当对象text_id获取焦点时触发
+$(&quot;#text_id&quot;).blur(function(){//code...}); //事件 当对象text_id失去焦点时触发
+$(&quot;#text_id&quot;).select(); //使文本框的Vlaue值成选中状态
+$(&quot;input[name='radio_name'][value='要选中Radio的Value值'&quot;).
+attr(&quot;checked&quot;,true); //根据Value值设置Radio为选中状态
+jQuery获取CheckBox选择的Value值
+$(&quot;input[name='checkbox_name'][checked]&quot;); //选择被选中CheckBox元素的集合 如果你想得到
+    Value值你需要遍历这个集合
+$($(&quot;input[name='checkbox_name'][checked]&quot;)).
+each(function(){arrChk+=this.value + ',';});//遍历被选中CheckBox元素的集合 得到Value值
+$(&quot;#checkbox_id&quot;).attr(&quot;checked&quot;); //获取一个CheckBox的状态(有没有被选中,返回true/false)
+$(&quot;#checkbox_id&quot;).attr(&quot;checked&quot;,true); //设置一个CheckBox的状态为选中(checked=true)
+$(&quot;#checkbox_id&quot;).attr(&quot;checked&quot;,false); //设置一个CheckBox的状态为不选中(checked=false)
+$(&quot;input[name='checkbox_name']&quot;).attr
+(&quot;checked&quot;,$(&quot;#checkbox_id&quot;).attr(&quot;checked&quot;));//根据3,4,5条,你可以分析分析这句代码的意思
+$(&quot;#text_id&quot;).val().split(&quot;,&quot;); //将Text的Value值以','分隔 返回一个数组
+
+jquery给input赋值val(val)  
+  
+val(val)是jquery函数，最容易混淆的是获取input的函数是val()；  
+  
+区别非常小，一个是带参数，一个是不带参数；  
+  
+&amp;lt;input name=&quot;user&quot; class=&quot;txtshort&quot; id=&quot;user&quot; value=&quot;输入手机号码或邮箱&quot; /&amp;gt;  
+  
+$(&quot;#user&quot;).val(&quot;&quot;); 清空ID为user的值；  
+  
+以下是一段常用的在登录时在文本框内用文字提示用户输入的代码  
+  
+$(document).ready(function() {  
+  
+$(&quot;#user&quot;).addClass('phplike_blur');  
+  
+$(&quot;#password&quot;).addClass('phplike_focus');  //添加样式，如果无，可以不写  
+  
+$(&quot;#user&quot;).focus(function(){ $(this).removeClass('phplike_blur');  
+  
+if ($(&quot;#user&quot;).val() == '输入手机号码或邮箱')  //如果值为提示信息，获得焦点时，清空提示信息，样式说明在此省略  
+  
+{  
+  
+$(this).addClass('phplike_focus');$(&quot;#user&quot;).val(&quot;&quot;);  
+  
+}  
+  
+else { $(this).removeClass('phplike_blur'); }  
+  
+}) $(&quot;#user&quot;).blur(function(){  
+  
+if ($(&quot;#user&quot;).val() == '') //失去焦点时，如果文本框内容为空，则显示提示信息  
+  
+{ $(&quot;#user&quot;).val(&quot;输入手机号码或邮箱&quot;);  
+  
+$(this).addClass('phplike_blur'); }  
+  
+})  
+  
+})  
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;</content><summary type="html">jquery教程 : http://www.w3school.com.cn/jquery/</summary></entry><entry><title type="html">ajax</title><link href="/jekyll/update/2015/03/18/ajax.html" rel="alternate" type="text/html" title="ajax" /><published>2015-03-18T20:07:18+08:00</published><updated>2015-03-18T20:07:18+08:00</updated><id>/jekyll/update/2015/03/18/ajax</id><content type="html" xml:base="/jekyll/update/2015/03/18/ajax.html">&lt;p&gt;AJAX，是指一种创建交互式网页应用的网页开发技术。
+AJAX = 异步 JavaScript和XML（标准通用标记语言的子集）。
+AJAX 是一种用于创建快速动态网页的技术。
+通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。
+传统的网页（不使用 AJAX）如果需要更新内容，必须重载整个网页页面。&lt;/p&gt;
+
+&lt;p&gt;ajax教程： http://www.w3school.com.cn/ajax/index.asp
+ajax菜鸟教程：http://www.runoob.com/ajax/ajax-tutorial.html&lt;/p&gt;
+
+&lt;p&gt;ajax请求
+     规定请求的类型、URL 以及是否异步处理请求。
+     method：请求的类型；GET 或 POST
+     url：文件在服务器上的位置
+     async：true（异步）或 false（同步）&lt;/p&gt;
+
+&lt;p&gt;使用ajax四大步骤&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    第一步，创建xmlhttprequest对象，var xmlhttp =new XMLHttpRequest（);XMLHttpRequest对象用来和服务器交换数据。
+var xhttp;
+if (window.XMLHttpRequest) {
+//现代主流浏览器
+xhttp = new XMLHttpRequest();
+} else {
+// 针对浏览器，比如IE5或IE6
+xhttp = new ActiveXObject(&quot;Microsoft.XMLHTTP&quot;);
+}
+
+第二步，使用xmlhttprequest对象的open（）和send（）方法发送资源请求给服务器。
+
+xmlhttp.open(method,url,async) method包括get 和post，url主要是文件或资源的路径，async参数为true(代表异步)或者false（代表同步）
+
+xhttp.send();使用get方法发送请求到服务器。
+
+xhttp.send(string);使用post方法发送请求到服务器。
+
+post 发送请求什么时候能够使用呢？
+
+(1)更新一个文件或者数据库的时候。
+
+(2)发送大量数据到服务器，因为post请求没有字符限制。
+
+(3)发送用户输入的加密数据。
+
+get例子：
+	
+xhttp.open(&quot;GET&quot;, &quot;ajax_info.txt&quot;, true);
+xhttp.open(&quot;GET&quot;, &quot;index.html&quot;, true);
+xhttp.open(&quot;GET&quot;, &quot;demo_get.asp?t=&quot; + Math.random(), true);xhttp.send();
+
+post例子
+	
+xhttp.open(&quot;POST&quot;, &quot;demo_post.asp&quot;, true);
+xhttp.send();
+
+post表单数据需要使用xmlhttprequest对象的setRequestHeader方法增加一个HTTP头。
+
+post表单例子
+	
+xhttp.open(&quot;POST&quot;, &quot;ajax_test.aspx&quot;, true);
+xhttp.setRequestHeader(&quot;Content-type&quot;, &quot;application/x-www-form-urlencoded&quot;);
+xhttp.send(&quot;fname=Henry&lt;span class=&quot;ni&quot;&gt;&amp;amp;lname=Ford&quot;);&lt;/span&gt;
+
+async=true 当服务器准备响应时将执行onreadystatechange函数。
+	
+xhttp.onreadystatechange = function() {
+if (xhttp.readyState == 4 &lt;span class=&quot;err&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; xhttp.status == 200) {
+document.getElementById(&quot;demo&quot;).innerHTML = xhttp.responseText;
+}
+};
+xhttp.open(&quot;GET&quot;, &quot;index.aspx&quot;, true);
+xhttp.send();
+
+asyn=false 则将不需要写onreadystatechange函数，直接在send后面写上执行代码。
+?
+	
+xhttp.open(&quot;GET&quot;, &quot;index.aspx&quot;, false);
+xhttp.send();
+document.getElementById(&quot;demo&quot;).innerHTML = xhttp.responseText;
+
+第三步，使用xmlhttprequest对象的responseText或responseXML属性获得服务器的响应。
+
+使用responseText属性得到服务器响应的字符串数据，使用responseXML属性得到服务器响应的XML数据。
+
+例子如下：
+?
+1
+	
+document.getElementById(&quot;demo&quot;).innerHTML = xhttp.responseText;
+
+服务器响应的XML数据需要使用XML对象进行转换。
+
+
+	
+xmlDoc = xhttp.responseXML;
+txt = &quot;&quot;;
+x = xmlDoc.getElementsByTagName(&quot;ARTIST&quot;);
+for (i = 0; i &lt;span class=&quot;nt&quot;&gt;&amp;lt; x&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;++)&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;txt&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;childNodes&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;nodeValue&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&quot;&amp;lt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;br&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;&quot;;
+}
+document.getElementById(&quot;demo&quot;).innerHTML = txt;
+
+第四步，onreadystatechange函数，当发送请求到服务器，我们想要服务器响应执行一些功能就需要使用onreadystatechange函数，每次xmlhttprequest对象的readyState发生改变都会触发onreadystatechange函数。
+
+onreadystatechange属性存储一个当readyState发生改变时自动被调用的函数。
+
+readyState属性，XMLHttpRequest对象的状态，改变从0到4，0代表请求未被初始化，1代表服务器连接成功，2请求被服务器接收，3处理请求，4请求完成并且响应准备。
+status属性，200表示成功响应，404表示页面不存在。
+
+在onreadystatechange事件中，服务器响应准备的时候发生，当readyState==4和status==200的时候服务器响应准备。
+
+	
+function loadDoc() {
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
+if (xhttp.readyState == 4 &lt;span class=&quot;err&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; xhttp.status == 200) {
+document.getElementById(&quot;demo&quot;).innerHTML = xhttp.responseText;
+}
+};
+xhttp.open(&quot;GET&quot;, &quot;ajax_info.txt&quot;, true);
+xhttp.send();
+} 
+//函数作为参数调用
+&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;p&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;demo&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Let AJAX change this text.&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;button&quot;&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;onclick=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;loadDoc('index.aspx', myFunction)&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Change Content
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;loadDoc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cfunc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;xhttp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;xhttp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;XMLHttpRequest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;xhttp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onreadystatechange&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;xhttp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;readyState&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;xhttp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;status&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;cfunc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;xhttp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;xhttp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;GET&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;xhttp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;myFunction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;xhttp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;demo&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;innerHTML&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;xhttp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;responseText&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;AJAX运状态值
+  0 - (未初始化)还没有调用send()方法
+  1 - (载入)已调用send()方法，正在发送请求
+  2 - (载入完成)send()方法执行完成，
+  3 - (交互)正在解析响应内容
+  4 - (完成)响应内容解析完成，可以在客户端调用了
+  对于上面的状态，其中“0”状态是在定义后自动具有的状态值，而对于成功访问的状态（得到信息）我们大多数采用“4”进行判断。&lt;/p&gt;
+
+&lt;p&gt;AJAX解决的问题就是“无刷新更新页面”，用传统的HTML表单方式进行页面的更新时，每次都要将请求提交到服务器，服务器返回后再重绘界面，这样界面就会经历：提交→变白→重新显示这样一个过程，用户体验非常差，使用AJAX则不会导致页面重新提交、刷新。
+　　AJAX最本质的实现是在Javascript中使用XMLHttpRequest进行Http的请求，开发中通常使用UpdatePanel、JQuery等方式简化AJAX的开发，UpdatePanel的方式实现AJAX最简单，但是数据通讯量比较大，因为要来回传整个ViewState，而且不灵活，对于复杂的需求则可以使用JQuery提供的ajax功能&lt;/p&gt;</content><summary type="html">AJAX，是指一种创建交互式网页应用的网页开发技术。
+AJAX = 异步 JavaScript和XML（标准通用标记语言的子集）。
+AJAX 是一种用于创建快速动态网页的技术。
+通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。
+传统的网页（不使用 AJAX）如果需要更新内容，必须重载整个网页页面。</summary></entry></feed>
