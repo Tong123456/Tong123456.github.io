@@ -1,93 +1,75 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://localhost:4000/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2016-10-31T10:07:10+08:00</updated><id>http://localhost:4000//</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
-</subtitle><entry><title type="html">php-one</title><link href="http://localhost:4000/jekyll/update/2016/10/31/php-one.html" rel="alternate" type="text/html" title="php-one" /><published>2016-10-31T09:19:35+08:00</published><updated>2016-10-31T09:19:35+08:00</updated><id>http://localhost:4000/jekyll/update/2016/10/31/php-one</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2016/10/31/php-one.html">&lt;p&gt;1：PHP使用PDO操作数据库&lt;/p&gt;
+<!DOCTYPE html>
+<html lang="en">
 
-&lt;p&gt;PDO扩展为PHP访问数据库定义了一个轻量级的、一致性的接口，它提供了一个数据访问抽象层，
-这样，无论使用什么数据库，都可以通过一致的函数执行查询和获取数据。&lt;/p&gt;
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-&lt;p&gt;PDO支持的PHP版本为PHP5.1以及更高的版本,而且在PHP5.2下PDO默认为开启状态,
-下面是在php.ini中PDO的配置:&lt;/p&gt;
+  <title>php-two</title>
+  <meta name="description" content="一：：session和cookie 二者的定义：">
 
-&lt;p&gt;extension=php_pdo.dll&lt;/p&gt;
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="http://localhost:4000/jekyll/update/2016/10/31/php-two.html">
+  <link rel="alternate" type="application/rss+xml" title="Your awesome title" href="/feed.xml">
+  
+  
+</head>
 
-&lt;p&gt;为了启用对某个数据库的支持,需要在php配置文件中将相应的扩展打开,例如要支持MySQL,需要开启下面的扩展&lt;/p&gt;
 
-&lt;p&gt;extension=php_pdo_mysql.dll&lt;/p&gt;
+  <body>
 
-&lt;p&gt;&amp;lt;?php
-     header(“content-type:text/html;charset=utf-8”);&lt;/p&gt;
+    <header class="site-header" role="banner">
 
-&lt;p&gt;$dsn=”mysql:dbname=test;host=localhost”;
-$db_user=’root’;
-$db_pass=’admin’;&lt;/p&gt;
+  <div class="wrapper">
 
-&lt;p&gt;try{
- $pdo=new PDO($dsn,$db_user,$db_pass);
-}catch(PDOException $e){
- echo ‘数据库连接失败’.$e-&amp;gt;getMessage();
-}&lt;/p&gt;
+    <a class="site-title" href="/">Your awesome title</a>
 
-&lt;p&gt;//新增
-$sql=”insert into buyer (username,password,email) values (‘ff’,’123456’,’admin@admin.com’)”;
-$res=$pdo-&amp;gt;exec($sql);
-echo ‘影响行数：’.$res;&lt;/p&gt;
+    <nav class="site-nav">
+      <span class="menu-icon">
+        <svg viewBox="0 0 18 15" width="18px" height="15px">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </span>
 
-&lt;p&gt;//修改
-$sql=”update buyer set username=’ff123’ where id&amp;gt;3”;
-$res=$pdo-&amp;gt;exec($sql);
-echo ‘影响行数：’.$res;&lt;/p&gt;
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
 
-&lt;p&gt;//查询
-$sql=”select * from buyer”;
-$res=$pdo-&amp;gt;query($sql);&lt;/p&gt;
+  </div>
 
-&lt;p&gt;foreach($res as $row){
- echo $row[‘username’].’&lt;br /&gt;’;
-}&lt;/p&gt;
+</header>
 
-&lt;p&gt;//删除
-$sql=”delete from buyer where id&amp;gt;5”;
-$res=$pdo-&amp;gt;exec($sql);
-echo ‘影响行数：’.$res;
-   ?&amp;gt;&lt;/p&gt;
 
-&lt;p&gt;PDO 是基于向对象方式，那么错误处理也最好使用面向对象的方式来处理。在 PDOException 中定义了如下方法用于捕获错误信息：&lt;/p&gt;
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
-&lt;p&gt;方法 	说明
-getMessage() 	取得文本化的错误信息
-getCode() 	取得 SQLSTATE 错误代号
-getFile() 	取得发生异常的文件名
-getLine() 	取得 PHP 程序产生异常的代码所在行号
-getTrace() 	backtrace() 数组
-getTraceAsString() 	取得已格成化成字符串的 getTrace() 信息&lt;/p&gt;
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">php-two</h1>
+    <p class="post-meta"><time datetime="2016-10-31T08:19:35+08:00" itemprop="datePublished">Oct 31, 2016</time></p>
+  </header>
 
-&lt;p&gt;2:数据库命令行
-（1）运行命令行
-（2）进入到MySQL路径下，然后输入mysql -u  user -p
-（3）选择数据库 use test
-（4）检查它是最近版本 mysql \r
-好了，现在你已经连接到test db，接下来你就可以执行SQL语句了。&lt;/p&gt;
+  <div class="post-content" itemprop="articleBody">
+    <p>一：：session和cookie
+	二者的定义：</p>
 
-&lt;p&gt;3:搜索词高亮显示
-  将sql语句中包含的%$info%交给DBMS执行的时候，他会查找字段中含有变量$info的值的信息，&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;%$info---&amp;gt;查找以$info的值结束的信息
-
-$info%---&amp;gt;查找以$info的值开头的信息
-
-通过正则函数preg_replace()将搜索到的关键字高亮显示，比如，
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;　　　 $row[‘name’]=preg_replace(“/($info)/i”,”&amp;lt;b style=&quot;color:red&quot;&amp;gt;\1&amp;lt;/b&amp;gt;”,$row[‘name’]);&lt;/p&gt;
-
-&lt;p&gt;　　　 的意思是：通过POST方接收到的值$info替换为加上样式（红色加粗）的结果，并将结果重新赋给$row[‘name’]&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;如果要搜索多个关键字的话，可以对接收到值$info进行分割，比如$info_more=explode(&quot; &quot;,$info);//这种方式能对以空格隔开的关键字进行分割，再对分割后的结果挨个进行查询，同样，可以使用正则表达式函数进行替换工作，以高亮显示关键字
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;</content><summary type="html">1：PHP使用PDO操作数据库</summary></entry><entry><title type="html">php-two</title><link href="http://localhost:4000/jekyll/update/2016/10/31/php-two.html" rel="alternate" type="text/html" title="php-two" /><published>2016-10-31T08:19:35+08:00</published><updated>2016-10-31T08:19:35+08:00</updated><id>http://localhost:4000/jekyll/update/2016/10/31/php-two</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2016/10/31/php-two.html">&lt;p&gt;一：：session和cookie
-	二者的定义：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;当你在浏览网站的时候，WEB 服务器会先送一小小资料放在你的计算机上，Cookie 会帮你在网站上所打的文字或是一些选择，
+<div class="highlighter-rouge"><pre class="highlight"><code>当你在浏览网站的时候，WEB 服务器会先送一小小资料放在你的计算机上，Cookie 会帮你在网站上所打的文字或是一些选择，
 
 都纪录下来。当下次你再光临同一个网站，WEB 服务器会先看看有没有它上次留下的 Cookie 资料，有的话，就会依据 Cookie
 
@@ -139,10 +121,10 @@ session机制。session机制是一种服务器端的机制，服务器使用一
 经常被使用的一种技术叫做URL重写，就是把session id直接附加在URL路径的后面。还有一种技术叫做表单隐藏字段。就是服务器
 
 会自动修改表单，添加一个隐藏字段，以便在表单提交时能够把session id传递回服务器。比如：
-&amp;lt;form name=&quot;testform&quot; action=&quot;/xxx&quot;&amp;gt;
-&amp;lt;input type=&quot;hidden&quot; name=&quot;jsessionid&quot; value=&quot;ByOK3vjFD75aPnrF7C2HmdnV6QZcEbzWoWiBYEnLerjQ99zWpBng!-145788764&quot;&amp;gt;
-&amp;lt;input type=&quot;text&quot;&amp;gt;
-&amp;lt;/form&amp;gt;
+&lt;form name="testform" action="/xxx"&gt;
+&lt;input type="hidden" name="jsessionid" value="ByOK3vjFD75aPnrF7C2HmdnV6QZcEbzWoWiBYEnLerjQ99zWpBng!-145788764"&gt;
+&lt;input type="text"&gt;
+&lt;/form&gt;
 实际上这种技术可以简单的用对action应用URL重写来代替。
 
 cookie 和session 的区别：
@@ -220,11 +202,11 @@ cookie 和session 的区别：
 
         JSON_HEX_TAG (integer)
 
-        所有的 &amp;lt; 和 &amp;gt; 转换成 \u003C 和 \u003E。 自 PHP 5.3.0 起生效。
+        所有的 &lt; 和 &gt; 转换成 \u003C 和 \u003E。 自 PHP 5.3.0 起生效。
 
         JSON_HEX_AMP (integer)
 
-        所有的 &amp;amp; 转换成 \u0026。 自 PHP 5.3.0 起生效。
+        所有的 &amp; 转换成 \u0026。 自 PHP 5.3.0 起生效。
 
         JSON_HEX_APOS (integer)
 
@@ -232,7 +214,7 @@ cookie 和session 的区别：
 
         JSON_HEX_QUOT (integer)
 
-        所有的 &quot; 转换成 \u0022。 自 PHP 5.3.0 起生效。
+        所有的 " 转换成 \u0022。 自 PHP 5.3.0 起生效。
 
         JSON_FORCE_OBJECT (integer)
 
@@ -330,7 +312,7 @@ cookie 和session 的区别：
 
         参数3，需要加密的串
 
-        参数4，MCRYPT_MODE_modename 常量中的一个，或以下字符串中的一个：&quot;ecb&quot;，&quot;cbc&quot;，&quot;cfb&quot;，&quot;ofb&quot;，&quot;nofb&quot; 和 &quot;stream&quot;。MCRYPT_MODE_CBC
+        参数4，MCRYPT_MODE_modename 常量中的一个，或以下字符串中的一个："ecb"，"cbc"，"cfb"，"ofb"，"nofb" 和 "stream"。MCRYPT_MODE_CBC
 
         参数5， $iv = mcrypt_create_iv($iv_size, MCRYPT_RAND);
 
@@ -342,18 +324,69 @@ cookie 和session 的区别：
 
         ​$info = array('coffee', 'brown', 'caffeine');
         list($a[0], $a[1], $a[2]) = $info;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;</content><summary type="html">一：：session和cookie
-	二者的定义：</summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/jekyll/update/2016/10/29/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2016-10-29T10:19:35+08:00</published><updated>2016-10-29T10:19:35+08:00</updated><id>http://localhost:4000/jekyll/update/2016/10/29/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2016/10/29/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+</code></pre>
+</div>
 
-&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
 
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+  </div>
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+  
+</article>
 
-&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry></feed>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Your awesome title</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>
+            
+              Your awesome title
+            
+            </li>
+            
+            <li><a href="mailto:your-email@domain.com">your-email@domain.com</a></li>
+            
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/jekyll"><span class="icon icon--github"><svg viewBox="0 0 16 16" width="16px" height="16px"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">jekyll</span></a>
+
+          </li>
+          
+
+          
+          <li>
+            <a href="https://twitter.com/jekyllrb"><span class="icon icon--twitter"><svg viewBox="0 0 16 16" width="16px" height="16px"><path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/></svg>
+</span><span class="username">jekyllrb</span></a>
+
+          </li>
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>
