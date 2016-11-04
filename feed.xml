@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2016-10-31T21:05:44+08:00</updated><id>//</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
-</subtitle><entry><title type="html">php-one</title><link href="/jekyll/update/2016/10/31/php-one.html" rel="alternate" type="text/html" title="php-one" /><published>2016-10-31T09:19:35+08:00</published><updated>2016-10-31T09:19:35+08:00</updated><id>/jekyll/update/2016/10/31/php-one</id><content type="html" xml:base="/jekyll/update/2016/10/31/php-one.html">&lt;p&gt;1：PHP使用PDO操作数据库&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://localhost:4000/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2016-11-04T08:43:21+08:00</updated><id>http://localhost:4000//</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+</subtitle><entry><title type="html">php-one</title><link href="http://localhost:4000/jekyll/update/2016/10/31/php-one.html" rel="alternate" type="text/html" title="php-one" /><published>2016-10-31T09:19:35+08:00</published><updated>2016-10-31T09:19:35+08:00</updated><id>http://localhost:4000/jekyll/update/2016/10/31/php-one</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2016/10/31/php-one.html">&lt;p&gt;1：PHP使用PDO操作数据库&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;PDO扩展为PHP访问数据库定义了一个轻量级的、一致性的接口，它提供了一个数据访问抽象层，
 这样，无论使用什么数据库，都可以通过一致的函数执行查询和获取数据。
@@ -87,7 +87,7 @@ $info%---&amp;gt;查找以$info的值开头的信息
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;如果要搜索多个关键字的话，可以对接收到值$info进行分割，比如$info_more=explode(&quot; &quot;,$info);//这种方式能对以空格隔开的关键字进行分割，再对分割后的结果挨个进行查询，同样，可以使用正则表达式函数进行替换工作，以高亮显示关键字
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;</content><summary type="html">1：PHP使用PDO操作数据库</summary></entry><entry><title type="html">php-two</title><link href="/jekyll/update/2016/10/31/php-two.html" rel="alternate" type="text/html" title="php-two" /><published>2016-10-31T08:19:35+08:00</published><updated>2016-10-31T08:19:35+08:00</updated><id>/jekyll/update/2016/10/31/php-two</id><content type="html" xml:base="/jekyll/update/2016/10/31/php-two.html">&lt;p&gt;一：：session和cookie
+&lt;/div&gt;</content><summary type="html">1：PHP使用PDO操作数据库</summary></entry><entry><title type="html">php-two</title><link href="http://localhost:4000/jekyll/update/2016/10/31/php-two.html" rel="alternate" type="text/html" title="php-two" /><published>2016-10-31T08:19:35+08:00</published><updated>2016-10-31T08:19:35+08:00</updated><id>http://localhost:4000/jekyll/update/2016/10/31/php-two</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2016/10/31/php-two.html">&lt;p&gt;一：：session和cookie
 	二者的定义：&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;当你在浏览网站的时候，WEB 服务器会先送一小小资料放在你的计算机上，Cookie 会帮你在网站上所打的文字或是一些选择，
@@ -347,7 +347,481 @@ cookie 和session 的区别：
         list($a[0], $a[1], $a[2]) = $info;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;</content><summary type="html">一：：session和cookie
-	二者的定义：</summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="/jekyll/update/2016/10/29/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2016-10-29T10:19:35+08:00</published><updated>2016-10-29T10:19:35+08:00</updated><id>/jekyll/update/2016/10/29/welcome-to-jekyll</id><content type="html" xml:base="/jekyll/update/2016/10/29/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+	二者的定义：</summary></entry><entry><title type="html">php-two</title><link href="http://localhost:4000/jekyll/update/2016/10/31/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.html" rel="alternate" type="text/html" title="php-two" /><published>2016-10-31T08:19:35+08:00</published><updated>2016-10-31T08:19:35+08:00</updated><id>http://localhost:4000/jekyll/update/2016/10/31/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2016/10/31/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.html">&lt;p&gt;对象的主要三个特性
+对象的行为：可以对 对象施加那些操作，开灯，关灯就是行为。
+对象的形态：当施加那些方法是对象如何响应，颜色，尺寸，外型。
+对象的表示：对象的表示就相当于身份证，具体区分在相同的行为与状态下有什么不同。&lt;/p&gt;
+
+&lt;p&gt;面向对象的概念：
+oop(面向对象的编程)它能是其代码更加简洁易于维护并且具有更强的可重性&lt;/p&gt;
+
+&lt;p&gt;什么是类：
+类是具有相同属性和服务的一组对象的集合比如说人，书，轮船，车都属于类，他为属于该类的对象做了一个统一的抽象描述，在编程的语言中类是一个单独的程序，它应该有一个类名包括属性的说明和服务两个部分。
+什么是对象：
+对象是系统中描述客观事件的一个实体，他是构成系统的一个基本单位。&lt;em&gt;数据与代码都被捆绑在一个实体当中&lt;/em&gt;，一个对象由一组属性和对这组属性进行操作的一组行为组成。
+从抽象的角度来说，对象是问题域或实现域中某些事物的一个抽象。他反映该事物在系统中保存的信息和发挥的作用：它是一组属性和有权对这些属性进行操作的一个封装体。客观世界是由对象和对象之间的联系组成的。
+类和对象的关系：
+类与对象的关系就如模具和铸件的关系，类的实力化的结果就是对象，而对对象的抽象就是类，类描述了一组有相同特性（属性）和相同行为的对象。&lt;/p&gt;
+
+&lt;p&gt;类与属性和方法&lt;/p&gt;
+
+&lt;p&gt;PHP中定义类语法格式：
+复制代码 代码如下:&lt;/p&gt;
+
+&lt;p&gt;class classname [可选属性]{
+public $property [=value];… //用public声明一个公共标识 然后给予一个变量 变量也可以赋值
+function functionname ( args ){ //类的方法里的成员函数
+代码} …
+//类的方法（成员函数）
+}&lt;/p&gt;
+
+&lt;p&gt;生成对象(类的实例化): $对象名=new classname( );&lt;/p&gt;
+
+&lt;p&gt;使用对象的属性&lt;/p&gt;
+
+&lt;p&gt;在一个类中，可以访问一个特殊指针$this当在该类中通过一个操作设置或访问该变量时,使用$this-&amp;gt;name来引用.
+对象的生成
+定义好类后用一个new来声明，由于对象资料的封装特性，对象是无法由主程序区块直接访问的须通过对象来调用类中所定义的属性和行为函数，间接地达成存取控制类中资料的目的。
+对象和类的关系
+对象和类的关系:
+对象是实际存在的，占有动态资源。
+类是对象的蓝图，可能占有静态资源。
+对象属性占有动态资源
+类（静态）属性实际上是有类名字空间上的”全局变量”
+性能考虑:
+每个对象要单独占用数据空间
+增加的调用层次可能消耗执行时间
+方法的参数形式和传递方式
+方法的参数可以是基本数据类型、数组和类对象。
+基本数据类型：值参传递
+数组：值参传递
+类对象：引用传递
+构造函数
+构造函数是在类中起到初始化的作用
+构造函数的生成方法与其他函数一样只是其名称必须是__construct().
+语法格式：
+function __construct(参数){
+。。。。。。。。
+}
+范例：
+复制代码 代码如下:&lt;/p&gt;
+
+&lt;p&gt;class Person{
+public $name;
+public $sex;
+public $age;
+function __construct($name,$sex,$age){
+echo “我是构造函数&lt;br /&gt;”;
+$this-&amp;gt;name=$name;
+$this-&amp;gt;sex=$sex;
+$this-&amp;gt;age=$age;
+}&lt;/p&gt;
+
+&lt;p&gt;输出结果：初始化&lt;/p&gt;
+
+&lt;p&gt;析构函数&lt;/p&gt;
+
+&lt;p&gt;当对象脱离其作用域时（例如对象所在的函数已调用完毕），系统自动执行析构函数。应在退出前在析构函数中用释放内存。
+析构函数__destruct 析构函数没有任何参数
+范例：
+复制代码 代码如下:&lt;/p&gt;
+
+&lt;p&gt;class person{
+function _ _destruct( )
+{ echo “bye bye !”; }
+}
+$a=new person();&lt;/p&gt;
+
+&lt;p&gt;访问类型
+public 公共的（公共修饰符） 类内部与类外部都可以访问的
+private 私有的（私有修饰符） 只能在类内部访问
+protected 受保护的（保护成员修饰符） 子类可以访问 类外部不可以访问&lt;/p&gt;
+
+&lt;p&gt;oop的三个重要特性&lt;/p&gt;
+
+&lt;p&gt;封装，继承，多态
+封装性：封装性就是把对象的属性和行为结合成一个独立的单位。
+封装一个类需要两步 第一步是私有化一个类 第二步是用set和get 做出读取赋值的操作
+他的好处是：隐藏类的实现细节，可以方便加入逻辑控制性，限制对属性的不合理操作，便于修改增强代码的可维护性。&lt;/p&gt;
+
+&lt;p&gt;__get与__set
+一般说把类私有话更符合现实的逻辑。
+预定义两种函数来进行获取与敷值操作。
+__get 获取值通常是域的值
+__set 设置值通常是域的值
+__call 调用一个对象中不存在的方法时，就会产生错误call()这个方法来处理这种情况。&lt;/p&gt;
+
+&lt;p&gt;静态属性和方法&lt;/p&gt;
+
+&lt;p&gt;static关键字 来声明静态方法
+static静态变量 在类的内部生成一个静态变量 就是能够被所有类的实力化共想 也就是说静态成员则放到了”初始化静态段”，在类第一次被加载的时候放入的，可以让堆内存里面的每个对象所共享
+使用方法：self::$静态属性、self::静态方法
+static function p(){
+echo self::$country;
+echo self::PI;//访问常量
+//echo $this-&amp;gt;name;在静态方法中只能操作静态属性
+//self::p();
+}
+外部调用：类::$静态属性、类::静态方法&lt;/p&gt;
+
+&lt;p&gt;const关键字：用来生成常量 常量是唯一的不能改变的 惯例常量为大写
+const CONSTANT = ‘constant value’; 生成一个常量
+echo self::CONSTANT;//类内部访问
+echo ClassName::CONSTANT;//类外部访问&lt;/p&gt;
+
+&lt;p&gt;继承性&lt;/p&gt;
+
+&lt;p&gt;B类的对象拥有A类的全部属性与行为，称作B对A类的继承。
+假如一个类从多个类中继承了属性与服务，这称为多继承，通常我们成为继承类为子类被继承类为父类，在PHP中只有单继承，但一个父类可以被多个类继承，但是一个子类只能有一个父类，但是允许关联继承，通过继承可以减化类的定义。
+extende声明继承关系
+语法格式：class B extends A 此范例指明 B继承了A
+类的外部访问对子类是有效的
+子类与父类的属性与方法
+子类继承父类的所有内容，但父类中的private部分不能直接访问
+子类中新增加的属性和方法是对父类的扩展
+子类中定义的与父类同名的属性是对父类属性的覆盖，同名的方法也是对父类方法的覆盖&lt;/p&gt;
+
+&lt;p&gt;重写的方法&lt;/p&gt;
+
+&lt;p&gt;在子类中，使用parent访问父类中的被覆盖的属性和方法&lt;/p&gt;
+
+&lt;p&gt;parent::__construce();
+parent::$name;
+parent::fun();&lt;/p&gt;
+
+&lt;p&gt;覆盖父类原有属性
+clone克窿对象 语法格式$c=clone $p; $c克窿的对象$p 输出echo $c-&amp;gt;name;&lt;/p&gt;
+
+&lt;p&gt;对象比较
+===两个比较运算符。
+==是比较两个对象的内容。
+===是比较对象的句柄，即引用地址。&lt;/p&gt;
+
+&lt;p&gt;instanceof操作符用于检测对象实力是否属于某一个类的类型 属于返回true 不属于返回false
+__clone()如果想在克隆后改变原对象的内容，需要在__clone()中重写原本的属性和方法
+function __clone(){
+$this-&amp;gt;name=”我是一个克隆人”;
+}&lt;/p&gt;
+
+&lt;p&gt;final表示一个类是最终版本 也就是说它不能在被子类调用&lt;/p&gt;
+
+&lt;p&gt;多态性&lt;/p&gt;
+
+&lt;p&gt;多态性是指在父类中定义的属性或行为被子类继承之后，可以具有不同的数据类型或表现出不同的行为。这使得同一个属性或行为在父类及其各个子类中具有不同的语义。
+就是说同一种方法在子类与父类中执行的结果不同。
+复制代码 代码如下:&lt;/p&gt;
+
+&lt;p&gt;class A {
+function info(){
+echo “A INFO”;
+}
+}
+class B extends A {
+function info(){
+echo “B INFO”;
+}
+}
+class C extends A {
+function info(){
+echo “C INFO”;
+}
+}
+function printinfo($obj){
+function printinfo(A $obj){
+if($obj instanceof A)
+$obj-&amp;gt;info();
+$obj-&amp;gt;info();
+}
+}
+$a=new A(); $b=new B(); $c=new C();
+printinfo($a); //输出A INFO
+printinfo($b); //输出B INFO
+printinfo($c); //输出C INFO&lt;/p&gt;
+
+&lt;p&gt;抽象方法和抽象类&lt;/p&gt;
+
+&lt;p&gt;抽象方法是作为子类摸版使用的。
+复制代码 代码如下:&lt;/p&gt;
+
+&lt;p&gt;abstract class Person{
+public $name;
+abstract function getInfo();
+}&lt;/p&gt;
+
+&lt;p&gt;抽象类不能被实力话，一个抽象类中，必须有一个抽象方法。但是抽象类中可以定义动态函数。
+接口
+当一个类继承了一个接口之后，它要覆盖接口的所有方法，接口只能声明常量，接口的方法必须定义为共有否则无法继承，接口可以与多个接口间继承
+语法：
+复制代码 代码如下:&lt;/p&gt;
+
+&lt;p&gt;interface PCI{
+const TYPE=”PCI”;
+//public $name; error
+function start();
+function stop();
+}&lt;/p&gt;
+
+&lt;p&gt;接口中的方法可以声明为static
+复制代码 代码如下:&lt;/p&gt;
+
+&lt;p&gt;interface A{ function a();}
+interface B{ function b();}
+interface C extends A{ function c();}
+class D implements B,C{
+function a(){}
+function b(){}
+function c(){}
+}&lt;/p&gt;
+
+&lt;p&gt;类
+类的声明:
+复制代码 代码如下:&lt;/p&gt;
+
+&lt;?php
+　　　　权限修饰符 class 类名{ //权限修士符号:public,protected,private 或者省略3者.
+　　　　　　//类体;　　　　　　　　//class 是建类关键字
+　　　　}　　　　　　　　　　　　　//类名必须跟在class 后面,且跟上{}.{}之间放类的成员.
+　　?&gt;
+&lt;p&gt;//ps:在class关键字前可以加权限修饰符外,还可以加static,abstract等关键字.一个类,即一对大括号之间的全部内容都要在一段代码段中,不允许将类中的内容分割成对块.
+&lt;?php
+　　class ConnDB{
+　　　　//....
+?&gt;
+&lt;?
+　　　　//...
+　　};
+?&gt;&lt;/p&gt;
+
+&lt;p&gt;成员属性:
+　　在类中直接声明的变量称为成员属性/变量.其类型可以为php中的标量类型和复合类型,使用资源类型和空类型是无效的.
+此外,成员属性的声明时,必须要有关键字来修饰:有特定意义的关键字:public,protected,private ;不需要特定意义:var.声明成员属性时,没有必要赋初始值.&lt;/p&gt;
+
+&lt;p&gt;成员常量:&lt;/p&gt;
+
+&lt;p&gt;　　以const常量修饰,例如:const PI = 3.1415926;
+　　常量的输出不需要实例化,直接由类名+常量名调用即可,格式为: 类名::常量名
+ps. 特殊的访问方法:——–“$this” 和 “::”
+1) $”this” 存在于每个成员方法当中,它是一个特殊的对象以用方法.成员方法属于那个对象,$this应用就代表那个对象,其作用就是专门完成对象内部成员之间的访问.
+2) “::”成为作用域操作符,使用这个操作符可以在不创建对象的情况下调用类中的常量,变量和方法.　其语法格式如下:&lt;/p&gt;
+
+&lt;p&gt;　　关键字::变量名/常量名/方法名&lt;/p&gt;
+
+&lt;p&gt;　　关键字:parent,可以调用父类成员中的成员变量,成员方法和常量;
+　　　　　 self,可以调用当前类中的静态成员和常量;
+　　　　　 类名,可以调用类中的常量,变量和方法;　　　
+　　
+成员方法:&lt;/p&gt;
+
+&lt;p&gt;　　在类中声明的函数成为成员方法,在一个类中可以声明多个函数,即对象可以拥有多个成员方法.成员方法的声明和函数的声明相同,唯一特殊之处就是成员方法可以有关键字对它进行修饰,从而控制其访问权限.
+类的实例化&lt;/p&gt;
+
+&lt;p&gt;　　创建对象:&lt;/p&gt;
+
+&lt;p&gt;　　　　$变量名 = new 类名称([参数]); //类的实例化.
+　　访问类成员:
+　　　　$变量名 -&amp;gt; 成员属性 = 值;
+构造方法和析构方法
+构造方法是对象创建完成后第一个呗对象自动调用的方法.它存在每个类的声明当中,是一个特殊的成员方法,一般用来完成一些初始化操作.如果类中没有构造方法,系统会默认自动生成一个没有参数的构造方法.
+　　格式:
+复制代码 代码如下:&lt;/p&gt;
+
+&lt;p&gt;function _construct(形参列表){
+　　　　　　//方法体
+　　　　};&lt;/p&gt;
+
+&lt;p&gt;析构方法则如构造方法相反,它是在对象被销毁前最后一个调用的方法.它将完成一个特定的操作,如关闭文件和释放内存.
+　　格式:
+复制代码 代码如下:&lt;/p&gt;
+
+&lt;p&gt;function _destruct(){
+　　　　　　//方法体　
+　　　　};&lt;/p&gt;
+
+&lt;p&gt;面向对象特点:封装性,抽象性,多态性.
+封装:
+　　将类中的成员属性和方法结合成一个独立的相同单位,并且尽可能的隐藏对象的内容细节.其目的是确保类以外的部分不能随意存取类的内部数据(成员属性和成员方法),从而避免外部错误对内部数据的影响.
+　　类的封装是通过关键字public,private,protected,static和final实现的.各关键字的作用请查看php相关文档.
+继承性:
+　　使一个类继承并拥有另一个已存在的类的成员属性和成员方法,其中被继承的类成为父类,继承的类成为子类.通过继承能够提高代码的重用性和可维护性.类的继承用 extends 关键字.
+　　格式:
+复制代码 代码如下:&lt;/p&gt;
+
+&lt;p&gt;class 子类名称 extends 父类名称{
+　　　　　　//子类方法体.
+　　　　}&lt;/p&gt;
+
+&lt;p&gt;通过parent::关键字也可以在子类方法中调用父类的成员方法,格式如下:
+　　parent::父类的成员方法(参数);&lt;/p&gt;
+
+&lt;p&gt;覆盖父类的方法:&lt;/p&gt;
+
+&lt;p&gt;　　所谓的覆盖父类的方法,也就是使用子类中的方法替换从父类中继承的方法,也叫方法的重写.重写的关键就在与子类中创建与父类中相同的方法,g包括方法名称,参数和返回类型.&lt;/p&gt;
+
+&lt;p&gt;多态性:
+　　多态性是指一段程序能够处理多种类型对象的能力.php多态有两种实现方法,即通过继承实现多态和通过接口实现多态.
+通过继承实现多态,即通过重写继承的成员方法来达到多态的效果.
+复制代码 代码如下:&lt;/p&gt;
+
+&lt;?php
+abstract class ParentClass{
+abstract function printMessage();
+}
+class SubClassA extends ParentClass{
+function printMessage(){
+echo &quot;i am message from class A&quot;;
+}
+}
+class SubClassB extends ParentClass{
+function printMessage(){
+echo &quot;i am message from class B&quot;;
+}
+}
+function printMSG($object){
+if( $object instanceof ParentClass){
+$object-&gt;printMessage();
+}else{
+echo &quot;error!&quot;;
+}
+}
+$objectA=new SubClassA();
+printMSG($objectA);
+$objectB=new SubClassB();
+printMSG($objectB);
+?&gt;
+
+&lt;p&gt;通过接口实现多态,通过定义接口,与空方法.然后类继承接口.
+复制代码 代码如下:&lt;/p&gt;
+
+&lt;?php
+interface interfaceInfo{
+function printMessage();
+}
+class ClassA implements interfaceInfo{
+function printMessage(){
+echo &quot;message form class A&quot;;
+}
+}
+class ClassB implements interfaceInfo{
+function printMessage(){
+echo &quot;message form class B&quot;;
+}
+}
+function printMSG($object){
+if($object instanceof interfaceInfo){
+$object -&gt; printMessage();
+}else{
+echo &quot;error !&quot;;
+}
+}
+$objectA =new ClassA();
+printMSG($objectA);
+$objectB =new ClassB();
+printMSG($objectB);
+?&gt;
+
+&lt;p&gt;ps. 抽象类和接口.
+抽象类和接口都是不能被实例化的特殊类.他们都是能够配合面向对象多态性一起使用.
+抽象类:
+　　抽象类是一种不能实例化的类,只能作为其他类的父类来使用.抽象类使用abstract 关键字来声明,其格式如下:
+复制代码 代码如下:&lt;/p&gt;
+
+&lt;p&gt;abstract class 抽象类名{
+　　　　　　abstract function 成员方法(参数);//
+　　　　}&lt;/p&gt;
+
+&lt;p&gt;抽象类和普通类相似,包含成员变量,成员方法.两者区别在于抽象类至少要包含一个抽象方法.抽象方法没有方法体,其功能的实现只能在子类中完成.抽象方法也使用关键字 abstract 来修饰.&lt;/p&gt;
+
+&lt;p&gt;接口:
+　　继承特性简化了对象和类的创建,增强了代码的可重用性.但php只支持单继承,如果想实现多重继承,就要使用接口.
+接口的声明:通过interface 关键字来实现,接口中声明的方法必须是抽象方法,接口中不能声明变量,只能使用const 关键字声明为常量的成员属性,并且接口中所有成员都必须具备puclic 的访问权限.ainterface 声明接口格式如下:
+复制代码 代码如下:&lt;/p&gt;
+
+&lt;p&gt;inerface 接口名称{
+　　 //常量成员;//成员只能是常量.
+　　 //抽象方法;
+　　}&lt;/p&gt;
+
+&lt;p&gt;由于接口不能实现实例化操作,因此只能借助子类继承接口的形式来实现.实现的格式是:
+复制代码 代码如下:&lt;/p&gt;
+
+&lt;p&gt;Class 子类名 implements 接口名1[,接口名2,接口名3,…..]{
+　　//子类方法体.
+}&lt;/p&gt;
+
+&lt;p&gt;常用关键字:
+　　1) final:final之意为最终的,最后的.这就以为着通过final 关键字修饰的类和方法都为最终版本.不能被继承,也不能有子类.不能重写,也不能被覆盖.
+　　2) static: 通过static 关键字修饰的成员属性和成员方法称为静态属性和静态方法.静态成员属性和方法不需要被实例化就能直接使用.
+　　　静态属性:它属于类本身,而不属于类的任何实例.它相当于存储在类中的全局变量,可以在任何位置通过类来访问.访问格式为:
+　　　　　　类名称::$静态属性名称;
+　　　　　　如果你要在类内部的成员方法中访问静态属性,那么在静态属性的名称前加上操作符: “self::” 即可.
+　　　静态方法:由于其不受任何对象限制,因此可以不通过类的实例化而直接引用类中的静态方法.引用格式如下:
+　　　　　　类名称::静态方法名(参数);
+　　　　　　如果你要在类内部的成员方法中调用静态方法,那么在静态方法的名称前加上操作符: “self::” 即可.在静态方法中只能调用静态变量,而不能调用普通变量;而普通方法中则可以调用静态变量.
+使用静态成员除了不需要实例化外,另一个作用是在对象被销毁后,仍然保留呗修改的静态数据,以便下次调用.
+　　3) clone.对象的克隆可以通过关键字来实现.使用clone对象与原对象没有任何关系,即克隆对象会重新申请一份存储空间来存放原对象内容.格式如下:
+　　　　　　$克隆对象 = clone $原克隆对象名称;
+　　　　克隆成功后,他们的n成员方法,属性以及值完全相等.如果要对副本重新初始化,就要用到 _clone().
+　　　　　魔术方法_clone()可以对克隆后的副本对象重新初始化.它不需要任何参数,其中自动包含$this (副本对象)和 $that (原对象) 对象的引用.
+对象的比较:
+　　”==” 表示比较两个对象的内容,”===”表示比较两个对象的引用地址相等.
+对象类型的检测: instanceof 操作符可以检测当前对象属于那个对象.&lt;/p&gt;
+
+&lt;p&gt;面向对象—常用魔术方法:
+以上我们已经了解的常用魔术方法有:_construct(),_destruct(),_clone.下面我们再接着介绍几个常用魔术方法.
+_get(),_set();
+　　以上两个方法用于对私有成员精细复制或者获取值的操作.
+　　_set()在程序运行中为私有的成员属性设置值,它不需要任何返回值._set()方法包括两个不可省略的参数:变量名和变量值.这个方法不需要主动调用,可在方法钱加上prive关键字.
+　　_get():在程序运行中,在对象的外部获取私有成员的属性的值.他有一个参数:私有成员属性名称.他返回一个允许对象在外部使用的值.此方法同样不许主动调用.&lt;/p&gt;
+
+&lt;p&gt;_isset(),_unset():
+　　isset()函数用于检测变量是否存在.而在面向对象中可以通过isset()函数对公有的成员属性进行检测,但对私有成员属性,此函数则不起作用.因此,_isset()函数正是为了起到此作用而创建.格式如下:
+　　bool _isset(string name);
+　　_unset()则同样为了删除制定的变量和对象的私有成员属性.格式如下:
+　　void _unset(string name);//
+_call():
+　　_call()方法的作用是当程序试图调用不存在或不可见的成员方法时,php会先调用_call()方法来存储方法名及其参数(方法名和方法参数).其中方法参数是以数组的形式存在.
+_toString()方法:
+　　其作用是当使用echo 或者print输出对象时,将对象转化为字符串.
+　　如果没有_toString()方法,直接输出对象时将会发生致命错误.
+　　输出对象时应注意的是,echo 或print 语句后面直接跟要输出的对象,中间不要加多余的字符,否则_toSting()将不会被执行.
+_autoload()方法:
+　　将一个独立的,完整的类保存到一个php页中,并且文件名和类名保持一致,这是每个开发人员都需要养成的良好习惯.这样下次在使用的时候就能够轻松的找到它.但有一种情况:如果要在一个页面中引进很多的类,就需要使用include_once()函数或者require_once()函数一个个地引入.php5中引入_autoload()方法可以自动实例化需要使用的类.当一个类还没实例化时,_autoload()会自动到指定的路径下面自动查找和类名相同的文件.找到则继续执行,否则报错.
+复制代码 代码如下:&lt;/p&gt;
+
+&lt;?php
+　　function _autoload($class_name){
+　　　　$class_path = $class_name.'.class.php';
+　　　　if(file_exists($class_path)){
+　　　　　　include_once($class_path);
+　　　　}else{
+　　　　　　echo '类不存在或者类路径错误';
+　　　　}
+}
+　　$class = new Class(); //将会自动加载.
+　　echo $class; //输出类内容.如自定义了_toString()方法;则会输出_toString()中定义的内容.
+?&gt;
+
+&lt;p&gt;面向对象和面向过程的区别
+面向过程就是分析出解决问题所需要的步骤，然后用函数把这些步骤一步一步实现，使用的时候一个一个依次调用就可以了。&lt;/p&gt;
+
+&lt;p&gt;面向对象是把构成问题事务分解成各个对象，建立对象的目的不是为了完成一个步骤，而是为了描叙某个事物在整个解决问题的步骤中的行为。&lt;/p&gt;
+
+&lt;p&gt;例如五子棋，面向过程的设计思路就是首先分析问题的步骤：1、开始游戏，2、黑子先走，3、绘制画面，4、判断输赢，5、轮到白子，6、绘制画面，7、判断输赢，8、返回步骤2，9、输出最后结果。把上面每个步骤用分别的函数来实现，问题就解决了。&lt;/p&gt;
+
+&lt;p&gt;而面向对象的设计则是从另外的思路来解决问题。整个五子棋可以分为 1、黑白双方，这两方的行为是一模一样的，2、棋盘系统，负责绘制画面，3、规则系统，负责判定诸如犯规、输赢等。第一类对象（玩家对象）负责接受用户输入，并告知第二类对象（棋盘对象）棋子布局的变化，棋盘对象接收到了棋子的i变化就要负责在屏幕上面显示出这种变化，同时利用第三类对象（规则系统）来对棋局进行判定。&lt;/p&gt;
+
+&lt;p&gt;可以明显地看出，面向对象是以功能来划分问题，而不是步骤。同样是绘制棋局，这样的行为在面向过程的设计中分散在了总多步骤中，很可能出现不同的绘制版本，因为通常设计人员会考虑到实际情况进行各种各样的简化。而面向对象的设计中，绘图只可能在棋盘对象中出现，从而保证了绘图的统一。&lt;/p&gt;
+
+&lt;p&gt;功能上的统一保证了面向对象设计的可扩展性。比如我要加入悔棋的功能，如果要改动面向过程的设计，那么从输入到判断到显示这一连串的步骤都要改动，甚至步骤之间的循序都要进行大规模调整。如果是面向对象的话，只用改动棋盘对象就行了，棋盘系统保存了黑白双方的棋谱，简单回溯就可以了，而显示和规则判断则不用顾及，同时整个对对象功能的调用顺序都没有变化，改动只是局部的。&lt;/p&gt;
+
+&lt;p&gt;再比如我要把这个五子棋游戏改为围棋游戏，如果你是面向过程设计，那么五子棋的规则就分布在了你的程序的每一个角落，要改动还不如重写。但是如果你当初就是面向对象的设计，那么你只用改动规则对象就可以了，五子棋和围棋的区别不就是规则吗？（当然棋盘大小好像也不一样，但是你会觉得这是一个难题吗？直接在棋盘对象中进行一番小改动就可以了。）而下棋的大致步骤从面向对象的角度来看没有任何变化。&lt;/p&gt;
+
+&lt;p&gt;当然，要达到改动只是局部的需要设计的人有足够的经验，使用对象不能保证你的程序就是面向对象，初学者或者很蹩脚的程序员很可能以面向对象之虚而行面向过程之实，这样设计出来的所谓面向对象的程序很难有良好的可移植性和可扩展性。&lt;/p&gt;
+
+&lt;p&gt;这是我曾经看过的一个有关于面向对象的资料：http://www.cnblogs.com/xiaochaohuashengmi/archive/2010/09/10/1823042.html&lt;/p&gt;</content><summary type="html">对象的主要三个特性
+对象的行为：可以对 对象施加那些操作，开灯，关灯就是行为。
+对象的形态：当施加那些方法是对象如何响应，颜色，尺寸，外型。
+对象的表示：对象的表示就相当于身份证，具体区分在相同的行为与状态下有什么不同。</summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/jekyll/update/2016/10/29/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2016-10-29T10:19:35+08:00</published><updated>2016-10-29T10:19:35+08:00</updated><id>http://localhost:4000/jekyll/update/2016/10/29/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2016/10/29/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
 
 &lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
 
@@ -359,7 +833,7 @@ cookie 和session 的区别：
 &lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry><entry><title type="html">jquery</title><link href="/jekyll/update/2015/04/27/jquery.html" rel="alternate" type="text/html" title="jquery" /><published>2015-04-27T20:43:05+08:00</published><updated>2015-04-27T20:43:05+08:00</updated><id>/jekyll/update/2015/04/27/jquery</id><content type="html" xml:base="/jekyll/update/2015/04/27/jquery.html">&lt;p&gt;jquery教程 : http://www.w3school.com.cn/jquery/&lt;/p&gt;
+&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry><entry><title type="html">jquery</title><link href="http://localhost:4000/jekyll/update/2015/04/27/jquery.html" rel="alternate" type="text/html" title="jquery" /><published>2015-04-27T20:43:05+08:00</published><updated>2015-04-27T20:43:05+08:00</updated><id>http://localhost:4000/jekyll/update/2015/04/27/jquery</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2015/04/27/jquery.html">&lt;p&gt;jquery教程 : http://www.w3school.com.cn/jquery/&lt;/p&gt;
 
 &lt;p&gt;JQuery的用途和功能 
     一、取得页面中的元素。
@@ -525,7 +999,7 @@ $(this).addClass('phplike_blur'); }
   
 })  
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;</content><summary type="html">jquery教程 : http://www.w3school.com.cn/jquery/</summary></entry><entry><title type="html">ajax</title><link href="/jekyll/update/2015/03/18/ajax.html" rel="alternate" type="text/html" title="ajax" /><published>2015-03-18T20:07:18+08:00</published><updated>2015-03-18T20:07:18+08:00</updated><id>/jekyll/update/2015/03/18/ajax</id><content type="html" xml:base="/jekyll/update/2015/03/18/ajax.html">&lt;p&gt;AJAX，是指一种创建交互式网页应用的网页开发技术。
+&lt;/div&gt;</content><summary type="html">jquery教程 : http://www.w3school.com.cn/jquery/</summary></entry><entry><title type="html">ajax</title><link href="http://localhost:4000/jekyll/update/2015/03/18/ajax.html" rel="alternate" type="text/html" title="ajax" /><published>2015-03-18T20:07:18+08:00</published><updated>2015-03-18T20:07:18+08:00</updated><id>http://localhost:4000/jekyll/update/2015/03/18/ajax</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2015/03/18/ajax.html">&lt;p&gt;AJAX，是指一种创建交互式网页应用的网页开发技术。
 AJAX = 异步 JavaScript和XML（标准通用标记语言的子集）。
 AJAX 是一种用于创建快速动态网页的技术。
 通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。
@@ -688,4 +1162,1147 @@ xhttp.send();
 AJAX = 异步 JavaScript和XML（标准通用标记语言的子集）。
 AJAX 是一种用于创建快速动态网页的技术。
 通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。
-传统的网页（不使用 AJAX）如果需要更新内容，必须重载整个网页页面。</summary></entry></feed>
+传统的网页（不使用 AJAX）如果需要更新内容，必须重载整个网页页面。</summary></entry><entry><title type="html">Linux知识点整理</title><link href="http://localhost:4000/jekyll/update/2014/02/03/Linux%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86.html" rel="alternate" type="text/html" title="Linux知识点整理" /><published>2014-02-03T13:17:05+08:00</published><updated>2014-02-03T13:17:05+08:00</updated><id>http://localhost:4000/jekyll/update/2014/02/03/Linux%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2014/02/03/Linux%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86.html">&lt;p&gt;一：《Linux系统简介及安装》
+1、linux的理解：linux是一个计算机操作系统
+2、Vmware的理解：vmware是一个虚拟主机软件
+3、Linux的版本：centos只是linux发行版本的一种，linux的版本有很多
+4、Linux的发展：linux是由unix发展过来的
+5、Linux下查看ip的命令：ifconfig  此命令必须是超级管理员才能使用
+6、Linux下切换用户的命令是：su
+7、Linux和windows的异同：都是操作系统，linux安全性能以及运行效率都比windows要高，windows操作系统安全性能较低
+8、Linux的ip理解：Linux的ip也可以作修改，可以在安装完成后使用命令setup来修改ip
+9、Linux安装的模式的理解：linux的安装可以选择图形界面安装也可以选择文本模式安装
+10、Linux运行级别的文件地址：/etc/inittab
+11、Linux常用的关机命令：halt、poweroff、shutdown -h now（立刻关机）、shutdown -h 10（10分钟后关机）
+12、Linux常用的重启命令：reboot、shutdown -r now（立刻重启）、shutdown -r 10（10分钟后重启）
+13、Linux下修改ip的文件：/etc/sysconfig/network-scripts/ifcfg-eth0&lt;/p&gt;
+
+&lt;p&gt;二：《Linux文件常用命令》
+1、Linux命令格式：命令 选项 参数
+2、Linux的文件属性：
+r：可读  权限码为4
+W：可写  权限码为2
+X：可执行 权限码为1
+3、有一个文件属性为：-rw-r–r–
+分析：
+第一个字符为-代表文件，为d代表目录，剩下的3个字符为一组
+第一组为：owner简称 u 文件或者目录的所有者
+第二组为：group简称 g 文件或者目录的用户组
+第三组为：others 简称o 文件或者目录的非用户组的操作者
+4、改变文件的属性与权限命令：chmod&lt;/p&gt;
+
+&lt;p&gt;5、数字码修改文件权限：例如：chmod 777 a.txt    //将a.txt的权限无论是用户、还是用户组、还是非此用户组的操作者的权限都设置为可读、可写、可执行&lt;/p&gt;
+
+&lt;p&gt;6、字符修改文件权限：例如：chmod u=rw，g=r，o=r a.txt   //将a.txt的用户权限设置为可读、可写，用户组的权限设置为可读，非此用户组的操作者的权限设置为可读（注：也可以对其中的一个组做出修改，例如：chomd u=rwx   就是将用户的权限设置为可读、可写、可执行）&lt;/p&gt;
+
+&lt;p&gt;7、扩展：
+可以使用+  -来修改文件或者目录的权限
+例如：chmod u+r a.txt  //将a.txt的用户添加了一个可读权限
+Chmod g-w a.txt   //将a.txt的用户组减去了一个可以写的权限
+注：如果三个组的操作权限相同可以是直接使用a来赋权限
+例如：chmod a=rwx  a.txt    //将a.txt的权限无论是用户、还是用户组、还是非此用户组的操作者的权限都设置为可读、可写、可执行&lt;/p&gt;
+
+&lt;p&gt;8、新建文件：touch  路径/文件名  &lt;br /&gt;
+例如：touch /tmp/test.txt  //在tmp目录下建立一个test.txt的文本文件&lt;/p&gt;
+
+&lt;p&gt;9、复制文件：cp 文件名 路径/文件名    &lt;br /&gt;
+例如：cp a.txt bbb/b.txt  //将a.txt文档拷贝到bbb目录下重命名为b.txt&lt;/p&gt;
+
+&lt;p&gt;10、移动文件：mv 文件名 路径/文件名&lt;br /&gt;
+例如：mv a.txt bbb/b.txt  //将tmp下的res.txt文档移动到aaa目录下重命名为des.txt&lt;/p&gt;
+
+&lt;p&gt;11、删除文件：rm 路径/文件名
+例如：rm -f /tmp/test.txt （-f 没有提示信息）//删除tmp目录下的test.txt文档没有提示&lt;/p&gt;
+
+&lt;p&gt;12、查看文件内容：cat 路径/文件名
+例如：cat /etc/services  //查看etc目录下的service文件全屏显示
+head -n /etc/services（查看文件前n行的内容）
+tail -n /etc/services（查看文件后n行内容）
+more /etc/services （文件内容会一屏一屏的显示出来，你只需用空格键就可以下翻了）&lt;/p&gt;
+
+&lt;p&gt;13、重定向：&amp;gt;  是定向输出到文件，如果文件不存在，就创建文件；如果文件存在，就将其清空；&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;blockquote&gt;
+    &lt;p&gt;这个是将输出内容追加到目标文件中。如果文件不存在，就创建文件；如果文件存在，则将新的内容追加到那个文件的末尾，该文件中的原有内容不受影响。
+Cat  /etc/services &amp;gt; a.txt(输出重定向只需要加上&amp;gt; 这位一个符号就可以了)&lt;/p&gt;
+  &lt;/blockquote&gt;
+&lt;/blockquote&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;14、管道符的使用：cat /etc/services&lt;/td&gt;
+      &lt;td&gt;more（cat显示出来的内容重新输出给 more 命令就可以达到想要效果）&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;15、文件查找：find -name 文件名
+例如：find aaa -name a.txt   //查找aaa目录下的名称为a.txt的文件
+Find aaa -name ‘*.php’  //查找aaa目录下后缀名为.php的文件&lt;/p&gt;
+
+&lt;p&gt;16、压缩、解压文件：gzip&lt;br /&gt;
+例如：gzip aaa/a.php    //将aaa目录下的a.php文件进行压缩  &lt;br /&gt;
+例如：gzip -d aaa/a.php.gz  //将aaa目录下的a.php.gz文件进行解压&lt;/p&gt;
+
+&lt;p&gt;17、压缩、解压文件：bzip2
+例如：bzip2 aaa/a.php    //将aaa目录下的a.php文件进行压缩  &lt;br /&gt;
+例如：bzip2 -d aaa/a.php.bz2  //将aaa目录下的a.php.bz2文件进行解压&lt;/p&gt;
+
+&lt;p&gt;18、帮助命令：–help  man&lt;/p&gt;
+
+&lt;p&gt;19、table功能补全键&lt;/p&gt;
+
+&lt;p&gt;三：  LINUX目录常用命令
+1、相对路径：路径的写法不是由/写起，例如：由/usr/share/doc要到/usr/share/man下面时，可以写成’cd ../man’，写对路径的意义指相对于目前工作目录的路径
+绝对路径：路径的写法一定由根目录/写起，例如/usr/share/doc这个目录&lt;/p&gt;
+
+&lt;p&gt;2、切换目录：cd 目录名
+例如：cd ..  //回到上级目录
+例如：cd /etc/aaa   //进入到etc目录下的目录里&lt;/p&gt;
+
+&lt;p&gt;3、查看文件与目录：ll  ls
+例如：cd aaa目录下  使用ll  将所有的文件和目录以列表的形式展示出来 ls一样
+Ls -a：列出全部的文件，连同隐藏文件也一起列出来
+Ls -d：仅列出目录本身，而不是列出目录内的文件数据
+Ls -l：列出长数据串，包含文件的属性与权限等数据&lt;/p&gt;
+
+&lt;p&gt;4、创建目录：mkdir 路径/目录名称
+-p：创建多级目录
+例如：mkdir -p /aaa/bbb/ccc  创建aaa目录，并在aaa里面创建bbb，并在bbb目录里创建ccc&lt;/p&gt;
+
+&lt;p&gt;5、复制目录：cp 参数 源目录名 目标目录
+-i：若目标文件已经存在了，在覆盖时会先询问操作的进行  输入n为不覆盖，y为覆盖
+-r：递归持续复制，用于目录的复制行为
+-a：复制目录 -a防止在复制目录的过程中改变目录的权限和属性
+例如：cp -a aaa bbb  //拷贝aaa目录到bbb目录下&lt;/p&gt;
+
+&lt;p&gt;6、删除目录：rm或者rmdir
+例如：rmdir aaa   //将aaa目录删除
+例如：rm -r aaa  //将aaa目录删除，给出提示，输入y代表可以删除，输入n代表取消
+7、移动目录：mv
+例如：mv aaa bbb  //将aaa目录移动到bbb目录下
+例如：mv /www/aaa  /www/bbb  //www目录下已经有了aaa 目录，但是没有bbb目录此时执行的mv是修改目录名为bbb：&lt;/p&gt;
+
+&lt;p&gt;8、取得路径的文件名：basename
+例如：basenmae  /aaa/bbb/a.txt   //返回输出a.txt&lt;/p&gt;
+
+&lt;p&gt;9、取得目录的名称：dirname
+例如：dirname /aaa/bbb/a.txt   //返回输出/aaa/bbb&lt;/p&gt;
+
+&lt;p&gt;四：   Vim/Vi文本编辑器应用
+1、Vi的三种模式：一般模式、编辑模式、命令行模式&lt;/p&gt;
+
+&lt;p&gt;2、命令行模式：以vi打开一个文件就直接进入了命令行模式  例如：vi a.txt，在这个模式中可以使用上下左右键来移动光标，你可以删除字符或者整行，也可以复制、粘贴你的数据&lt;/p&gt;
+
+&lt;p&gt;3、编辑模式：在一般模式里按下i，I，o，O，a，A，r，R等任何一个字符进入编辑模式，如果要回到命令行模式需要按下esc键退出编辑模式&lt;/p&gt;
+
+&lt;p&gt;3、末行模式：在命令行模式中，输入：、/、？这3个中的任何一个按钮就可以将光标移动到最下面那一行，在这个模式中，可以提供你查找数据的操作，而读取、保存、大量替换字符、离开vi、显示行号等操作也是在此模式中进行的。&lt;/p&gt;
+
+&lt;p&gt;4、模式切换指令（i a o  :  esc ）
+I、i、A、a、O、o按下这些键后进入编辑模式
+：按下后进入末行模式
+Esc：按下后从编辑模式退回到命令行模式&lt;/p&gt;
+
+&lt;p&gt;5、光标操作指令（nG  ngg  H  M  L）：
+nG：进入一般模式后按下此键，光标将指向第n行，n为数字，如果只按下G光标将指向最后一行
+Ngg：进入一般模式后按下gg，光标将指向第n行，n为数字，如果只按下gg光标将指向第一行
+H：进入一般模式后按下H，光标移动到屏幕最上方的第一行的第一个字符
+M：进入一般模式后按下M，光标移动到屏幕中央的那一行的第一个字符
+L：进入一般模式后按下L，光标移动到屏幕最后一行的第一个字符&lt;/p&gt;
+
+&lt;p&gt;6、内容操作指令（yy nyy  ndd  p ）
+yy：复制光标所在的那一行字符
+p：粘贴刚才yy复制的字符
+nyy：n为数字，复制光标所在的向下数n行
+ndd：删除光标所在的向下数n行，从本行开始往下数&lt;/p&gt;
+
+&lt;p&gt;7、末行指令（/ ?  :set nu  w  q  x  ! ）
+:wq 保存并退出
+？ 向上查找字符  例如：？Hello  向上查找hello
+/ 向下查找字符  例如：/Hello  向下查找hello
+:W 将编辑的数据写入硬盘中
+:q 离开vi，在没有进行修改文件内容的情况下使用
+:q! 强制离开文件，修改后不保存
+X：向前删除一个字符
+x：向后删除一个字符&lt;br /&gt;
+Linux网络管理&amp;amp;软件安装
+1、linux运行级别的系统文件：/etc/inittab
+2、Linux系统有7个运行级别(runlevel)
+运行级别0：系统停机状态，系统默认运行级别不能设为0，否则不能正常启动
+运行级别1：单用户工作状态，root权限，用于系统维护，禁止远程登陆
+运行级别2：多用户状态(没有NFS)
+运行级别3：完全的多用户状态(有NFS)，登陆后进入控制台命令行模式
+运行级别4：系统未使用，保留
+运行级别5：X11控制台，登陆后进入图形GUI模式
+运行级别6：系统正常关闭并重启，默认运行级别不能设为6，否则不能正常启动&lt;/p&gt;
+
+&lt;p&gt;3、查看服务是否开机启动命令chkconfig –list&lt;/p&gt;
+
+&lt;p&gt;4、RPM 默认安装的路径：/var/lib/rpm
+5、RPM安装软件包命令：rpm -ivh 软件包名称（可以显示安装的进度）
+6、RPM查询安装软件包命令：rpm -q 软件名称  （查询已安装的软件）
+7、RPM升级软件包命令： rpm -Uvh 软件名称 （后面的软件名称如果没有安装过则进行安装，如果版本过低，则系统会直接进行升级）
+8、RPM卸载软件包命令：rpm -e 软件名称
+9、Tar打包命令：tar -cvf 打包后的包名(名字.tar) 要打包的文件夹
+10、Tar打包并压缩命令：tar -zcvf 打包后的包名(名字.tar) 要打包的文件夹
+范例一：将整个 /etc 目录下的文件全部打包成为 /tmp/etc.tar
+[root@linux ~]# tar -cvf /tmp/etc.tar /etc　　　　&amp;lt;==仅打包，不压缩！
+[root@linux ~]# tar -zcvf /tmp/etc.tar.gz /etc　　&amp;lt;==打包后，以 gzip 压缩
+[root@linux ~]# tar -jcvf /tmp/etc.tar.bz2 /etc　　&amp;lt;==打包后，以 bzip2 压缩
+11、Tar解包命令：tar -xvf 包名.tar
+12、解包以gzip压缩的包：tar -zxvf /tmp/etc.tar.gz
+13、解包以bzip2压缩的包：tar -jxvf /tmp/etc.tar.bz2
+14、.configure 配置文件
+15、编译源文件的命令：Make
+16、编译后安装的命令：Make install
+17、安装RPM包的步骤：
+创建文件夹：mkdir /media/cdrom
+挂载光驱到指定的文件夹里：mount /dev/cdrom  /media/cdrom
+切换目录：cd /media/cdrom/CentOS
+安装gcc包：rpm -ivh 包名
+注意gcc包需要安装依赖包&lt;/p&gt;
+
+&lt;p&gt;4
+六： Linux用户及用户组管理
+1、Linux用来存放系统用户的信息的文件是：/etc/passwd
+2、Linux用来存放系统用户密码的文件是：/etc/shadow
+3、Linux用来存放系统用户组的文件是：/etc/group
+4、添加用户：useradd 参数 用户名
+其中各选项含义如下：
+代码:
+-c comment 指定一段注释性描述。
+-d 目录 指定用户主目录，如果此目录不存在，则同时使用-m选项，可以创建主目录。
+-g 用户组 指定用户所属的用户组。
+-G 用户组，用户组 指定用户所属的附加组。
+-s Shell文件 指定用户的登录Shell。
+-u 用户号 指定用户的用户号，如果同时有-o选项，则可以重复使用其他用户的标识号。
+用户名 指定新账号的登录名。&lt;/p&gt;
+
+&lt;p&gt;此时后面不加任何参数的时候，一切由系统默认生成
+1）生成一个uid
+2）创建一个用户组，组名与用户名一样
+3）创建一个用户的主文件夹  /home/用户名
+5、想查看zhangsan是否为系统用户，只需到这个文件找zhangsan即可
+grep zhangsan /etc/passwd
+6、修改用户信息：usermod 参数 用户名
+参　　数：&lt;/p&gt;
+
+&lt;p&gt;　-c&lt;备注&gt; 　修改用户帐号的备注文字。 
+　-d登入目录&amp;gt; 　修改用户登入时的目录。 
+　-e&lt;有效期限&gt; 　修改帐号的有效期限。 
+　-f&lt;缓冲天数&gt; 　修改在密码过期后多少天即关闭该帐号。 
+　-g&lt;群组&gt; 　修改用户所属的群组。 
+　-G&lt;群组&gt; 　修改用户所属的附加群组。 
+　-l&lt;帐号名称&gt; 　修改用户帐号名称。 
+　-L 　锁定用户密码，使密码无效。 
+　-s&lt;shell&gt; 　修改用户登入后所使用的shell。 
+　-u&lt;uid&gt; 　修改用户ID。 
+　-U 　解除密码锁定。
+7、删除用户信息：userdel 用户名
+强制删除用户家目录：userdel -r
+8、设置用户密码：passwd 用户名
+9、创建用户组：groupadd 组名
+10、修改用户组：groupmod 参数 组名   参数说明：-g 修改组的id  -n修改组的名称
+11、删除用户组：groupdel 组名  
+12、向已有的用户组里添加用户进去：gpasswd -a 用户名 组名
+13、向已有的用户组里删除用户的方法：gpasswd -d 用户名 组名
+14、批量向用户组添加用户的方法：gpasswd -M 用户名1，用户名2...   组名&lt;/uid&gt;&lt;/shell&gt;&lt;/帐号名称&gt;&lt;/群组&gt;&lt;/群组&gt;&lt;/缓冲天数&gt;&lt;/有效期限&gt;&lt;/备注&gt;&lt;/p&gt;
+
+&lt;p&gt;七： Linux 进程管理
+1、查看linux下的所有进程：ps aux
+2、查看linux下的某个服务的进程：ps aux | grep apache
+3、杀死linux下的某个进程：kill 进程id
+4、杀死linux下的某个服务的多个进程：killall 进程名称
+6、暂停linux下的某个工作到后台：ctrl+z
+7、查看linux下的所有工作：jobs
+8、把暂停的工作放到前台继续执行：fg 工作号
+9、把暂停的工作放到后台继续执行：bg 工作号
+10、linux下工作调度的种类：at、crontab
+11、at：用来执行计划任务，只执行一次
+12、at计划任务的启动：/etc/init.d/atd start
+13、设置at开机自动启动：chkconfig atd on
+14、at的运行方式：使用at这个命令来生成所要运行的工作，并将这个工作以文本文件的形式写入/var/spool/at目录内，该工作便能等待atd这个服务的取用和执行
+15、at执行计划任务： at 时：分 年-月-日 要执行的命令…..一个at可以写多行命令，加上ctrl+d会出现结束的字样&lt;EOT&gt;
+16、查看单个at的计划任务：at -c 第几个任务号
+17、查询目前linux上有多少个at计划任务：atq
+18、crontab编辑计划任务：crontab -e
+此时会进入到一个编辑界面，注意，每个工作是一行：
+0   12  *   *  *  halt
+分 时  日  月 周  要执行的命令
+此例子的计划任务是：在每天的12点进行关机
+19、crontab查看linux下的所有计划任务：crontab -l
+20、删除所有的计划任务：crontab -r
+21、备份数据库命令：mysqldump -u用户名 -p密码 库名 &amp;gt; 备份地址
+22、备份数据表命令：mysqldump -u用户名 -p密码 库名 表名 &amp;gt; 备份地址&lt;/EOT&gt;&lt;/p&gt;
+
+&lt;p&gt;八：Shell编程
+1、shell脚本的特点：自上而下、从左到右的分析执行、“#”作为批注、空白行将忽略掉
+2、Shell脚本的后缀名：.sh
+3、Shell脚本的第一行声明：#!/bin/bash
+4、Shell变量定义：变量名=值
+5、掌握变量的使用：$变量名
+6、shell脚本可以让用户输入的方法是：read -p
+7、shell脚本的判断：if….then
+8、shell脚本自定义函数：function 函数名(){ 函数体 }
+9、shell脚本的For…do..done的数值处理格式：
+For(( 初始值；限制值；步长 ))
+Do
+循环体
+Done&lt;/p&gt;
+
+&lt;p&gt;For(( i=1; i&amp;lt;=9; i++ ))
+Do
+Echo $i
+done
+10、追踪和调试shell脚本：
+Sh -[nvx] 脚本名称
+参数：
+-n ：不要执行shell脚本，仅查询语法问题
+-v ：在执行shell之前，先将shell的文件内容全部输出到屏幕上
+-x ：将使用到的shell内容显示到屏幕上
+11、加减乘除：&lt;/p&gt;
+
+&lt;p&gt;a=10
+b=20
+Echo $(($a+$b))&lt;/p&gt;
+
+&lt;p&gt;据设置的数字大小来进行判断，然后输出结果
+-lt  小于号
+-gt  大于号
+-eq  等于号
+num=8
+echo “the number is: “ $num
+if [ $num -gt 10 ];then
+   echo “the unmber is larger than 10”
+elif [ $num -eq 10 ];then
+   echo “the number is equal with 10”
+else
+   echo “the number is smaller than 10”
+Fi
+//三个数求最大值
+#!bin/bash
+read -p “请输入第一个数” a
+read -p “请输入第二个数” b
+read -p “请输入第三个数” c
+max=$a;
+if [ $max -lt $b ];then
+	max=$b;
+fi
+if [ $max -lt $c ];then
+	max=$c;
+fi
+echo “三个数的最大值是：”$max;&lt;/p&gt;
+
+&lt;p&gt;//九九乘法表
+#!bin/bash
+for(( i=1;i&amp;lt;=9;i++ ))
+do
+	for(( j=1;j&amp;lt;=i;j++ ))
+do 
+	echo $j&lt;em&gt;$i=$(( $i&lt;/em&gt;$j ));
+done
+done&lt;/p&gt;
+
+&lt;p&gt;九：Linux网络管理
+1、查看linux下ip的命令是：ifconfig
+2、临时修改linux下的ip：ifconfig  eth0   ip
+3、工具修改linux的ip：Setup
+4、修改ip后重启网络服务的命令：service network restart
+5、测试网络是否通畅的命令：ping ip号
+6、ftp安装见文档&lt;/p&gt;</content><summary type="html">一：《Linux系统简介及安装》
+1、linux的理解：linux是一个计算机操作系统
+2、Vmware的理解：vmware是一个虚拟主机软件
+3、Linux的版本：centos只是linux发行版本的一种，linux的版本有很多
+4、Linux的发展：linux是由unix发展过来的
+5、Linux下查看ip的命令：ifconfig  此命令必须是超级管理员才能使用
+6、Linux下切换用户的命令是：su
+7、Linux和windows的异同：都是操作系统，linux安全性能以及运行效率都比windows要高，windows操作系统安全性能较低
+8、Linux的ip理解：Linux的ip也可以作修改，可以在安装完成后使用命令setup来修改ip
+9、Linux安装的模式的理解：linux的安装可以选择图形界面安装也可以选择文本模式安装
+10、Linux运行级别的文件地址：/etc/inittab
+11、Linux常用的关机命令：halt、poweroff、shutdown -h now（立刻关机）、shutdown -h 10（10分钟后关机）
+12、Linux常用的重启命令：reboot、shutdown -r now（立刻重启）、shutdown -r 10（10分钟后重启）
+13、Linux下修改ip的文件：/etc/sysconfig/network-scripts/ifcfg-eth0</summary></entry><entry><title type="html">LAMP环境搭建</title><link href="http://localhost:4000/jekyll/update/2014/02/02/LAMP%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.html" rel="alternate" type="text/html" title="LAMP环境搭建" /><published>2014-02-02T08:33:29+08:00</published><updated>2014-02-02T08:33:29+08:00</updated><id>http://localhost:4000/jekyll/update/2014/02/02/LAMP%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2014/02/02/LAMP%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.html">&lt;p&gt;打开此文档阅读时把记事本的自动换行去掉，否则一条命令换行变成了两条&lt;/p&gt;
+
+&lt;p&gt;记事本的最上边有一个格式，把下面的自动换行前面的对号去掉即可   切记切结！！！！！！！！！！！！！！！！！！！！&lt;/p&gt;
+
+&lt;p&gt;############################################################安装前的准备工作###################################################################
+1、首先进行RPM命令安装GCC编译器：&lt;/p&gt;
+
+&lt;p&gt;mkdir /media/cdrom   //创建目录&lt;/p&gt;
+
+&lt;p&gt;mount /dev/cdrom /media/cdrom   //挂载光驱，如果挂在不上可以手动进行挂载，在linux运行界面的右下角第二个图片进行手动挂载&lt;/p&gt;
+
+&lt;p&gt;cd /media/cdrom/CentOS   //切换目录&lt;/p&gt;
+
+&lt;p&gt;//安装gcc包所需很多依赖包，依次进行安装&lt;/p&gt;
+
+&lt;p&gt;rpm -ivh cpp….按table键出现版本号&lt;/p&gt;
+
+&lt;p&gt;rpm -ivh kernel-head….按table键出现版本号&lt;/p&gt;
+
+&lt;p&gt;rpm -ivh glibc-head….按table键出现版本号&lt;/p&gt;
+
+&lt;p&gt;rpm -ivh glibc-devel….按table键出现版本号&lt;/p&gt;
+
+&lt;p&gt;rpm -ivh libgomp-….按table键出现版本号&lt;/p&gt;
+
+&lt;p&gt;rpm -ivh gcc-4….按table键出现版本号&lt;/p&gt;
+
+&lt;p&gt;which gcc   //测试是否安装完成&lt;/p&gt;
+
+&lt;p&gt;2、更改linux的系统时间&lt;/p&gt;
+
+&lt;p&gt;date -s&lt;/p&gt;
+
+&lt;p&gt;3、FTP服务器基本配置&lt;/p&gt;
+
+&lt;p&gt;mount /dev/cdrom /media/cdrom   //挂载光驱，如果挂在不上可以手动进行挂载，在linux运行界面的右下角第二个图片进行手动挂载&lt;/p&gt;
+
+&lt;p&gt;cd /media/cdrom/CentOS   //切换目录&lt;/p&gt;
+
+&lt;p&gt;rpm  -ivh  vsftpd按table键出现版本号&lt;/p&gt;
+
+&lt;p&gt;service  vsftpd  start&lt;/p&gt;
+
+&lt;p&gt;chkconfig  –level  35  vsftpd  on&lt;/p&gt;
+
+&lt;p&gt;vi /etc/vsftpd/vsftpd.conf   //打开文件进行配置&lt;/p&gt;
+
+&lt;p&gt;修改：anonymous_enable=NO   	是否允许匿名访问&lt;/p&gt;
+
+&lt;p&gt;修改：local_enable=YES 		是否允许本地用户登录&lt;/p&gt;
+
+&lt;p&gt;修改：write_enable=YES 		是否允许通常的写操作&lt;/p&gt;
+
+&lt;p&gt;把：anon_upload_enable=NO   #号去掉修改为NO    //是否允许匿名上传文件&lt;/p&gt;
+
+&lt;p&gt;把：anon_mkdir_write_enable=NO  #号去掉修改为NO //是否允许匿名创建目录&lt;/p&gt;
+
+&lt;p&gt;在windows下安装ftp工具，连接linux&lt;/p&gt;
+
+&lt;p&gt;3、制作yum源&lt;/p&gt;
+
+&lt;p&gt;//首先在/media目录下创建一个目录cdrom并将将光盘挂载到系统/media/cdrom下&lt;/p&gt;
+
+&lt;p&gt;mkdir /media/cdrom   //可能会报错，因为你在安装rpm包的时候已经创建过该目录，不用理会继续下一步&lt;/p&gt;
+
+&lt;p&gt;mount /dev/cdrom /media/cdrom/   //挂载光驱&lt;/p&gt;
+
+&lt;p&gt;//进入到/etc/yum.repos.d目录CentOS-Base.repo重命名。&lt;/p&gt;
+
+&lt;p&gt;cd /etc/yum.repos.d&lt;/p&gt;
+
+&lt;p&gt;mv CentOS-Base.repo CentOS-Base.repo.bak&lt;/p&gt;
+
+&lt;p&gt;vi CentOS-Media.repo&lt;/p&gt;
+
+&lt;p&gt;修改为&lt;/p&gt;
+
+&lt;p&gt;gpgcheck=0&lt;/p&gt;
+
+&lt;p&gt;enabled=1&lt;/p&gt;
+
+&lt;p&gt;//将所有的CentOS安装包链接到/media/CentOS&lt;/p&gt;
+
+&lt;p&gt;ln -s /media/cdrom/CentOS/ /media/CentOS&lt;/p&gt;
+
+&lt;p&gt;//更新依赖包(更新前先按照1.本地源制作.txt配置)   注意不要换行!!!!!!!
+yum -y install gcc gcc-c++ autoconf libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel libxml2 libxml2-devel zlib zlib-devel glibc glibc-devel glib2 glib2-devel bzip2 bzip2-devel ncurses ncurses-devel curl curl-devel e2fsprogs e2fsprogs-devel krb5 krb5-devel libidn libidn-devel openssl openssl-devel openldap openldap-devel nss_ldap openldap-clients openldap-servers patch&lt;/p&gt;
+
+&lt;p&gt;##########################################################安装前准备工作到此完成，开始安装php扩展库####################################################################################&lt;/p&gt;
+
+&lt;p&gt;安装libxml2最新库文件&lt;/p&gt;
+
+&lt;p&gt;cd /usr/local/src  //进入软件源码包所在目录 &lt;/p&gt;
+
+&lt;p&gt;tar zxvf libxml按table键出现版本号 //解包解压&lt;/p&gt;
+
+&lt;p&gt;cd libxml按table键出现版本号  //进入解包解压后的目录&lt;/p&gt;
+
+&lt;p&gt;./configure –prefix=/usr/local/libxml2 //选项–prefix=/usr/local/libxml2作用，是在安装时将软件安装到/usr/local/libxml2目录下。&lt;/p&gt;
+
+&lt;p&gt;make  //对软件源代码文件进行编译&lt;/p&gt;
+
+&lt;p&gt;make install  //开始安装libxml2库文件&lt;/p&gt;
+
+&lt;p&gt;cd /usr/local/libxml2/    /如果安装成功目录下将生成bin,include,lib,share四个目录。&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt;安装libmcrypt最新库文件&lt;/p&gt;
+
+&lt;p&gt;cd /usr/local/src&lt;/p&gt;
+
+&lt;p&gt;tar zxvf libmcrypt 按table键出现版本号&lt;/p&gt;
+
+&lt;p&gt;cd libmcrypt按table键&lt;/p&gt;
+
+&lt;p&gt;./configure –prefix=/usr/local/libmcrypt&lt;/p&gt;
+
+&lt;p&gt;make &amp;amp;&amp;amp; make install&lt;/p&gt;
+
+&lt;p&gt;cd /usr/local/src/libmcrypt按table键出现版本号  //进入软件源代码目录
+========加上=========&lt;/p&gt;
+
+&lt;p&gt;cd /usr/local/src/libmcrypt-2.5.8/libltdl&lt;/p&gt;
+
+&lt;p&gt;./configure –enable-ltdl-install  //配置ltdl库的安装&lt;/p&gt;
+
+&lt;p&gt;make  //编译&lt;/p&gt;
+
+&lt;p&gt;make install  //安装&lt;/p&gt;
+
+&lt;p&gt; 
+安装zlib最新库文件&lt;/p&gt;
+
+&lt;p&gt;cd /usr/local/src&lt;/p&gt;
+
+&lt;p&gt;tar zxvf zlib 按table键出现版本号&lt;/p&gt;
+
+&lt;p&gt;cd zlib  按table键&lt;/p&gt;
+
+&lt;p&gt;./configure –prefix=/usr/local/zlib&lt;/p&gt;
+
+&lt;p&gt;make &amp;amp;&amp;amp; make install&lt;/p&gt;
+
+&lt;p&gt; 
+安装libpng最新库文件&lt;/p&gt;
+
+&lt;p&gt;cd /usr/local/src&lt;/p&gt;
+
+&lt;p&gt;tar zxvf libpng 按table键出现版本号&lt;/p&gt;
+
+&lt;p&gt;cd libpng 按table键&lt;/p&gt;
+
+&lt;p&gt;./configure –prefix=/usr/local/libpng
+&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;em&gt;**&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;在./configure –prefix=/usr/local/libpng这步最后会提示：configure: error: ZLib not installed&lt;/p&gt;
+
+&lt;p&gt;原因是zlib安装到指定路径，libpng找不到&lt;/p&gt;
+
+&lt;p&gt;解决方法如下：&lt;/p&gt;
+
+&lt;p&gt;1.进入zlib的源文件目录，执行命令 make clean,清除zlib；&lt;/p&gt;
+
+&lt;p&gt;2.重新配置 ./configure,后面不要接–prefix参数（安装不指定路径，默认安装）；&lt;/p&gt;
+
+&lt;p&gt;3.make &amp;amp;&amp;amp; make install；(zlib)&lt;/p&gt;
+
+&lt;p&gt;4.进入libpng目录，执行命令 ./configure –prefix=/usr/local/libpng;&lt;/p&gt;
+
+&lt;p&gt;5.make &amp;amp;&amp;amp; make install；&lt;/p&gt;
+
+&lt;p&gt;6.安装成功.&lt;/p&gt;
+
+&lt;p&gt;如果安装成功将会在/usr/local/libpng目录下生成bin,include,lib和share四个目录。&lt;/p&gt;
+
+&lt;p&gt;在安装GD2库配置时，通过在configure命令选项中加上“–with-png=/usr/local/libpng”选项，指定libpng库文件的位置。
+&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;**&lt;/p&gt;
+
+&lt;p&gt;不报错继续执行
+make &amp;amp;&amp;amp; make install&lt;/p&gt;
+
+&lt;p&gt; 
+安装jpeg8最新库文件&lt;/p&gt;
+
+&lt;p&gt;mkdir /usr/local/jpeg8  //建立jpeg8软件安装目录&lt;/p&gt;
+
+&lt;p&gt;mkdir /usr/local/jpeg8/bin //建立存放命令的目录&lt;/p&gt;
+
+&lt;p&gt;mkdir /usr/local/jpeg8/lib  //创建jpeg8库文件所在目录&lt;/p&gt;
+
+&lt;p&gt;mkdir /usr/local/jpeg8/include //建立存放头文件目录&lt;/p&gt;
+
+&lt;p&gt;mkdir -p /usr/local/jpeg8/man/man1 //建立存放手册的目录&lt;/p&gt;
+
+&lt;p&gt;cd /usr/local/src&lt;/p&gt;
+
+&lt;p&gt;tar zxvf jpeg 按table键出现版本号&lt;/p&gt;
+
+&lt;p&gt;cd jpeg-8b&lt;/p&gt;
+
+&lt;p&gt;./configure –prefix=/usr/local/jpeg8/ –enable-shared –enable-static&lt;/p&gt;
+
+&lt;p&gt;make &amp;amp;&amp;amp; make install&lt;/p&gt;
+
+&lt;p&gt;安装freetype最新库文件&lt;/p&gt;
+
+&lt;p&gt;cd /usr/local/src/   //进入软件源码包所在目录&lt;/p&gt;
+
+&lt;p&gt;tar zxvf freetype-按tab键出现版本号  //解压包到freetype-2.4.9目录 &lt;/p&gt;
+
+&lt;p&gt;cd freetype-按tab键出现版本号 //进入目录freetype-2.4.9中&lt;/p&gt;
+
+&lt;p&gt;./configure –prefix=/usr/local/freetype //选项–prefix=/usr/local/freetype，是在安装时将软件安装到/usr/local/freetype目录下&lt;/p&gt;
+
+&lt;p&gt;make  //对软件源代码文件进行编译&lt;/p&gt;
+
+&lt;p&gt;make install //开始安装freetype库文件&lt;/p&gt;
+
+&lt;p&gt;如果安装成功将会在/usr/local/freetype目录下存在bin,include,lib和share四个目录。&lt;/p&gt;
+
+&lt;p&gt;安装autoconf最新的库文件&lt;/p&gt;
+
+&lt;p&gt;cd /usr/local/src&lt;/p&gt;
+
+&lt;p&gt;tar zxvf autoconf 按table键出现版本号&lt;/p&gt;
+
+&lt;p&gt;cd autoconf 按table键&lt;/p&gt;
+
+&lt;p&gt;./configure –prefix=&lt;/p&gt;
+
+&lt;p&gt;make &amp;amp;&amp;amp; make install&lt;/p&gt;
+
+&lt;p&gt;安装最新的GD库文件&lt;/p&gt;
+
+&lt;p&gt;cd /usr/local/src&lt;/p&gt;
+
+&lt;p&gt;tar zxvf gd 按table键出现版本号&lt;/p&gt;
+
+&lt;p&gt;cd gd 按table键&lt;/p&gt;
+
+&lt;p&gt;./configure –prefix=/usr/local/gd –with-jpeg=/usr/local/jpeg8/ –with-png=/usr/local/libpng/ –with-freetype=/usr/local/freetype/&lt;/p&gt;
+
+&lt;p&gt;make &amp;amp;&amp;amp; make install&lt;/p&gt;
+
+&lt;p&gt;//错误：检查png安装路径，安装路径中的文件都在&lt;/p&gt;
+
+&lt;p&gt;//重新配置编译libpng，–prefix不指定路径&lt;/p&gt;
+
+&lt;p&gt;//再重新安装gd2&lt;/p&gt;
+
+&lt;p&gt;如果安装成功会在/usr/local/gd/目录下存在bin、include和lib这三个目录。在安装PHP5时，通过在configure命令选项中加上“–with-gd=/usr/local/gd”选项，指定GD库文件的位置。&lt;/p&gt;
+
+&lt;p&gt;安装CURL扩展&lt;/p&gt;
+
+&lt;p&gt;cd /usr/local/src&lt;/p&gt;
+
+&lt;p&gt;tar zxvf curl 按table键出现版本号&lt;/p&gt;
+
+&lt;p&gt;cd curl 按table键&lt;/p&gt;
+
+&lt;p&gt;./configure –prefix=/usr/local/curl&lt;/p&gt;
+
+&lt;p&gt;make &amp;amp;&amp;amp; make install&lt;/p&gt;
+
+&lt;p&gt;在安装PHP5配置时，在configure命令的选项中加上“–with-zlib-dir=/usr/local/curl”选项，用于指定curl库文件位置。&lt;/p&gt;
+
+&lt;p&gt;安装libevent库&lt;/p&gt;
+
+&lt;p&gt;cd /usr/local/src&lt;/p&gt;
+
+&lt;p&gt;tar zxvf libevent按table键出现版本号&lt;/p&gt;
+
+&lt;p&gt;cd libevent按table键&lt;/p&gt;
+
+&lt;p&gt;./configure –prefix=/usr/local/libevent&lt;/p&gt;
+
+&lt;p&gt;make &amp;amp;&amp;amp; make install&lt;/p&gt;
+
+&lt;p&gt;在安装memcached配置时，在configure命令的选项中加上“–with-libevent=/usr/local/libevent”选项，用于指定memcached库文件位置。&lt;/p&gt;
+
+&lt;p&gt;##################################到此为止php所有扩展安装完成，LAPM环境搭建前的所有工作完成，马上开始mysql的安装，进入真正的lamp搭建########################&lt;/p&gt;
+
+&lt;p&gt;安装MySQL数据库系&lt;/p&gt;
+
+&lt;p&gt;1、增加用户名和用户组&lt;/p&gt;
+
+&lt;p&gt;groupadd mysql&lt;/p&gt;
+
+&lt;p&gt;useradd -g mysql mysql&lt;/p&gt;
+
+&lt;p&gt;2、进入源码包使用configure 检查并配置安装需要的系统环境，并生成安装配置文件&lt;/p&gt;
+
+&lt;p&gt;cd /usr/local/src&lt;/p&gt;
+
+&lt;p&gt;tar zxvf mysql按table键出现版本号&lt;/p&gt;
+
+&lt;p&gt;cd mysql按table键&lt;/p&gt;
+
+&lt;p&gt;./configure –prefix=/usr/local/mysql –with-charset=utf8 –with-extra-charsets=all –enable-thread-safe-client&lt;/p&gt;
+
+&lt;p&gt;3、编译&lt;/p&gt;
+
+&lt;p&gt;make &amp;amp;&amp;amp; make install&lt;/p&gt;
+
+&lt;p&gt;如果有错：提示ncurses没有安装，先安装ncurses(不需要指定路径)，再配置、编译、安装mysql&lt;/p&gt;
+
+&lt;p&gt;4、创建mysql数据库服务器的配置文件&lt;/p&gt;
+
+&lt;p&gt;可以使用源码包support-files目录中的my-medium.cnf文件作为模板，将其复制到/etc/目录下，命名为my.cnf文件即可。&lt;/p&gt;
+
+&lt;p&gt;cp support-files/my-medium.cnf /etc/my.cnf&lt;/p&gt;
+
+&lt;p&gt;必须创建MySQL授权表。进入到安装目录/usr/local/mysql下，执行bin目录下的mysql_install_db脚本，用来初始化MySQL数据库的授权表，其中存储了服务器访问允许。&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;cd /usr/local/mysql&lt;/p&gt;
+
+&lt;p&gt;bin/mysql_install_db –user=mysql  //创建授权表&lt;/p&gt;
+
+&lt;p&gt;如果使用root用户运行上面的命令，应当使用–user选项，选项的值应当与你在第一步为运行服务器所创建的登录账户(mysql用户)相同。如果用mysql用户登录来运行上面的命令，可以省略–user选项。&lt;/p&gt;
+
+&lt;p&gt;5、用mysql_install_db创建mysql授权表后，需要手动重新启动服务器。&lt;/p&gt;
+
+&lt;p&gt;/usr/local/mysql/bin/mysqld_safe –user=mysql &amp;amp;&lt;/p&gt;
+
+&lt;p&gt;6、将程序二进制的所有权改为root用户，数据目录的所有权改为运行mysqld程序的mysql用户。如果现在位于安装目录(/usr/local/mysql)下，命令行如下：&lt;/p&gt;
+
+&lt;p&gt;chgrp -R mysql .  //将组属性改为mysql组
+ 
+7、在所需要的东西安装完成后，应当使用下面的命令启动MySQL服务了，命令行如下：&lt;/p&gt;
+
+&lt;p&gt;/usr/local/mysql/bin/mysqld_safe –user=mysql &amp;amp;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;8、MySQL数据库服务器启动之后，查看一下它的端口3306是否打开，如果看到以下结果表明mysql服务启动成功。命令行如下&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;netstat -tnl&lt;/td&gt;
+      &lt;td&gt;grep 3306  （通过查看端口确定安装ok）显示下面的内容：&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;tcp   0    0 0.0.0.0:3306   0.0.0.0:*    LISTEN	./mysql&lt;/p&gt;
+
+&lt;p&gt;9、可以用几种方法为root账户指定密码，我们选择用其中的一种。&lt;/p&gt;
+
+&lt;p&gt;在mysql客户端命令行上使用set password指定密码，一定要使用password()函数来加密密码。例如下面设置localhost域的密码为root。其他域可以使用同样的语句，使用的SQL语句如下。&lt;/p&gt;
+
+&lt;p&gt;cd /usr/local/mysql/bin&lt;/p&gt;
+
+&lt;p&gt;./mysql -u root -p  //登陆进入mysql，因为刚刚安好的mysql管理员没有密码  所以-p后面不写参数&lt;/p&gt;
+
+&lt;p&gt;mysql&amp;gt; set password for ‘root’@’localhost’=password(‘root’);&lt;/p&gt;
+
+&lt;p&gt;Query OK, 0 rows affected (0.03 sec)&lt;/p&gt;
+
+&lt;p&gt;10、如果想退出mysql客户端，可以在mysql客户端提示符下输入命令exit或者quit，还可以按键盘ctrl+c组合键，都可以从mysql客户端退出。&lt;/p&gt;
+
+&lt;p&gt;因为已经给mysql服务器的root账号设置了密码，所以再次登录mysql客户端就要提供密码才能进入。&lt;/p&gt;
+
+&lt;p&gt;退出mysql客户端和重新启动mysql客户端的控制台命令如下。&lt;/p&gt;
+
+&lt;p&gt;mysql&amp;gt; exit
+Bye
+[root@localhost mysql]# bin/mysql -u root -h localhost –proot&lt;/p&gt;
+
+&lt;p&gt;11、如果想关闭mysql服务器，在命令行使用mysql服务器的mysqladmin命令，通过-u参数给出mysql数据库管理员用户名root和通过-p参数给出密码，即可关闭mysql服务器。如下示：&lt;/p&gt;
+
+&lt;p&gt;bin/mysqladmin -u root -p shutdown&lt;/p&gt;
+
+&lt;p&gt;11、设置mysql开机自动运行&lt;/p&gt;
+
+&lt;p&gt;mysql服务器和apache服务器一样也有必要设置为开机自动运行，设置方法进入到mysql源代码目录/usr/local/src/mysql-5.0.96,&lt;/p&gt;
+
+&lt;p&gt;将子目录support-files下的mysql.server文件复制到/etc/rc.d/init.d目录中，并重命名为mysqld,命令行如下。&lt;/p&gt;
+
+&lt;p&gt;cd /usr/local/src/mysql-5.0.96&lt;/p&gt;
+
+&lt;p&gt;cp support-files/mysql.server /etc/rc.d/init.d/mysqld&lt;/p&gt;
+
+&lt;p&gt;chown root.root /etc/rc.d/init.d/mysqld &lt;/p&gt;
+
+&lt;p&gt;chmod 755 /etc/rc.d/init.d/mysqld &lt;/p&gt;
+
+&lt;p&gt;把mysqld添加到chkconfig中&lt;/p&gt;
+
+&lt;p&gt;chkconfig –add mysqld&lt;/p&gt;
+
+&lt;p&gt;在图形和字符集界面下自动启动mysqld&lt;/p&gt;
+
+&lt;p&gt;chkconfig –level 3 mysqld on&lt;/p&gt;
+
+&lt;p&gt;chkconfig –level 5 mysqld on&lt;/p&gt;
+
+&lt;p&gt;再使用chkconfig –list命令检查设置&lt;/p&gt;
+
+&lt;p&gt;chkconfig –list mysqld&lt;/p&gt;
+
+&lt;p&gt;界面显示：
+mysqld   0:off   1:off   2:on    3:on    4:off    5:on    6:off&lt;/p&gt;
+
+&lt;p&gt;############################################################################到此为止，mysql安装完成，接下来进行apache安装###################################################&lt;/p&gt;
+
+&lt;p&gt;安装新版本的apache服务器&lt;/p&gt;
+
+&lt;p&gt;1、卸载apr、apr-util&lt;/p&gt;
+
+&lt;p&gt;yum remove apr apr-util&lt;/p&gt;
+
+&lt;p&gt;下载安装：http://apr.apache.org/download.cgi&lt;/p&gt;
+
+&lt;p&gt;cd /usr/local/src&lt;/p&gt;
+
+&lt;p&gt;tar zxvf apr-1.4.6.tar.gz&lt;/p&gt;
+
+&lt;p&gt;cd apr-1.4.6&lt;/p&gt;
+
+&lt;p&gt;./configure –prefix=/usr/local/apr-httpd/ &amp;amp;&amp;amp; make &amp;amp;&amp;amp; make install &lt;/p&gt;
+
+&lt;p&gt;下载安装：http://apr.apache.org/download.cgi&lt;/p&gt;
+
+&lt;p&gt;cd /usr/local/src&lt;/p&gt;
+
+&lt;p&gt;tar zxvf apr-util-1.4.1.tar.gz&lt;/p&gt;
+
+&lt;p&gt;cd apr-util-1.4.1&lt;/p&gt;
+
+&lt;p&gt;./configure –prefix=/usr/local/apr-util-httpd/ –with-apr=/usr/local/apr-httpd/ &amp;amp;&amp;amp; make &amp;amp;&amp;amp; make install&lt;/p&gt;
+
+&lt;p&gt;下载安装：http://sourceforge.net/projects/pcre&lt;/p&gt;
+
+&lt;p&gt;cd /usr/local/src&lt;/p&gt;
+
+&lt;p&gt;unzip -o pcre-8.10.zip&lt;/p&gt;
+
+&lt;p&gt;cd pcre-8.10&lt;/p&gt;
+
+&lt;p&gt;./configure –prefix=/usr/local/pcre&lt;/p&gt;
+
+&lt;p&gt;make&lt;/p&gt;
+
+&lt;p&gt;make install&lt;/p&gt;
+
+&lt;p&gt;//安装apache2.2时配置报错&lt;/p&gt;
+
+&lt;p&gt;cd /usr/local/src&lt;/p&gt;
+
+&lt;p&gt;tar zxvf httpd-2.2按table&lt;/p&gt;
+
+&lt;p&gt;cd httpd-2.2按table&lt;/p&gt;
+
+&lt;p&gt;./configure&lt;/p&gt;
+
+&lt;p&gt;注意：./configure 的时候如果报错，报错如下&lt;/p&gt;
+
+&lt;p&gt;checking for void pointer length… yes configure: error: Size of “void *” is less than size of “long”&lt;/p&gt;
+
+&lt;p&gt;解决方法vi configure&lt;/p&gt;
+
+&lt;p&gt;if test “$ap_cv_void_ptr_lt_long” = “yes”; then&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;as_fn_error $? &quot;Size of \&quot;void *\&quot; is less than size of \&quot;long\&quot;&quot;&quot;$LINENO&quot; 5
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;改为if test “$ap_cv_void_ptr_lt_long” != “yes”; then&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;as_fn_error $? &quot;Size of \&quot;void *\&quot; is less than size of \&quot;long\&quot;&quot;&quot;$LINENO&quot; 5
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;保存重新编译&lt;/p&gt;
+
+&lt;p&gt;./configure –prefix=/usr/local/apache2.2/ –with-apr=/usr/local/apr-httpd/ –with-apr-util=/usr/local/apr-util-httpd/ –with-pcre=/usr/local/pcre/&lt;/p&gt;
+
+&lt;p&gt;[root@localhost httpd-2.4.2]# ./configure \&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;–prefix=/usr/local/apache2.4 \
+–with-apr=/usr/local/apr-httpd/ 
+–with-apr-util=/usr/local/apr-util-httpd/ 
+–with-pcre=/usr/local/pcre/&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;make &amp;amp;&amp;amp; make install&lt;/p&gt;
+
+&lt;p&gt;安装完成后，进入/usr/local/apache2/目录下，检查是否有以下文件：&lt;/p&gt;
+
+&lt;p&gt;bin  build  cgi-bin  error  htdocs  icons  include  logs  man  manual  modules&lt;/p&gt;
+
+&lt;p&gt;启动Apache服务器，并查端口是否开启，启动Apache服务器的命令行如下：&lt;/p&gt;
+
+&lt;p&gt;#/usr/local/apache2/bin/apachectl start&lt;/p&gt;
+
+&lt;p&gt;查看端口命令行如下：&lt;/p&gt;
+
+&lt;p&gt;#netstat -tnl|grep 80
+tcp        0      0 0.0.0.0:80            0.0.0.0:*                   LIST&lt;/p&gt;
+
+&lt;p&gt;测试安装结果，打开浏览器，在地址栏中输入URL为：http://172.19.203.10&lt;/p&gt;
+
+&lt;p&gt;如果浏览器中出现It works!则表明Apache服务器可以使用。&lt;/p&gt;
+
+&lt;p&gt;每种服务器软件都有必要制成开机时自动启动，Apache服务器开机自动启动，只要在“/etc/rc.d/rc.local”文件，加上Apache服务器的启动命令即可。可以直接打开“/etc/rc.d/rc.local”文件，在最后一行写入Apache启动命令，也可以用echo命令追加进去，如下命令行示：&lt;/p&gt;
+
+&lt;p&gt;[root@localhost apache242]# echo “/usr/local/apache2.2/bin/apachectl start”» /etc/rc.d/rc.local&lt;/p&gt;
+
+&lt;p&gt;注意：&lt;/p&gt;
+
+&lt;p&gt;由于安装的过程中没有指定apache配置文件的路径，默认配置文件httpd.conf在/etc/httpd/conf/目录中&lt;/p&gt;
+
+&lt;p&gt;刚安装完成apache后无法使用service httpd restart、stop、start&lt;/p&gt;
+
+&lt;p&gt;需要这样：&lt;/p&gt;
+
+&lt;p&gt;cp /usr/local/apache2/bin/apachectl /etc/rc.d/init.d/httpd&lt;/p&gt;
+
+&lt;p&gt;编辑/etc/rc.d/init.d/httpd,在文件最前面插入下面的行，使其支持chkconfig命令：&lt;/p&gt;
+
+&lt;p&gt;vi /etc/rc.d/init.d/httpd&lt;/p&gt;
+
+&lt;p&gt;# chkconfig: 2345 85 15
+   # description: Apache is a World Wide Web server.&lt;/p&gt;
+
+&lt;p&gt;ln -s /etc/rc.d/init.d/httpd /etc/rc.d/rc5.d/S85httpd      //建立链接(85的意义后面介绍)&lt;/p&gt;
+
+&lt;p&gt;chkconfig –add httpd&lt;/p&gt;
+
+&lt;p&gt;检查apache服务是否生效：&lt;/p&gt;
+
+&lt;p&gt;chkconfig –list httpd&lt;/p&gt;
+
+&lt;p&gt;此时Apache就可以自动启动了。&lt;/p&gt;
+
+&lt;p&gt;开启apache：service httpd start
+关闭apache：service httpd stop
+重启apache：service httpd restart&lt;/p&gt;
+
+&lt;p&gt;完美安装完成！！！！！！！！！！！！！&lt;/p&gt;
+
+&lt;p&gt;安装PHP5.4  进入php-5.4.15源码包编译&lt;/p&gt;
+
+&lt;p&gt;cd /usr/local/src&lt;/p&gt;
+
+&lt;p&gt;tar zxvf php-5 按table&lt;/p&gt;
+
+&lt;p&gt;cd php-5.4 按table&lt;/p&gt;
+
+&lt;p&gt;[root@localhost php-5.4.15]# ./configure \
+–prefix=/usr/local/php5.4 \
+–with-config-file-path=/usr/local/php5.4/etc \
+–with-apxs2=/usr/local/apache2/bin/apxs \
+–with-mysql=/usr/local/mysql/ \
+–with-libxml-dir=/usr/local/libxm12/ \
+–with-png-dir=/usr/local/libpng/ \
+–with-jpeg-dir=/usr/local/jpeg8/ \
+–with-freetype-dir=/usr/local/freetype/ \
+–with-gd=/usr/local/gd/ \
+–with-zlib-dir=/usr/local/zlib/ \
+–with-mcrypt=/usr/local/libmcrypt/ \
+–with-mysqli=/usr/local/mysql/bin/mysql_config \
+–with-curl=/usr/local/curl \
+–enable-soap \
+–enable-mbstring=all \
+–enable-sockets&lt;/p&gt;
+
+&lt;p&gt;make&lt;/p&gt;
+
+&lt;p&gt;make install&lt;/p&gt;
+
+&lt;p&gt;报出错误：make: *** [ext/gd/gd.lo] 错误 1&lt;/p&gt;
+
+&lt;p&gt;解决方法：&lt;/p&gt;
+
+&lt;p&gt;vi /usr/local/gd/include/gd_io.h //编辑GD库文件&lt;/p&gt;
+
+&lt;p&gt;gdIOCtx结构中增加	void （*data）;&lt;/p&gt;
+
+&lt;p&gt;格式如下：&lt;/p&gt;
+
+&lt;p&gt;typedef struct gdIOCtx
+{
+  int (&lt;em&gt;getC) (struct gdIOCtx *);
+  int (&lt;/em&gt;getBuf) (struct gdIOCtx &lt;em&gt;, void *, int);
+ 
+  void (&lt;/em&gt;putC) (struct gdIOCtx &lt;em&gt;, int);
+  int (&lt;/em&gt;putBuf) (struct gdIOCtx &lt;em&gt;, const void *, int);
+ 
+  /&lt;/em&gt; seek must return 1 on SUCCESS, 0 on FAILURE. Unlike fseek! &lt;em&gt;/
+  int (&lt;/em&gt;seek) (struct gdIOCtx &lt;em&gt;, const int);
+ 
+  long (&lt;/em&gt;tell) (struct gdIOCtx &lt;em&gt;);
+ 
+  void (&lt;/em&gt;gd_free) (struct gdIOCtx &lt;em&gt;);
+  void (&lt;/em&gt;data);
+}
+gdIOCtx;&lt;/p&gt;
+
+&lt;p&gt;安装完成后，需要建立PHP配置文件。&lt;/p&gt;
+
+&lt;p&gt;在使用configure命令安装配置时使用“–with-config-file-path=/usr/local/php5.4/etc/”选项，指定了配置文件的位置。&lt;/p&gt;
+
+&lt;p&gt;将源码包下面的php.ini-development文件复制到/usr/local/php5.4/etc/中，并改名为php.ini作为PHP的配置文件，如下示:&lt;/p&gt;
+
+&lt;p&gt;[root@localhost php-5.4.15]# cp php.ini-development /usr/local/php5.4/etc/php.ini&lt;/p&gt;
+
+&lt;p&gt; 
+整合Apache与PHP，上面编译之前，我们使用configure命令安装配置时，&lt;/p&gt;
+
+&lt;p&gt;使用–with-apxs2=/usr/local/apache2.4/bin/apxs选项以使Apache 2.4将PHP作为功能模块使用。&lt;/p&gt;
+
+&lt;p&gt;但我们还要修改Apahce配置文件，添加PHP的支持，告诉Apache将哪些后缀作为PHP解析。&lt;/p&gt;
+
+&lt;p&gt;例如，让Apache把.php或.phtml后缀名解析为PHP.&lt;/p&gt;
+
+&lt;p&gt;使用vi打开Apache的配置文件/etc/httpd/conf/httpd.conf，若果找不到的话，就使用这个路径：&lt;/p&gt;
+
+&lt;p&gt;cd /usr/local/apache2/conf&lt;/p&gt;
+
+&lt;p&gt;再用 vi httpd.conf就可以了&lt;/p&gt;
+
+&lt;p&gt;找到AddType application/x-gzip .gz .tgz指令选项，并在其下方添加一条指令&lt;/p&gt;
+
+&lt;p&gt;AddType application/x-httpd-php .php .phtml&lt;/p&gt;
+
+&lt;p&gt;也可以将任何后缀的文件解析为PHP，只要在添加的语句中加入并用空格分开，这里以多添加一个.phtml来示例
+如下示:&lt;/p&gt;
+&lt;h1 id=&quot;if-the-addencoding-directives-above-are-commented-out-then-you&quot;&gt;If the AddEncoding directives above are commented-out, then you&lt;/h1&gt;
+&lt;h1 id=&quot;probably-should-define-those-extensions-to-indicate-media-types&quot;&gt;probably should define those extensions to indicate media types:&lt;/h1&gt;
+&lt;p&gt;#
+AddType application/x-compress .Z
+AddType application/x-gzip .gz .tgz
+AddType application/x-httpd-php .php .phtml&lt;/p&gt;
+
+&lt;p&gt;修改完成后必须重启Apache服务器，才能重新加载配置文件使修改生效。
+[root@localhost php-5.4.15]#/usr/local/apache2/bin/apachectl stop
+[root@localhost php-5.4.15]#/usr/local/apache2/bin/apachectl start&lt;/p&gt;
+
+&lt;p&gt;如果apachectl重启不成功，关闭SELinux&lt;/p&gt;
+
+&lt;p&gt;如果出现错误：httpd: Syntax error on line 54 of /usr/local/apache2.2/conf/httpd.conf: Cannot load /usr/local/apache2.2/modules/libphp5.so into server: libltdl.so.3: cannot open shared object file: No such file or directory
+解决方案：
+[root@localhost bin]#echo “/usr/local/lib”»/etc/ld.so.conf
+[root@localhost bin]#ldconfig&lt;/p&gt;
+
+&lt;p&gt;重新启动Apache
+[root@localhost php-5.4.15]#/usr/local/apache2.4/bin/apachectl stop
+[root@localhost php-5.4.15]#/usr/local/apache2.4/bin/apachectl start&lt;/p&gt;
+
+&lt;p&gt;测试PHP环境是否可以正常运行，在/usr/local/apache2.4/htdocs目录下建一个test.php或test.phtml的文件，内容如下示:
+&lt;?php
+phpinfo();
+?&gt;
+打开浏览器，在地址栏输入http://172.19.203.10/test.php来运行该文件，如果出现下图内容，说明LAMP环境安装成功。&lt;/p&gt;
+
+&lt;p&gt;———————————————————————————————————————————————————————&lt;/p&gt;
+
+&lt;p&gt;如果apache报错：
+httpd: Could not reliably determine the server’s fully qualified domain name, using 127.0.0.1 for ServerName&lt;/p&gt;
+
+&lt;p&gt;解决办法非常简单：&lt;/p&gt;
+
+&lt;p&gt;#vim /web/apache/conf/httpd.conf (在这里/web/apahce是我安装apache的目录，你默认安装的话应该是/usr/local/apache2/icons)&lt;/p&gt;
+
+&lt;p&gt;找到#ServerName www.example.com:80   把#去掉，再重启apache即可没事了。
+——————————————————————————————————————————————————————&lt;/p&gt;
+
+&lt;p&gt;到此为止，不要再装了！下面是memcache服务器，需要的话再装！&lt;/p&gt;
+
+&lt;p&gt;安装memcache服务器
+安装方法大致与freetype相同。唯一注意的地方是configure时的路径
+./configure \
+–prefix=/usr/local/memcached
+–with-libevent=/usr/local/libevent(memcache需要libevent库)&lt;/p&gt;
+
+&lt;p&gt;出错：configure: error: libevent is required.
+解决办法：libevent库，不指定路径（不设置–prefix）再配置、编译、安装一次，注意make clean&lt;/p&gt;
+
+&lt;p&gt;安装后启动memcache：
+/usr/local/memcached/bin/memcached –d start&lt;/p&gt;
+
+&lt;p&gt;报错：./memcached: error while loading shared libraries: libevent-2.0.so.5: cannot open shared object file: No such file or directory表示memcached 找不到libevent 的位置&lt;/p&gt;
+
+&lt;p&gt;所以，请先使用whereis libevent 得到位置，然后连接到memcached 所寻找的路径
+首先查看，libevent 在哪里&lt;/p&gt;
+&lt;h1 id=&quot;whereis-libevent&quot;&gt;whereis libevent&lt;/h1&gt;
+&lt;p&gt;libevent: /usr/local/lib/libevent.la /usr/local/lib/libevent.so /usr/local/lib/libevent.a
+然后，再看memcached 从哪里找它，查找的命令如下：&lt;/p&gt;
+&lt;h1 id=&quot;lddebuglibs-memcached--v-21--devnull--less&quot;&gt;LD_DEBUG=libs memcached -v 2&amp;gt;&amp;amp;1 &amp;gt; /dev/null | less&lt;/h1&gt;
+
+&lt;p&gt;可以看到：是trying file=/usr/lib/libevent-2.0.so.5，所以，创建软链
+[root@localhost tools]# ln -s /usr/local/libevent/lib/libevent-2.0.so.5 /usr/lib/libevent-2.0.so.5
+再次启动:
+#./memcached -d start -u root //以root用户启动&lt;/p&gt;
+
+&lt;p&gt;安装php的memcache扩展&lt;/p&gt;
+
+&lt;p&gt;从源码安装&lt;/p&gt;
+&lt;h1 id=&quot;tar-zxf-memcache-308tgz&quot;&gt;tar zxf memcache-3.0.8.tgz&lt;/h1&gt;
+&lt;h1 id=&quot;cd-memcache-308&quot;&gt;cd memcache-3.0.8&lt;/h1&gt;
+&lt;h1 id=&quot;usrlocalserversphp5binphpize&quot;&gt;/usr/local/servers/php5/bin/phpize&lt;/h1&gt;
+&lt;p&gt;#./configure –enable-memcache
+–with-php-config=/usr/local/php5.4/bin/php-config（3.0.8版本没错,2.2.5版本有错）&lt;/p&gt;
+&lt;h1 id=&quot;make--make-install&quot;&gt;make &amp;amp;&amp;amp; make install&lt;/h1&gt;
+
+&lt;p&gt;安装完后会有类似这样的提示：
+Installing shared extensions: 
+/usr/local/php5.4/lib/php/extensions/no-debug-zts-20100525/&lt;/p&gt;
+
+&lt;p&gt;把这个记住，然后修改php.ini，把
+extension_dir = “./”
+修改为
+extension_dir = “/usr/local/php5.4/lib/php/extensions/no-debug-zts-20100525”
+并添加一行
+extension=”memcache.so”&lt;/p&gt;
+
+&lt;p&gt;安装PDO_MYSQL扩展
+解压源码  tar -xzvf  PDO_MYSQL-1.0.2.tgz
+PDO_MYSQL源码下载地址：http://pecl.php.net/package/PDO_MYSQL
+执行以下操作 :
+#cd /usr/local/src/PDO_MYSQL-1.0.2(进入源码包)
+#/usr/local/php5.4/bin/phpize (/usr/local/php/是php的安装目录,生成配置命令)
+#./configure&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;–with-php-config=/usr/local/php5.4/bin/php-config 
+–with-pdo-mysql=/usr/local/mysql	(/usr/local/mysql为mysql的安装目录)
+再执行以下命令
+make
+出现以下错误，错误提示如下：
+In file included from /root/PDO_MYSQL-1.0.2/pdo_mysql.c:31:
+/root/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:25:19: error: mysql.h: No such file or directory
+In file included from /root/PDO_MYSQL-1.0.2/pdo_mysql.c:31:
+/root/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:36: error: expected specifier-qualifier-list before ‘MYSQL’
+/root/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:48: error: expected specifier-qualifier-list before ‘MYSQL_FIELD’
+/root/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:53: error: expected specifier-qualifier-list before ‘MYSQL_RES’
+make: &lt;em&gt;** [pdo_mysql.lo] Error 1
+解决办法:
+这是因为在编译时需要mysql的头文件，而默认搜索路径找不到头文件的位置，所以才出现这个问题，所以要将 /usr/local/mysql/include/mysql/ 目录下的mysql头文件链接到 /usr/local/include/ 的目录下：
+#ln -s /usr/local/mysql/include/mysql/&lt;/em&gt; /usr/local/include/
+#make install
+执行完后会提示以下，说明成功：
+Installing shared extensions:     /usr/local/php/lib/php/extensions/no-debug-non-zts-20100525/
+最后在php.ini添加以下一句：
+extension=pdo_mysql.so
+重启apache，安装成功&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;phpMyAdmin的安装
+1、进入软件源码所在的目录/usr/local/src/中，并解压软件包phpMyAdmin-3.5.1-all-languages.tar.gz到当前目录phpMyAdmin-3.5.1-all-languages下。
+2、把解压的目录phpMyAdmin-3.5.1-all-languages下的文件，全部复制到Apache的/usr/local/apache2.4/htdocs下，并新建一个名为phpmyadmin的目录下面，即安装完成。
+[root@localhost src]# cp -R phpMyAdmin-3.5.1-all-language /usr/local/apache2.4/htdocs/phpmyadmin
+3、在使用phpmyadmin之前，也需要先配置一下。配置的方法是通过对phpmyadmin顶层目录下的config.inc.php文件中的几个选项做一些设置即可。默认不存在config.inc.php文件，我们需要手工创建一个，也可以复制config.sample.inc.php模板得到最低限度的配置文件。
+[root@localhost src]# cd /usr/local/apache2.4/htdocs/phpmyadmin/
+[root@localhost phpmyadmin]# cp config.sample.inc.php config.inc.php
+ 
+phpMyAdmin的配置
+    我们通过身份验证模式的要求，可以有两种配置方案，一种是http和cookie身份验证模式。在这两种模式下，用户必须先在一个登录窗口里输入MySQL数据库的有效用户名和密码，才能使用phpMyAdmin程序。这种做法有两个明显的好处；首先，因为MySQL数据库的密码没有出现在config.inc.php文件里，所以身份验证过程更加安全；其次，允许以不同的用户身份登录对自己的数据库进行管理。这两种身份验证模式尤其适合数据库中多个用户账号的情况。
+第二种方案是，config身份验证模式。这种情况下，密码以明文形式保存在config.inc.php文件里。只需要把MySQL用户名和密码直接写入到config.inc.php文件即可。这样，在登录phpMyAdmin时就不会提示输入用户名和密码了，而只直接用config.inc.php文件里写入的用户登录 。如果只是在一个本地测试系统上使用phpMyAdmin,可以使用这种模式。&lt;/p&gt;
+
+&lt;p&gt;1、http身份验证模式
+如果想让phpMyAdmin使用HTTP身份验证模式，首先需要在config.inc.php文件做如下修改：&lt;/p&gt;
+
+&lt;p&gt;当完成设置之后，我们启动phpMyAdmin时，屏幕上将弹出一个WEB浏览器对话框，需要在这个对话框里输入MySQL用户名和密码，才能进入phpMyAdmin操作界面。如下图示，在windows客户端用IE浏览器，访问WEB服务器的phpMyAdmin目录下的index.php文件，即可启动phpMyAdmin.
+ &lt;/p&gt;
+
+&lt;p&gt;2、cookie身份验证模式
+    cookie身份验证模式是HTTP身份验证模式的补充，不能使用HTTP身份验证模式的场合都可以使用它。cookie身份验证模式要求用户必须允许来自phpMyAdmin的cookie进入自己的计算机。即用户需要在浏览器中开启客户端的cookie功能。
+   如果想让phpMyAdmin使用cookie身份验证模式，除了必须修改config.inc.php文件里的auth_type语句外，还必须向blowfish_secret参数提供一个字符串。这个字符串可以是任意的，目的是在把登录时使用的用户和密码存储在客户端电脑上的cookie之前，系统将会使用这个字符串对它们进行加密码。在config.inc.php中修改的内容如下图示：
+ :wq&lt;/p&gt;
+
+&lt;p&gt;和上面启动phpMyAdmin的方式一样，我们在windows客户端使用IE浏览器，访问web服务器上的phpMyAdmin目录下的index.php文件，需要提供MySQL的用户名和密码才能登录，如下图示：
+ &lt;/p&gt;
+
+&lt;p&gt;3、config身份验证模式
+如果想让phpMyAdmin使用config身份验证模式，首先需要在config.inc.php文件里做出如下所示的修改。把MySQL数据库的用户名和密码以明文的方式写入，具体修改内容如下图示:
+ &lt;/p&gt;
+
+&lt;p&gt;和上面启动phpMyAdmin的方式一样，我们在windows客户端使用IE浏览器，访问WEB服务器上的phpMyAdmin目录下的index.php文件。但不用提供MySQL的用户名和密码就可以登录，它是使用config.inc.php中以明文方式写入的用户名和密码登录的。这里不在截图。
+到这里LAMP就安装完成了！&lt;/p&gt;</content><summary type="html">打开此文档阅读时把记事本的自动换行去掉，否则一条命令换行变成了两条</summary></entry></feed>
