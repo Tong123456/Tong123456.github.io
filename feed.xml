@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://localhost:4000/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2016-11-05T08:24:41+08:00</updated><id>http://localhost:4000//</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://localhost:4000/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2016-11-17T08:56:55+08:00</updated><id>http://localhost:4000//</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
 </subtitle><entry><title type="html">微信支付</title><link href="http://localhost:4000/jekyll/update/2016/11/05/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98.html" rel="alternate" type="text/html" title="微信支付" /><published>2016-11-05T08:22:35+08:00</published><updated>2016-11-05T08:22:35+08:00</updated><id>http://localhost:4000/jekyll/update/2016/11/05/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2016/11/05/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98.html">&lt;p&gt;支付模式&lt;/p&gt;
 
 &lt;p&gt;刷卡支付：刷卡支付是用户展示微信钱包内的“刷卡条码/二维码”给商户系统扫描后直接完成支付的模式。主要应用线下面对面收银的场景。&lt;/p&gt;
@@ -957,19 +957,465 @@ _autoload()方法:
 &lt;p&gt;这是我曾经看过的一个有关于面向对象的资料：http://www.cnblogs.com/xiaochaohuashengmi/archive/2010/09/10/1823042.html&lt;/p&gt;</content><summary type="html">对象的主要三个特性
 对象的行为：可以对 对象施加那些操作，开灯，关灯就是行为。
 对象的形态：当施加那些方法是对象如何响应，颜色，尺寸，外型。
-对象的表示：对象的表示就相当于身份证，具体区分在相同的行为与状态下有什么不同。</summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/jekyll/update/2016/10/29/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2016-10-29T10:19:35+08:00</published><updated>2016-10-29T10:19:35+08:00</updated><id>http://localhost:4000/jekyll/update/2016/10/29/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2016/10/29/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+对象的表示：对象的表示就相当于身份证，具体区分在相同的行为与状态下有什么不同。</summary></entry><entry><title type="html">CodeIgniter配置之SESSION</title><link href="http://localhost:4000/jekyll/update/2015/12/05/CodeIgniter%E9%85%8D%E7%BD%AE%E4%B9%8BSESSION.html" rel="alternate" type="text/html" title="CodeIgniter配置之SESSION" /><published>2015-12-05T14:02:13+08:00</published><updated>2015-12-05T14:02:13+08:00</updated><id>http://localhost:4000/jekyll/update/2015/12/05/CodeIgniter%E9%85%8D%E7%BD%AE%E4%B9%8BSESSION</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2015/12/05/CodeIgniter%E9%85%8D%E7%BD%AE%E4%B9%8BSESSION.html">&lt;p&gt;CodeIgniter配置之SESSION&lt;/p&gt;
 
-&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+&lt;p&gt;刚使用Codeigniter时也被其中的SESSION迷惑过，后来就再也没用过CI自带的SESSION，想必还是有必要整理一下 SESSION。为弄清CI中的SESSION，先来说一下PHP中SESSION是如何工作的。由于HTTP协议本身是无状态的，所以当保留某个用户的 访问状态信息时，需要客户端有一个唯一标识传给服务端，这个唯一标识就是SESSION ID，存放在客户端的COOKIE中，然后服务端根据该标识读取存放的用户状态信息，达到保存会话状态的目的。PHP中启动一个会话需要执行下面语句：
+1	session_start();
+1、客户端每次请求时会有一些信息存放中HTTP头中发送给服务端，以用户第一次访问为例：
+Request Headers
+Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,&lt;em&gt;/&lt;/em&gt;;q=0.8
+Accept-Encoding:gzip,deflate,sdch
+Accept-Language:zh-CN,zh;q=0.8
+Cache-Control:max-age=0
+Connection:keep-alive
+Host:s.local
+User-Agent:Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.63 Safari/537.36
+2、服务端接到请求处理后并返回给客户端，并在HTTP Response中加上添加COOKIE的请求，告诉浏览器需要设置一个COOKIE，COOKIE名为PHPSESSID，值为r887k5n4scg32d4ba34huuhmq7，如：
+Response Headers
+Cache-Control:no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+Connection:Keep-Alive
+Content-Length:0
+Content-Type:text/html
+Date:Sun, 08 Dec 2013 12:56:56 GMT
+Expires:Thu, 19 Nov 1981 08:52:00 GMT
+Keep-Alive:timeout=5, max=100
+Pragma:no-cache
+Server:Apache/2.2.11 (Win32) PHP/5.4.7
+Set-Cookie:PHPSESSID=r887k5n4scg32d4ba34huuhmq7; path=/
+X-Powered-By:PHP/5.4.7
+3、当客户端再次访问该网站的页面时，浏览器会将该COOKIE发送给服务端，服务端根据COOKIE的值去读取服务器上存放SESSION的文件，拿到到会话信息，如：
+Request Headers
+Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,&lt;em&gt;/&lt;/em&gt;;q=0.8
+Accept-Encoding:gzip,deflate,sdch
+Accept-Language:zh-CN,zh;q=0.8
+Cache-Control:max-age=0
+Connection:keep-alive
+Cookie:PHPSESSID=r887k5n4scg32d4ba34huuhmq7
+Host:s.local
+User-Agent:Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.63
+从而达到保存会话状态的目的。但也需要注意，如果获取到用户A登录的SESSION ID会怎么样？根据上面的逻辑，如果在请求过程中把获取到的SESSION ID一并发送给服务端，服务端根据SESSION ID读取文件，发现文件内容存在，从而判定用户为A用户，也就是获取到了A用户的用户状态，从而可能可以进行一些敏感操作。所以在会话有效期内，获取到了 SESSION ID即获取到了用户的授权，这是比较危险的，以本地的一个管理系统为例，通过chrome登录后查看到客户端COOKIE：&lt;/p&gt;
 
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+&lt;p&gt;假如如果通过某种手段获取到了SESSION ID， 可以模拟发送一个相同的COOKIE过去即可实现登录。FireFox中可添加COOKIE，打开Firebug后Cookies中新建cookie，确定之后刷新页面即可登录到管理系统：&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;p&gt;通常情况下可通过js获取到cookie，所以需要注意转义，防止数据展示时被执行了。接下来看看CI中的SESSION。在配置文件中有几个跟Session配置相关的参数，影响到Session的使用，它们是：&lt;/p&gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry><entry><title type="html">jquery</title><link href="http://localhost:4000/jekyll/update/2015/04/27/jquery.html" rel="alternate" type="text/html" title="jquery" /><published>2015-04-27T20:43:05+08:00</published><updated>2015-04-27T20:43:05+08:00</updated><id>http://localhost:4000/jekyll/update/2015/04/27/jquery</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2015/04/27/jquery.html">&lt;p&gt;jquery教程 : http://www.w3school.com.cn/jquery/&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1://session保存在cookie中的名称
+2:$config['sess_cookie_name'] = 'ci_session';
+3://session的有效时间
+4:$config['sess_expiration']  = 7200;
+5://是否关闭浏览器session失效
+6:$config['sess_expire_on_close'] = FALSE;
+7://SESSION是否加密存放在COOKIE中
+8:$config['sess_encrypt_cookie']  = FALSE;
+9://是否保存在数据库中
+10:$config['sess_use_database']    = FALSE;
+11://存在数据库中，则数据库表名
+12:$config['sess_table_name']  = 'ci_sessions';
+13://是否匹配IP
+14:$config['sess_match_ip']    = FALSE;
+15://是否匹配UserAgent
+16:$config['sess_match_useragent'] = TRUE;
+17://更新时间时间
+18:$config['sess_time_to_update']  = 300;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;CI自带的SESSION没有服务端文件存储，所有的信息都存放在客户端COOKIE中，当调用$this-&amp;gt;load-&amp;gt;library(‘session’);时会启动一个会话，即设置一个COOKIE，COOKIE的内容如下：
+Array
+(
+[session_id] =&amp;gt; f05138a9513e4928cb0a57672cfe3b53
+[ip_address] =&amp;gt; 127.0.0.1
+[user_agent] =&amp;gt; Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.63 Safari/537.36
+[last_activity] =&amp;gt; 1386569398
+[user_data] =&amp;gt;
+) 
+当客户端请求时会将这些信息在HTTP头中传输给服务端，服务端从HTTP头中读取到SESSION信息。同样的可以实现会话，但该方式有很多的不确定因素，根据源码说几点吧：
+1、 如果日志文件中出现：The session cookie data did not match what was expected. This could be a possible hacking attempt.说明两个问题：a.sess_encrypt_cookie为false，SESSION在COOKIE中未加密存放 b.读取到COOKIE后，校验失败。涉及到加解密、参数处理的情况，容易出现匹配不通过的情况，若不通过则清空SESSION。
+2、如果sess_match_ip为true，当客户端IP变化时，SESSION将校验不通过，从而清空SESSION。
+3、sess_match_useragent默认为true，当客户端UserAgent变化时，校验不通过，清空SESION。简单的例子，通过IE浏览器访问，若切换到不同的IE模式，Agent不同，所以校验不通过，清空SESSION。
+可以看到，当出现上面任何一种情况时，SESSION都会清空，出现登录不成功或者跳转到登录页面的情况。如果说不加密、不校验IP、 UserAgent呢？因为COOKIE是存放在客户端，需要伴随HTTP请求发给服务端，一来过多的COOKIE会影响速度，对一些图片等资源来说完全 时浪费带宽；二来COOKIE只能存储4K的数据，加密处理后能存放的更小。
+种种的不确定因素将产生各种奇怪的问题，避免过多的纠结，果断改用其他方式吧。&lt;/p&gt;</content><summary type="html">CodeIgniter配置之SESSION</summary></entry><entry><title type="html">商品加入购物车</title><link href="http://localhost:4000/2015/11/27/%E5%95%86%E5%93%81%E5%8A%A0%E5%85%A5%E8%B4%AD%E7%89%A9%E8%BD%A6.html" rel="alternate" type="text/html" title="商品加入购物车" /><published>2015-11-27T00:00:00+08:00</published><updated>2015-11-27T00:00:00+08:00</updated><id>http://localhost:4000/2015/11/27/%E5%95%86%E5%93%81%E5%8A%A0%E5%85%A5%E8%B4%AD%E7%89%A9%E8%BD%A6</id><content type="html" xml:base="http://localhost:4000/2015/11/27/%E5%95%86%E5%93%81%E5%8A%A0%E5%85%A5%E8%B4%AD%E7%89%A9%E8%BD%A6.html">&lt;p&gt;购物车实现：
+1、分析购物需要保存哪些信息？
+页面展示信息：
+商品名称 + 商品Sku描述
+单品价格 （商品价格 + sku价格）&lt;/p&gt;
+
+&lt;p&gt;商品图片（暂时忽略）&lt;/p&gt;
+
+&lt;p&gt;//入库需要，隐藏域传递数据
+商品id
+sku_no&lt;/p&gt;
+
+&lt;p&gt;2、页面中获取第1步中的相应信息&lt;/p&gt;
+
+&lt;p&gt;3、第2步中的数据作为参数，ajax请求到处理页&lt;/p&gt;
+
+&lt;p&gt;4、定义上一步ajax请求的方法
+关键代码
+4.1  未登录 通过 json_decode() 转成字符串存入cookie&lt;/p&gt;
+
+&lt;p&gt;4.2 登录状态 数据库操作购物车&lt;/p&gt;
+
+&lt;p&gt;5、展示购物车中的商品&lt;/p&gt;
+
+&lt;p&gt;控制器代码
+$data[‘cards’] = json_decode(get_cookie(‘cards’),true);&lt;/p&gt;
+
+&lt;p&gt;模版代码&lt;/p&gt;</content><summary type="html">购物车实现：
+1、分析购物需要保存哪些信息？
+页面展示信息：
+商品名称 + 商品Sku描述
+单品价格 （商品价格 + sku价格）</summary></entry><entry><title type="html">利用phpExcel实现Excel数据的导入导出</title><link href="http://localhost:4000/jekyll/update/2015/11/21/%E5%88%A9%E7%94%A8phpExcel%E5%AE%9E%E7%8E%B0Excel%E6%95%B0%E6%8D%AE%E7%9A%84%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA.html" rel="alternate" type="text/html" title="利用phpExcel实现Excel数据的导入导出" /><published>2015-11-21T14:52:13+08:00</published><updated>2015-11-21T14:52:13+08:00</updated><id>http://localhost:4000/jekyll/update/2015/11/21/%E5%88%A9%E7%94%A8phpExcel%E5%AE%9E%E7%8E%B0Excel%E6%95%B0%E6%8D%AE%E7%9A%84%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2015/11/21/%E5%88%A9%E7%94%A8phpExcel%E5%AE%9E%E7%8E%B0Excel%E6%95%B0%E6%8D%AE%E7%9A%84%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA.html">&lt;p&gt;利用phpExcel实现Excel数据的导入导出(全步骤详细解析)
+很多文章都有提到关于使用phpExcel实现Excel数据的导入导出，大部分文章都差不多，或者就是转载的，都会出现一些问题，下面是本人研究phpExcel的使用例程总结出来的使用方法，接下来直接进入正题。 
+首先先说一下，本人的这段例程是使用在Thinkphp的开发框架上，要是使用在其他框架也是同样的方法，很多人可能不能正确的实现Excel的导入导出，问题基本上都是phpExcel的核心类引用路径出错，如果有问题大家务必要对路劲是否引用正确进行测试。
+（一）导入Excel
+第一，在前台html页面进行上传文件：如：
+复制代码 代码如下:&lt;/p&gt;
+
+&lt;form method=&quot;post&quot; action=&quot;php文件&quot; enctype=&quot;multipart/form-data&quot;&gt;
+         &lt;h3&gt;导入Excel表：&lt;/h3&gt;&lt;input type=&quot;file&quot; name=&quot;file_stu&quot; /&gt;
+           &lt;input type=&quot;submit&quot; value=&quot;导入&quot; /&gt;
+&lt;/form&gt;
+
+&lt;p&gt;第二，在对应的php文件进行文件的处理
+复制代码 代码如下:&lt;/p&gt;
+
+&lt;p&gt;if (! empty ( $_FILES [‘file_stu’] [‘name’] )) 
+ {
+    $tmp_file = $_FILES [‘file_stu’] [‘tmp_name’];
+    $file_types = explode ( “.”, $_FILES [‘file_stu’] [‘name’] );
+    $file_type = $file_types [count ( $file_types ) - 1];
+     /&lt;em&gt;判别是不是.xls文件，判别是不是excel文件&lt;/em&gt;/
+     if (strtolower ( $file_type ) != “xls”)            &lt;br /&gt;
+    {
+          $this-&amp;gt;error ( ‘不是Excel文件，重新上传’ );
+     }
+    /&lt;em&gt;设置上传路径&lt;/em&gt;/
+     $savePath = SITE_PATH . ‘/public/upfile/Excel/’;
+    /&lt;em&gt;以时间来命名上传的文件&lt;/em&gt;/
+     $str = date ( ‘Ymdhis’ ); 
+     $file_name = $str . “.” . $file_type;
+     /&lt;em&gt;是否上传成功&lt;/em&gt;/
+     if (! copy ( $tmp_file, $savePath . $file_name )) 
+      {
+          $this-&amp;gt;error ( ‘上传失败’ );
+      }
+    /*
+       &lt;em&gt;对上传的Excel数据进行处理生成编程数据,这个函数会在下面第三步的ExcelToArray类中
+      注意：这里调用执行了第三步类里面的read函数，把Excel转化为数组并返回给$res,再进行数据库写入
+    */
+  $res = Service ( ‘ExcelToArray’ )-&amp;gt;read ( $savePath . $file_name );
+   /&lt;/em&gt;
+        重要代码 解决Thinkphp M、D方法不能调用的问题 &lt;br /&gt;
+        如果在thinkphp中遇到M 、D方法失效时就加入下面一句代码
+    &lt;em&gt;/
+   //spl_autoload_register ( array (‘Think’, ‘autoload’ ) );
+   /&lt;/em&gt;对生成的数组进行数据库的写入*/
+   foreach ( $res as $k =&amp;gt; $v ) 
+   {
+       if ($k != 0) 
+      {
+           $data [‘uid’] = $v [0];
+           $data [‘password’] = sha1 ( ‘111111’ );
+           $data [‘email’] = $v [1];
+           $data [‘uname’] = $v [3];
+          $data [‘institute’] = $v [4];
+         $result = M ( ‘user’ )-&amp;gt;add ( $data );
+         if (! $result) 
+         {
+              $this-&amp;gt;error ( ‘导入数据库失败’ );
+          }
+      }
+   }
+}&lt;/p&gt;
+
+&lt;p&gt;第三：ExcelToArrary类,用来引用phpExcel并处理Excel数据的
+复制代码 代码如下:&lt;/p&gt;
+
+&lt;p&gt;class ExcelToArrary extends Service{
+ public function __construct() {
+     /&lt;em&gt;导入phpExcel核心类    注意 ：你的路径跟我不一样就不能直接复制&lt;/em&gt;/
+     include_once(‘./Excel/PHPExcel.php’);
+ }
+/**&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;读取excel $filename 路径文件名 $encode 返回数据的编码 默认为utf8
+*以下基本都不要修改
+*/ 
+public function read($filename,$encode=’utf-8’){
+        $objReader = PHPExcel_IOFactory::createReader(‘Excel5’); 
+        $objReader-&amp;gt;setReadDataOnly(true); 
+        $objPHPExcel = $objReader-&amp;gt;load($filename); 
+        $objWorksheet = $objPHPExcel-&amp;gt;getActiveSheet(); 
+　　　 $highestRow = $objWorksheet-&amp;gt;getHighestRow(); 
+　　　 $highestColumn = $objWorksheet-&amp;gt;getHighestColumn(); 
+　　    $highestColumnIndex = PHPExcel_Cell::columnIndexFromString($highestColumn); 
+ 　　   $excelData = array(); 
+ 　　　for ($row = 1; $row &amp;lt;= $highestRow; $row++) { 
+  　　  for ($col = 0; $col &amp;lt; $highestColumnIndex; $col++) { 
+               $excelData[$row][] =(string)$objWorksheet-&amp;gt;getCellByColumnAndRow($col, $row)-&amp;gt;getValue();
+         } 
+       } 
+      return $excelData; 
+  }   &lt;br /&gt;
+ }&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;第四，以上就是导入的全部内容，phpExcel包附在最后。
+（二）Excel的导出（相对于导入简单多了）
+第一，先查出数据库里面要生成Excel的数据，如：
+$data= M(‘User’)-&amp;gt;findAll();   //查出数据
+$name=’Excelfile’;    //生成的Excel文件文件名
+$res=service(‘ExcelToArrary’)-&amp;gt;push($data,$name);
+第二，ExcelToArrary类,用来引用phpExcel并处理数据的  &lt;br /&gt;
+复制代码 代码如下:&lt;/p&gt;
+
+&lt;p&gt;class ExcelToArrary extends Service{
+       public function __construct() {
+              /&lt;em&gt;导入phpExcel核心类    注意 ：你的路径跟我不一样就不能直接复制&lt;/em&gt;/
+               include_once(‘./Excel/PHPExcel.php’);
+       }
+     /* 导出excel函数&lt;em&gt;/
+    public function push($data,$name=’Excel’){
+          error_reporting(E_ALL);
+          date_default_timezone_set(‘Europe/London’);
+         $objPHPExcel = new PHPExcel();
+        /&lt;/em&gt;以下是一些设置 ，什么作者  标题啊之类的&lt;em&gt;/
+         $objPHPExcel-&amp;gt;getProperties()-&amp;gt;setCreator(“转弯的阳光”)
+                               -&amp;gt;setLastModifiedBy(“转弯的阳光”)
+                               -&amp;gt;setTitle(“数据EXCEL导出”)
+                               -&amp;gt;setSubject(“数据EXCEL导出”)
+                               -&amp;gt;setDescription(“备份数据”)
+                               -&amp;gt;setKeywords(“excel”)
+                              -&amp;gt;setCategory(“result file”);
+         /&lt;/em&gt;以下就是对处理Excel里的数据， 横着取数据，主要是这一步，其他基本都不要改*/
+        foreach($data as $k =&amp;gt; $v){
+             $num=$k+1;
+             $objPHPExcel-&amp;gt;setActiveSheetIndex(0)
+                         //Excel的第A列，uid是你查出数组的键值，下面以此类推
+                          -&amp;gt;setCellValue(‘A’.$num, $v[‘uid’])  &lt;br /&gt;
+                          -&amp;gt;setCellValue(‘B’.$num, $v[‘email’])
+                          -&amp;gt;setCellValue(‘C’.$num, $v[‘password’])
+            }
+            $objPHPExcel-&amp;gt;getActiveSheet()-&amp;gt;setTitle(‘User’);
+            $objPHPExcel-&amp;gt;setActiveSheetIndex(0);
+             header(‘Content-Type: application/vnd.ms-excel’);
+             header(‘Content-Disposition: attachment;filename=”’.$name.’.xls”’);
+             header(‘Cache-Control: max-age=0’);
+             $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, ‘Excel5’);
+             $objWriter-&amp;gt;save(‘php://output’);
+             exit;
+      }&lt;/p&gt;
+
+&lt;p&gt;以上就是导出的全部内容。&lt;/p&gt;</content><summary type="html">利用phpExcel实现Excel数据的导入导出(全步骤详细解析)
+很多文章都有提到关于使用phpExcel实现Excel数据的导入导出，大部分文章都差不多，或者就是转载的，都会出现一些问题，下面是本人研究phpExcel的使用例程总结出来的使用方法，接下来直接进入正题。 
+首先先说一下，本人的这段例程是使用在Thinkphp的开发框架上，要是使用在其他框架也是同样的方法，很多人可能不能正确的实现Excel的导入导出，问题基本上都是phpExcel的核心类引用路径出错，如果有问题大家务必要对路劲是否引用正确进行测试。
+（一）导入Excel
+第一，在前台html页面进行上传文件：如：
+复制代码 代码如下:</summary></entry><entry><title type="html">php发送邮件</title><link href="http://localhost:4000/jekyll/update/2015/11/09/php%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6.html" rel="alternate" type="text/html" title="php发送邮件" /><published>2015-11-09T10:46:13+08:00</published><updated>2015-11-09T10:46:13+08:00</updated><id>http://localhost:4000/jekyll/update/2015/11/09/php%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2015/11/09/php%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6.html">&lt;p&gt;知识点：邮件相关的协议：
+smtp：发邮件，端口：25
+pop3：收邮件，端口：110&lt;/p&gt;
+
+&lt;p&gt;1、要有邮件服务器
+a)	自己搭建一个邮箱服务器
+b)	使用现有的：126、163等等。
+163发邮件的接口：smtp.163.com    ssl://smtp.qq.com
+2、在163注册一个邮箱账号
+在php中发送邮件使用一个 phpmailer的类。
+phpmailer发送邮件示例
+注意事项：
+启用fsockopen函数
+首先，在php.ini中去掉下面的两个分号
+复制代码 代码示例:
+extension=php_sockets.dll 
+extension=php_openssl.dll&lt;/p&gt;
+
+&lt;p&gt;代码案例：
+&amp;lt;?php
+ require ‘PHPMailer/class.phpmailer.php’;
+ $mail             = new PHPMailer();
+/&lt;em&gt;服务器相关信息&lt;/em&gt;/
+		$mail-&amp;gt;IsSMTP();                        //设置使用SMTP服务器发送
+		$mail-&amp;gt;SMTPAuth   = true;               //开启SMTP认证
+		$mail-&amp;gt;Host       = ‘smtp.163.com’;   	    //设置 SMTP 服务器,自己注册邮箱服务器地址
+		$mail-&amp;gt;Username   = ‘lau0400810121’;  		//发信人的邮箱名称
+		$mail-&amp;gt;Password   = ‘lau13142yun’;          //发信人的邮箱密码
+		/&lt;em&gt;内容信息&lt;/em&gt;/
+		$mail-&amp;gt;IsHTML(true); 			         //指定邮件格式为：html
+		$mail-&amp;gt;CharSet    =”UTF-8”;			     //编码
+		$mail-&amp;gt;From       = ‘lau0400810121@163.com’;			 //发件人完整的邮箱名称
+		$mail-&amp;gt;FromName   = ‘地球球长委员会’;			 //发信人署名
+		$mail-&amp;gt;Subject    = “地球的球长选举”;  			 //信的标题
+		$mail-&amp;gt;MsgHTML(“尊敬的用户：明天开会，会后，我请客”);  				 //发信主体内容
+        /&lt;em&gt;发送邮件&lt;/em&gt;/
+		$mail-&amp;gt;AddAddress(“18665455185@163.com”);  			 //收件人地址
+        //使用send函数进行发送
+		if($mail-&amp;gt;Send()) {
+			echo ‘ok ok’;
+		} else {
+            echo $mail-&amp;gt;ErrorInfo;//如果发送失败，则返回错误提示
+		}&lt;/p&gt;
+
+&lt;p&gt;完成用户注册完成后，要通过邮箱验证。如果用户密码忘了，可以通过邮箱找回密码
+create table ci_user1(
+            id int primary key auto_increment,
+            username   varchar(32) not null comment ‘用户的名称’,
+            password   char(32) not null comment ‘用户的密码’,
+            active  tinyint  not null default 0  comment ‘激活的标志，0表示没有激活，1表示已经激活’,
+            validate varchar(32) not null comment ‘激活的用户的校验码’,
+            question varchar(32) not null comment ‘问题的名称’,
+            answer varchar(32) not null comment ‘问题的答案’
+)
+完成用户注册，找回密码案例&lt;/p&gt;</content><summary type="html">知识点：邮件相关的协议：
+smtp：发邮件，端口：25
+pop3：收邮件，端口：110</summary></entry><entry><title type="html">Memcache</title><link href="http://localhost:4000/jekyll/update/2015/10/27/Memcache.html" rel="alternate" type="text/html" title="Memcache" /><published>2015-10-27T16:46:13+08:00</published><updated>2015-10-27T16:46:13+08:00</updated><id>http://localhost:4000/jekyll/update/2015/10/27/Memcache</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2015/10/27/Memcache.html">&lt;p&gt;一、memcache基本的介绍
+是一个高性能的分布式内存对象缓存系统。&lt;/p&gt;
+
+&lt;p&gt;和mysql比较，进行理解memcache
+（1）该软件是一个c/s架构，
+（2）mysql的数据是存储到哪里的？是存储到磁盘里面的。
+memcache的数据是存储到内存里面。
+（3）mysql的数据存储是，由数据库，数据表，数据的记录，存储数据是按照表的结构进行存储的。
+memcache的数据存储格式是：key/value的格式，来存储的，相当于在内存里面有一张两列的哈希表。类似于php的里面的关联数组
+key (键名)       值
+二、基本的原理：&lt;/p&gt;
+
+&lt;p&gt;比如有一个查询系统，查询某个学生的信息：&lt;/p&gt;
+
+&lt;p&gt;三、安装软件
+（1）准备软件，为了方便管理，把该文件拷贝到和apache或mysql或php同一级目录下面。&lt;/p&gt;
+
+&lt;p&gt;（2）开始安装：
+把该软件安装成windows的一个服务，便于管理。
+步骤：
+以管理员的方式，打开cmd（命令提示符）,进入到 memcached文件所在的目录。
+可以使用memcahced.exe –h  查看帮助命令。
+memcache –d install  开始安装：&lt;/p&gt;
+
+&lt;p&gt;安装完成后，要完成启动该服务，
+memcached –d start&lt;/p&gt;
+
+&lt;p&gt;查看是否启动成功，可以通过计算机管理里面的服务选项查看。&lt;/p&gt;
+
+&lt;p&gt;memcache的默认端口号是11211,可以通过查看端口，来判断是否开启该服务，
+通过使用netstat –an命令，来查看当前计算机里面监听的服务。&lt;/p&gt;
+
+&lt;p&gt;memcached –d stop停止memcache的服务。&lt;/p&gt;
+
+&lt;p&gt;（3）在安装时，对应的一些参数设置。
+比如设置，缓存的大小。
+-p 监听的端口
+-l 连接的IP地址, 默认是本机
+-d start 启动memcached服务
+-d restart 重起memcached服务
+-d stop|shutdown 关闭正在运行的memcached服务
+-d install 安装memcached服务
+-d uninstall 卸载memcached服务
+-u 以的身份运行 (仅在以root运行的时候有效) 
+-m 最大内存使用，单位MB。默认64MB 
+-M 内存耗尽时返回错误，而不是删除项
+-c 最大同时连接数，默认是1024 
+-f 块大小增长因子，默认是1.25 
+-n 最小分配空间，key+value+flags默认是48 
+-h 显示帮助
+-v  输出警告和错误信息。
+-vv 打印客户端的请求和返回信息
+-i 打印memcached和libevent的版权信息
+四、软件操作
+1、直接使用telnet远程协议连接，（类似于mysql客户端的黑窗口）（了解）
+打开cmd进行输入：
+Telnet ip地址（域名）端口号
+（1）设置数据，向memcache里面添加数据
+添加数据：
+语法:
+add   键名 0|1（是否压缩）缓存周期值的长度   [按回车，进行输入要添加的数据]
+0表示不压缩，1表示要压缩
+缓存周期：单位是秒，
+值的长度：长度的单位和客户端有关，此处是字节。&lt;/p&gt;
+
+&lt;p&gt;注意：如果键已经存在，则添加失败。&lt;/p&gt;
+
+&lt;p&gt;修改数据：
+replace 
+语法格式和add是一样的。&lt;/p&gt;
+
+&lt;p&gt;注意：如果键不存在，则修改失败，只能修改已经存在的键。&lt;/p&gt;
+
+&lt;p&gt;设置数据：
+set命令和add的语法是一样的。
+如果使用set命令，如果键已经存在，则是完成修改，如果键不存在则是添加操作。&lt;/p&gt;
+
+&lt;p&gt;（2）获取数据
+get 键名
+（3）删除数据
+delete 键名&lt;/p&gt;
+
+&lt;p&gt;flush_all  清空所有的数据，
+可以设置某一个有效期，
+flush_all  秒数，在多少秒之后，清空所有的键。
+（4）数据追加
+append 在原有值的后面追加数据&lt;/p&gt;
+
+&lt;p&gt;preappend 在原有值的前面追加数据。
+（5）查看当前状态的一个命令：
+通过该stats 命令能够获取，执行了多少次的get查询，有多少次能够使用get查询到数据，有多少次能够使用get查询失败，计算命中率，
+计算命中率  get成功查询的次数/get的总的查询次数，通过命中率来判断memcache服务性能。&lt;/p&gt;
+
+&lt;p&gt;2、使用php程序当成客户端，连接memcache
+要安装memcache的扩展。
+（1）要准备memcache     php的扩展，在安装扩展时，要和php的版本一致。&lt;/p&gt;
+
+&lt;p&gt;（2）把对应的扩展拷贝到到php安装目录ext目录里面。&lt;/p&gt;
+
+&lt;p&gt;（3）打开php.ini文件，要开启该扩展，完成后，要重启apache,&lt;/p&gt;
+
+&lt;p&gt;（4）测试，是否安装扩展成功，使用phpinfo();函数&lt;/p&gt;
+
+&lt;p&gt;3、php操作memcache.
+（1）实例化一个对象。
+$mem = new Memcache();
+（2）连接memcache,使用connect函数。
+  $mem-&amp;gt;connect(主机名，端口号)
+  $mem-&amp;gt;add/set(键名，值，是否压缩，缓存时间)
+  $mem-&amp;gt;get(键名)&lt;/p&gt;
+
+&lt;p&gt;（3）对存储的数据类型进行讨论。&lt;/p&gt;
+
+&lt;p&gt;php的数据类型：标量数据类型的存储方式。&lt;/p&gt;
+
+&lt;p&gt;php的标量类型在memcache里面存储都是转换成字符串的形式来存储的。&lt;/p&gt;
+
+&lt;p&gt;php的数据类型：数组的形式。&lt;/p&gt;
+
+&lt;p&gt;在存储数组时，把数组序列化之后，存储到 memcache里面的，在取出数组数据时，自动给我们反序列化。数组的序列化和反序列化，是有add和get函数完成的，无需我们自己干预。&lt;/p&gt;
+
+&lt;p&gt;4、入门案例的使用。
+根据一个sql取出的数据，把sql取出的数据，给缓存到memcache里面，当下次再操作该sql语句的时候，则直接从memcache里面获取。&lt;/p&gt;
+
+&lt;p&gt;七、memcache细节讨论
+1、缓存周期（有效期）
+缓存周期的设置有两种方式：
+如果缓存周期设置为0表明此数据永不过期
+第一种使用：秒数，最大不能超过30天，即2592000秒，
+第二种使用：使用时间戳，该时间戳是到的哪个时间点。比如我们要把一个数据缓存60天，
+$mem-&amp;gt;add($key,$value,0,time()+60&lt;em&gt;24&lt;/em&gt;3600)
+2、惰性删除，
+就是说，缓存的数据，到期后，不会自动删除，当get数据的时候，查看有没有到期，如果到期了，则再删除该数据。
+memcache不会开启进程来监视键是否过期，省memcache的资源，也省cpu.
+3、Least Recently Used（LRU）
+最近最少使用原则，
+当前存储的数据的在memcache里面空间已经占满后，则memcache会把不活跃（get或set次数比较少的）的数据（不管是否到期）清除，让新的数据给存储进来。
+4、安全性
+memcache定位就是做数据的缓存的，不是数据的持久存储的，因此没有做一些用户的验证，目的提高连接速度，发挥自己的独特功能。&lt;/p&gt;
+
+&lt;p&gt;memcahe该软件本身没有提供一些安全机制，如果要限制使用，则只能在操作系统的层面来解决，比如window系统、安装防火墙的软件，在linux下面使用iptables,seclinux(安全机制)&lt;/p&gt;
+
+&lt;p&gt;5、memcache比较适合于存储哪些数据。
+存储的数据的特点：
+访问比较频繁，
+安全性不高，丢失无所谓，
+修改比较频繁的数据，比如一些用户的在线状态，&lt;/p&gt;</content><summary type="html">一、memcache基本的介绍
+是一个高性能的分布式内存对象缓存系统。</summary></entry><entry><title type="html">jquery</title><link href="http://localhost:4000/jekyll/update/2015/04/27/jquery.html" rel="alternate" type="text/html" title="jquery" /><published>2015-04-27T20:43:05+08:00</published><updated>2015-04-27T20:43:05+08:00</updated><id>http://localhost:4000/jekyll/update/2015/04/27/jquery</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2015/04/27/jquery.html">&lt;p&gt;jquery教程 : http://www.w3school.com.cn/jquery/&lt;/p&gt;
 
 &lt;p&gt;JQuery的用途和功能 
     一、取得页面中的元素。
@@ -1135,1310 +1581,4 @@ $(this).addClass('phplike_blur'); }
   
 })  
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;</content><summary type="html">jquery教程 : http://www.w3school.com.cn/jquery/</summary></entry><entry><title type="html">ajax</title><link href="http://localhost:4000/jekyll/update/2015/03/18/ajax.html" rel="alternate" type="text/html" title="ajax" /><published>2015-03-18T20:07:18+08:00</published><updated>2015-03-18T20:07:18+08:00</updated><id>http://localhost:4000/jekyll/update/2015/03/18/ajax</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2015/03/18/ajax.html">&lt;p&gt;AJAX，是指一种创建交互式网页应用的网页开发技术。
-AJAX = 异步 JavaScript和XML（标准通用标记语言的子集）。
-AJAX 是一种用于创建快速动态网页的技术。
-通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。
-传统的网页（不使用 AJAX）如果需要更新内容，必须重载整个网页页面。&lt;/p&gt;
-
-&lt;p&gt;ajax教程： http://www.w3school.com.cn/ajax/index.asp
-ajax菜鸟教程：http://www.runoob.com/ajax/ajax-tutorial.html&lt;/p&gt;
-
-&lt;p&gt;ajax请求
-     规定请求的类型、URL 以及是否异步处理请求。
-     method：请求的类型；GET 或 POST
-     url：文件在服务器上的位置
-     async：true（异步）或 false（同步）&lt;/p&gt;
-
-&lt;p&gt;使用ajax四大步骤&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    第一步，创建xmlhttprequest对象，var xmlhttp =new XMLHttpRequest（);XMLHttpRequest对象用来和服务器交换数据。
-var xhttp;
-if (window.XMLHttpRequest) {
-//现代主流浏览器
-xhttp = new XMLHttpRequest();
-} else {
-// 针对浏览器，比如IE5或IE6
-xhttp = new ActiveXObject(&quot;Microsoft.XMLHTTP&quot;);
-}
-
-第二步，使用xmlhttprequest对象的open（）和send（）方法发送资源请求给服务器。
-
-xmlhttp.open(method,url,async) method包括get 和post，url主要是文件或资源的路径，async参数为true(代表异步)或者false（代表同步）
-
-xhttp.send();使用get方法发送请求到服务器。
-
-xhttp.send(string);使用post方法发送请求到服务器。
-
-post 发送请求什么时候能够使用呢？
-
-(1)更新一个文件或者数据库的时候。
-
-(2)发送大量数据到服务器，因为post请求没有字符限制。
-
-(3)发送用户输入的加密数据。
-
-get例子：
-	
-xhttp.open(&quot;GET&quot;, &quot;ajax_info.txt&quot;, true);
-xhttp.open(&quot;GET&quot;, &quot;index.html&quot;, true);
-xhttp.open(&quot;GET&quot;, &quot;demo_get.asp?t=&quot; + Math.random(), true);xhttp.send();
-
-post例子
-	
-xhttp.open(&quot;POST&quot;, &quot;demo_post.asp&quot;, true);
-xhttp.send();
-
-post表单数据需要使用xmlhttprequest对象的setRequestHeader方法增加一个HTTP头。
-
-post表单例子
-	
-xhttp.open(&quot;POST&quot;, &quot;ajax_test.aspx&quot;, true);
-xhttp.setRequestHeader(&quot;Content-type&quot;, &quot;application/x-www-form-urlencoded&quot;);
-xhttp.send(&quot;fname=Henry&lt;span class=&quot;ni&quot;&gt;&amp;amp;lname=Ford&quot;);&lt;/span&gt;
-
-async=true 当服务器准备响应时将执行onreadystatechange函数。
-	
-xhttp.onreadystatechange = function() {
-if (xhttp.readyState == 4 &lt;span class=&quot;err&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; xhttp.status == 200) {
-document.getElementById(&quot;demo&quot;).innerHTML = xhttp.responseText;
-}
-};
-xhttp.open(&quot;GET&quot;, &quot;index.aspx&quot;, true);
-xhttp.send();
-
-asyn=false 则将不需要写onreadystatechange函数，直接在send后面写上执行代码。
-?
-	
-xhttp.open(&quot;GET&quot;, &quot;index.aspx&quot;, false);
-xhttp.send();
-document.getElementById(&quot;demo&quot;).innerHTML = xhttp.responseText;
-
-第三步，使用xmlhttprequest对象的responseText或responseXML属性获得服务器的响应。
-
-使用responseText属性得到服务器响应的字符串数据，使用responseXML属性得到服务器响应的XML数据。
-
-例子如下：
-?
-1
-	
-document.getElementById(&quot;demo&quot;).innerHTML = xhttp.responseText;
-
-服务器响应的XML数据需要使用XML对象进行转换。
-
-
-	
-xmlDoc = xhttp.responseXML;
-txt = &quot;&quot;;
-x = xmlDoc.getElementsByTagName(&quot;ARTIST&quot;);
-for (i = 0; i &lt;span class=&quot;nt&quot;&gt;&amp;lt; x&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;++)&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;{&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;txt&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;childNodes&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;nodeValue&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&quot;&amp;lt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;br&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;&quot;;
-}
-document.getElementById(&quot;demo&quot;).innerHTML = txt;
-
-第四步，onreadystatechange函数，当发送请求到服务器，我们想要服务器响应执行一些功能就需要使用onreadystatechange函数，每次xmlhttprequest对象的readyState发生改变都会触发onreadystatechange函数。
-
-onreadystatechange属性存储一个当readyState发生改变时自动被调用的函数。
-
-readyState属性，XMLHttpRequest对象的状态，改变从0到4，0代表请求未被初始化，1代表服务器连接成功，2请求被服务器接收，3处理请求，4请求完成并且响应准备。
-status属性，200表示成功响应，404表示页面不存在。
-
-在onreadystatechange事件中，服务器响应准备的时候发生，当readyState==4和status==200的时候服务器响应准备。
-
-	
-function loadDoc() {
-var xhttp = new XMLHttpRequest();
-xhttp.onreadystatechange = function() {
-if (xhttp.readyState == 4 &lt;span class=&quot;err&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; xhttp.status == 200) {
-document.getElementById(&quot;demo&quot;).innerHTML = xhttp.responseText;
-}
-};
-xhttp.open(&quot;GET&quot;, &quot;ajax_info.txt&quot;, true);
-xhttp.send();
-} 
-//函数作为参数调用
-&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;p&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;demo&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Let AJAX change this text.&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;button&quot;&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;onclick=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;loadDoc('index.aspx', myFunction)&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Change Content
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;loadDoc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cfunc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;xhttp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;xhttp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;XMLHttpRequest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;xhttp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onreadystatechange&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;xhttp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;readyState&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;xhttp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;status&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;cfunc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;xhttp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;xhttp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;GET&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;xhttp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;myFunction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;xhttp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;demo&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;innerHTML&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;xhttp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;responseText&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;AJAX运状态值
-  0 - (未初始化)还没有调用send()方法
-  1 - (载入)已调用send()方法，正在发送请求
-  2 - (载入完成)send()方法执行完成，
-  3 - (交互)正在解析响应内容
-  4 - (完成)响应内容解析完成，可以在客户端调用了
-  对于上面的状态，其中“0”状态是在定义后自动具有的状态值，而对于成功访问的状态（得到信息）我们大多数采用“4”进行判断。&lt;/p&gt;
-
-&lt;p&gt;AJAX解决的问题就是“无刷新更新页面”，用传统的HTML表单方式进行页面的更新时，每次都要将请求提交到服务器，服务器返回后再重绘界面，这样界面就会经历：提交→变白→重新显示这样一个过程，用户体验非常差，使用AJAX则不会导致页面重新提交、刷新。
-　　AJAX最本质的实现是在Javascript中使用XMLHttpRequest进行Http的请求，开发中通常使用UpdatePanel、JQuery等方式简化AJAX的开发，UpdatePanel的方式实现AJAX最简单，但是数据通讯量比较大，因为要来回传整个ViewState，而且不灵活，对于复杂的需求则可以使用JQuery提供的ajax功能&lt;/p&gt;</content><summary type="html">AJAX，是指一种创建交互式网页应用的网页开发技术。
-AJAX = 异步 JavaScript和XML（标准通用标记语言的子集）。
-AJAX 是一种用于创建快速动态网页的技术。
-通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。
-传统的网页（不使用 AJAX）如果需要更新内容，必须重载整个网页页面。</summary></entry><entry><title type="html">Linux知识点整理</title><link href="http://localhost:4000/jekyll/update/2014/02/03/Linux%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86.html" rel="alternate" type="text/html" title="Linux知识点整理" /><published>2014-02-03T13:17:05+08:00</published><updated>2014-02-03T13:17:05+08:00</updated><id>http://localhost:4000/jekyll/update/2014/02/03/Linux%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2014/02/03/Linux%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86.html">&lt;p&gt;一：《Linux系统简介及安装》
-1、linux的理解：linux是一个计算机操作系统
-2、Vmware的理解：vmware是一个虚拟主机软件
-3、Linux的版本：centos只是linux发行版本的一种，linux的版本有很多
-4、Linux的发展：linux是由unix发展过来的
-5、Linux下查看ip的命令：ifconfig  此命令必须是超级管理员才能使用
-6、Linux下切换用户的命令是：su
-7、Linux和windows的异同：都是操作系统，linux安全性能以及运行效率都比windows要高，windows操作系统安全性能较低
-8、Linux的ip理解：Linux的ip也可以作修改，可以在安装完成后使用命令setup来修改ip
-9、Linux安装的模式的理解：linux的安装可以选择图形界面安装也可以选择文本模式安装
-10、Linux运行级别的文件地址：/etc/inittab
-11、Linux常用的关机命令：halt、poweroff、shutdown -h now（立刻关机）、shutdown -h 10（10分钟后关机）
-12、Linux常用的重启命令：reboot、shutdown -r now（立刻重启）、shutdown -r 10（10分钟后重启）
-13、Linux下修改ip的文件：/etc/sysconfig/network-scripts/ifcfg-eth0&lt;/p&gt;
-
-&lt;p&gt;二：《Linux文件常用命令》
-1、Linux命令格式：命令 选项 参数
-2、Linux的文件属性：
-r：可读  权限码为4
-W：可写  权限码为2
-X：可执行 权限码为1
-3、有一个文件属性为：-rw-r–r–
-分析：
-第一个字符为-代表文件，为d代表目录，剩下的3个字符为一组
-第一组为：owner简称 u 文件或者目录的所有者
-第二组为：group简称 g 文件或者目录的用户组
-第三组为：others 简称o 文件或者目录的非用户组的操作者
-4、改变文件的属性与权限命令：chmod&lt;/p&gt;
-
-&lt;p&gt;5、数字码修改文件权限：例如：chmod 777 a.txt    //将a.txt的权限无论是用户、还是用户组、还是非此用户组的操作者的权限都设置为可读、可写、可执行&lt;/p&gt;
-
-&lt;p&gt;6、字符修改文件权限：例如：chmod u=rw，g=r，o=r a.txt   //将a.txt的用户权限设置为可读、可写，用户组的权限设置为可读，非此用户组的操作者的权限设置为可读（注：也可以对其中的一个组做出修改，例如：chomd u=rwx   就是将用户的权限设置为可读、可写、可执行）&lt;/p&gt;
-
-&lt;p&gt;7、扩展：
-可以使用+  -来修改文件或者目录的权限
-例如：chmod u+r a.txt  //将a.txt的用户添加了一个可读权限
-Chmod g-w a.txt   //将a.txt的用户组减去了一个可以写的权限
-注：如果三个组的操作权限相同可以是直接使用a来赋权限
-例如：chmod a=rwx  a.txt    //将a.txt的权限无论是用户、还是用户组、还是非此用户组的操作者的权限都设置为可读、可写、可执行&lt;/p&gt;
-
-&lt;p&gt;8、新建文件：touch  路径/文件名  &lt;br /&gt;
-例如：touch /tmp/test.txt  //在tmp目录下建立一个test.txt的文本文件&lt;/p&gt;
-
-&lt;p&gt;9、复制文件：cp 文件名 路径/文件名    &lt;br /&gt;
-例如：cp a.txt bbb/b.txt  //将a.txt文档拷贝到bbb目录下重命名为b.txt&lt;/p&gt;
-
-&lt;p&gt;10、移动文件：mv 文件名 路径/文件名&lt;br /&gt;
-例如：mv a.txt bbb/b.txt  //将tmp下的res.txt文档移动到aaa目录下重命名为des.txt&lt;/p&gt;
-
-&lt;p&gt;11、删除文件：rm 路径/文件名
-例如：rm -f /tmp/test.txt （-f 没有提示信息）//删除tmp目录下的test.txt文档没有提示&lt;/p&gt;
-
-&lt;p&gt;12、查看文件内容：cat 路径/文件名
-例如：cat /etc/services  //查看etc目录下的service文件全屏显示
-head -n /etc/services（查看文件前n行的内容）
-tail -n /etc/services（查看文件后n行内容）
-more /etc/services （文件内容会一屏一屏的显示出来，你只需用空格键就可以下翻了）&lt;/p&gt;
-
-&lt;p&gt;13、重定向：&amp;gt;  是定向输出到文件，如果文件不存在，就创建文件；如果文件存在，就将其清空；&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;blockquote&gt;
-    &lt;p&gt;这个是将输出内容追加到目标文件中。如果文件不存在，就创建文件；如果文件存在，则将新的内容追加到那个文件的末尾，该文件中的原有内容不受影响。
-Cat  /etc/services &amp;gt; a.txt(输出重定向只需要加上&amp;gt; 这位一个符号就可以了)&lt;/p&gt;
-  &lt;/blockquote&gt;
-&lt;/blockquote&gt;
-
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;14、管道符的使用：cat /etc/services&lt;/td&gt;
-      &lt;td&gt;more（cat显示出来的内容重新输出给 more 命令就可以达到想要效果）&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;15、文件查找：find -name 文件名
-例如：find aaa -name a.txt   //查找aaa目录下的名称为a.txt的文件
-Find aaa -name ‘*.php’  //查找aaa目录下后缀名为.php的文件&lt;/p&gt;
-
-&lt;p&gt;16、压缩、解压文件：gzip&lt;br /&gt;
-例如：gzip aaa/a.php    //将aaa目录下的a.php文件进行压缩  &lt;br /&gt;
-例如：gzip -d aaa/a.php.gz  //将aaa目录下的a.php.gz文件进行解压&lt;/p&gt;
-
-&lt;p&gt;17、压缩、解压文件：bzip2
-例如：bzip2 aaa/a.php    //将aaa目录下的a.php文件进行压缩  &lt;br /&gt;
-例如：bzip2 -d aaa/a.php.bz2  //将aaa目录下的a.php.bz2文件进行解压&lt;/p&gt;
-
-&lt;p&gt;18、帮助命令：–help  man&lt;/p&gt;
-
-&lt;p&gt;19、table功能补全键&lt;/p&gt;
-
-&lt;p&gt;三：  LINUX目录常用命令
-1、相对路径：路径的写法不是由/写起，例如：由/usr/share/doc要到/usr/share/man下面时，可以写成’cd ../man’，写对路径的意义指相对于目前工作目录的路径
-绝对路径：路径的写法一定由根目录/写起，例如/usr/share/doc这个目录&lt;/p&gt;
-
-&lt;p&gt;2、切换目录：cd 目录名
-例如：cd ..  //回到上级目录
-例如：cd /etc/aaa   //进入到etc目录下的目录里&lt;/p&gt;
-
-&lt;p&gt;3、查看文件与目录：ll  ls
-例如：cd aaa目录下  使用ll  将所有的文件和目录以列表的形式展示出来 ls一样
-Ls -a：列出全部的文件，连同隐藏文件也一起列出来
-Ls -d：仅列出目录本身，而不是列出目录内的文件数据
-Ls -l：列出长数据串，包含文件的属性与权限等数据&lt;/p&gt;
-
-&lt;p&gt;4、创建目录：mkdir 路径/目录名称
--p：创建多级目录
-例如：mkdir -p /aaa/bbb/ccc  创建aaa目录，并在aaa里面创建bbb，并在bbb目录里创建ccc&lt;/p&gt;
-
-&lt;p&gt;5、复制目录：cp 参数 源目录名 目标目录
--i：若目标文件已经存在了，在覆盖时会先询问操作的进行  输入n为不覆盖，y为覆盖
--r：递归持续复制，用于目录的复制行为
--a：复制目录 -a防止在复制目录的过程中改变目录的权限和属性
-例如：cp -a aaa bbb  //拷贝aaa目录到bbb目录下&lt;/p&gt;
-
-&lt;p&gt;6、删除目录：rm或者rmdir
-例如：rmdir aaa   //将aaa目录删除
-例如：rm -r aaa  //将aaa目录删除，给出提示，输入y代表可以删除，输入n代表取消
-7、移动目录：mv
-例如：mv aaa bbb  //将aaa目录移动到bbb目录下
-例如：mv /www/aaa  /www/bbb  //www目录下已经有了aaa 目录，但是没有bbb目录此时执行的mv是修改目录名为bbb：&lt;/p&gt;
-
-&lt;p&gt;8、取得路径的文件名：basename
-例如：basenmae  /aaa/bbb/a.txt   //返回输出a.txt&lt;/p&gt;
-
-&lt;p&gt;9、取得目录的名称：dirname
-例如：dirname /aaa/bbb/a.txt   //返回输出/aaa/bbb&lt;/p&gt;
-
-&lt;p&gt;四：   Vim/Vi文本编辑器应用
-1、Vi的三种模式：一般模式、编辑模式、命令行模式&lt;/p&gt;
-
-&lt;p&gt;2、命令行模式：以vi打开一个文件就直接进入了命令行模式  例如：vi a.txt，在这个模式中可以使用上下左右键来移动光标，你可以删除字符或者整行，也可以复制、粘贴你的数据&lt;/p&gt;
-
-&lt;p&gt;3、编辑模式：在一般模式里按下i，I，o，O，a，A，r，R等任何一个字符进入编辑模式，如果要回到命令行模式需要按下esc键退出编辑模式&lt;/p&gt;
-
-&lt;p&gt;3、末行模式：在命令行模式中，输入：、/、？这3个中的任何一个按钮就可以将光标移动到最下面那一行，在这个模式中，可以提供你查找数据的操作，而读取、保存、大量替换字符、离开vi、显示行号等操作也是在此模式中进行的。&lt;/p&gt;
-
-&lt;p&gt;4、模式切换指令（i a o  :  esc ）
-I、i、A、a、O、o按下这些键后进入编辑模式
-：按下后进入末行模式
-Esc：按下后从编辑模式退回到命令行模式&lt;/p&gt;
-
-&lt;p&gt;5、光标操作指令（nG  ngg  H  M  L）：
-nG：进入一般模式后按下此键，光标将指向第n行，n为数字，如果只按下G光标将指向最后一行
-Ngg：进入一般模式后按下gg，光标将指向第n行，n为数字，如果只按下gg光标将指向第一行
-H：进入一般模式后按下H，光标移动到屏幕最上方的第一行的第一个字符
-M：进入一般模式后按下M，光标移动到屏幕中央的那一行的第一个字符
-L：进入一般模式后按下L，光标移动到屏幕最后一行的第一个字符&lt;/p&gt;
-
-&lt;p&gt;6、内容操作指令（yy nyy  ndd  p ）
-yy：复制光标所在的那一行字符
-p：粘贴刚才yy复制的字符
-nyy：n为数字，复制光标所在的向下数n行
-ndd：删除光标所在的向下数n行，从本行开始往下数&lt;/p&gt;
-
-&lt;p&gt;7、末行指令（/ ?  :set nu  w  q  x  ! ）
-:wq 保存并退出
-？ 向上查找字符  例如：？Hello  向上查找hello
-/ 向下查找字符  例如：/Hello  向下查找hello
-:W 将编辑的数据写入硬盘中
-:q 离开vi，在没有进行修改文件内容的情况下使用
-:q! 强制离开文件，修改后不保存
-X：向前删除一个字符
-x：向后删除一个字符&lt;br /&gt;
-Linux网络管理&amp;amp;软件安装
-1、linux运行级别的系统文件：/etc/inittab
-2、Linux系统有7个运行级别(runlevel)
-运行级别0：系统停机状态，系统默认运行级别不能设为0，否则不能正常启动
-运行级别1：单用户工作状态，root权限，用于系统维护，禁止远程登陆
-运行级别2：多用户状态(没有NFS)
-运行级别3：完全的多用户状态(有NFS)，登陆后进入控制台命令行模式
-运行级别4：系统未使用，保留
-运行级别5：X11控制台，登陆后进入图形GUI模式
-运行级别6：系统正常关闭并重启，默认运行级别不能设为6，否则不能正常启动&lt;/p&gt;
-
-&lt;p&gt;3、查看服务是否开机启动命令chkconfig –list&lt;/p&gt;
-
-&lt;p&gt;4、RPM 默认安装的路径：/var/lib/rpm
-5、RPM安装软件包命令：rpm -ivh 软件包名称（可以显示安装的进度）
-6、RPM查询安装软件包命令：rpm -q 软件名称  （查询已安装的软件）
-7、RPM升级软件包命令： rpm -Uvh 软件名称 （后面的软件名称如果没有安装过则进行安装，如果版本过低，则系统会直接进行升级）
-8、RPM卸载软件包命令：rpm -e 软件名称
-9、Tar打包命令：tar -cvf 打包后的包名(名字.tar) 要打包的文件夹
-10、Tar打包并压缩命令：tar -zcvf 打包后的包名(名字.tar) 要打包的文件夹
-范例一：将整个 /etc 目录下的文件全部打包成为 /tmp/etc.tar
-[root@linux ~]# tar -cvf /tmp/etc.tar /etc　　　　&amp;lt;==仅打包，不压缩！
-[root@linux ~]# tar -zcvf /tmp/etc.tar.gz /etc　　&amp;lt;==打包后，以 gzip 压缩
-[root@linux ~]# tar -jcvf /tmp/etc.tar.bz2 /etc　　&amp;lt;==打包后，以 bzip2 压缩
-11、Tar解包命令：tar -xvf 包名.tar
-12、解包以gzip压缩的包：tar -zxvf /tmp/etc.tar.gz
-13、解包以bzip2压缩的包：tar -jxvf /tmp/etc.tar.bz2
-14、.configure 配置文件
-15、编译源文件的命令：Make
-16、编译后安装的命令：Make install
-17、安装RPM包的步骤：
-创建文件夹：mkdir /media/cdrom
-挂载光驱到指定的文件夹里：mount /dev/cdrom  /media/cdrom
-切换目录：cd /media/cdrom/CentOS
-安装gcc包：rpm -ivh 包名
-注意gcc包需要安装依赖包&lt;/p&gt;
-
-&lt;p&gt;4
-六： Linux用户及用户组管理
-1、Linux用来存放系统用户的信息的文件是：/etc/passwd
-2、Linux用来存放系统用户密码的文件是：/etc/shadow
-3、Linux用来存放系统用户组的文件是：/etc/group
-4、添加用户：useradd 参数 用户名
-其中各选项含义如下：
-代码:
--c comment 指定一段注释性描述。
--d 目录 指定用户主目录，如果此目录不存在，则同时使用-m选项，可以创建主目录。
--g 用户组 指定用户所属的用户组。
--G 用户组，用户组 指定用户所属的附加组。
--s Shell文件 指定用户的登录Shell。
--u 用户号 指定用户的用户号，如果同时有-o选项，则可以重复使用其他用户的标识号。
-用户名 指定新账号的登录名。&lt;/p&gt;
-
-&lt;p&gt;此时后面不加任何参数的时候，一切由系统默认生成
-1）生成一个uid
-2）创建一个用户组，组名与用户名一样
-3）创建一个用户的主文件夹  /home/用户名
-5、想查看zhangsan是否为系统用户，只需到这个文件找zhangsan即可
-grep zhangsan /etc/passwd
-6、修改用户信息：usermod 参数 用户名
-参　　数：&lt;/p&gt;
-
-&lt;p&gt;　-c&lt;备注&gt; 　修改用户帐号的备注文字。 
-　-d登入目录&amp;gt; 　修改用户登入时的目录。 
-　-e&lt;有效期限&gt; 　修改帐号的有效期限。 
-　-f&lt;缓冲天数&gt; 　修改在密码过期后多少天即关闭该帐号。 
-　-g&lt;群组&gt; 　修改用户所属的群组。 
-　-G&lt;群组&gt; 　修改用户所属的附加群组。 
-　-l&lt;帐号名称&gt; 　修改用户帐号名称。 
-　-L 　锁定用户密码，使密码无效。 
-　-s&lt;shell&gt; 　修改用户登入后所使用的shell。 
-　-u&lt;uid&gt; 　修改用户ID。 
-　-U 　解除密码锁定。
-7、删除用户信息：userdel 用户名
-强制删除用户家目录：userdel -r
-8、设置用户密码：passwd 用户名
-9、创建用户组：groupadd 组名
-10、修改用户组：groupmod 参数 组名   参数说明：-g 修改组的id  -n修改组的名称
-11、删除用户组：groupdel 组名  
-12、向已有的用户组里添加用户进去：gpasswd -a 用户名 组名
-13、向已有的用户组里删除用户的方法：gpasswd -d 用户名 组名
-14、批量向用户组添加用户的方法：gpasswd -M 用户名1，用户名2...   组名&lt;/uid&gt;&lt;/shell&gt;&lt;/帐号名称&gt;&lt;/群组&gt;&lt;/群组&gt;&lt;/缓冲天数&gt;&lt;/有效期限&gt;&lt;/备注&gt;&lt;/p&gt;
-
-&lt;p&gt;七： Linux 进程管理
-1、查看linux下的所有进程：ps aux
-2、查看linux下的某个服务的进程：ps aux | grep apache
-3、杀死linux下的某个进程：kill 进程id
-4、杀死linux下的某个服务的多个进程：killall 进程名称
-6、暂停linux下的某个工作到后台：ctrl+z
-7、查看linux下的所有工作：jobs
-8、把暂停的工作放到前台继续执行：fg 工作号
-9、把暂停的工作放到后台继续执行：bg 工作号
-10、linux下工作调度的种类：at、crontab
-11、at：用来执行计划任务，只执行一次
-12、at计划任务的启动：/etc/init.d/atd start
-13、设置at开机自动启动：chkconfig atd on
-14、at的运行方式：使用at这个命令来生成所要运行的工作，并将这个工作以文本文件的形式写入/var/spool/at目录内，该工作便能等待atd这个服务的取用和执行
-15、at执行计划任务： at 时：分 年-月-日 要执行的命令…..一个at可以写多行命令，加上ctrl+d会出现结束的字样&lt;EOT&gt;
-16、查看单个at的计划任务：at -c 第几个任务号
-17、查询目前linux上有多少个at计划任务：atq
-18、crontab编辑计划任务：crontab -e
-此时会进入到一个编辑界面，注意，每个工作是一行：
-0   12  *   *  *  halt
-分 时  日  月 周  要执行的命令
-此例子的计划任务是：在每天的12点进行关机
-19、crontab查看linux下的所有计划任务：crontab -l
-20、删除所有的计划任务：crontab -r
-21、备份数据库命令：mysqldump -u用户名 -p密码 库名 &amp;gt; 备份地址
-22、备份数据表命令：mysqldump -u用户名 -p密码 库名 表名 &amp;gt; 备份地址&lt;/EOT&gt;&lt;/p&gt;
-
-&lt;p&gt;八：Shell编程
-1、shell脚本的特点：自上而下、从左到右的分析执行、“#”作为批注、空白行将忽略掉
-2、Shell脚本的后缀名：.sh
-3、Shell脚本的第一行声明：#!/bin/bash
-4、Shell变量定义：变量名=值
-5、掌握变量的使用：$变量名
-6、shell脚本可以让用户输入的方法是：read -p
-7、shell脚本的判断：if….then
-8、shell脚本自定义函数：function 函数名(){ 函数体 }
-9、shell脚本的For…do..done的数值处理格式：
-For(( 初始值；限制值；步长 ))
-Do
-循环体
-Done&lt;/p&gt;
-
-&lt;p&gt;For(( i=1; i&amp;lt;=9; i++ ))
-Do
-Echo $i
-done
-10、追踪和调试shell脚本：
-Sh -[nvx] 脚本名称
-参数：
--n ：不要执行shell脚本，仅查询语法问题
--v ：在执行shell之前，先将shell的文件内容全部输出到屏幕上
--x ：将使用到的shell内容显示到屏幕上
-11、加减乘除：&lt;/p&gt;
-
-&lt;p&gt;a=10
-b=20
-Echo $(($a+$b))&lt;/p&gt;
-
-&lt;p&gt;据设置的数字大小来进行判断，然后输出结果
--lt  小于号
--gt  大于号
--eq  等于号
-num=8
-echo “the number is: “ $num
-if [ $num -gt 10 ];then
-   echo “the unmber is larger than 10”
-elif [ $num -eq 10 ];then
-   echo “the number is equal with 10”
-else
-   echo “the number is smaller than 10”
-Fi
-//三个数求最大值
-#!bin/bash
-read -p “请输入第一个数” a
-read -p “请输入第二个数” b
-read -p “请输入第三个数” c
-max=$a;
-if [ $max -lt $b ];then
-	max=$b;
-fi
-if [ $max -lt $c ];then
-	max=$c;
-fi
-echo “三个数的最大值是：”$max;&lt;/p&gt;
-
-&lt;p&gt;//九九乘法表
-#!bin/bash
-for(( i=1;i&amp;lt;=9;i++ ))
-do
-	for(( j=1;j&amp;lt;=i;j++ ))
-do 
-	echo $j&lt;em&gt;$i=$(( $i&lt;/em&gt;$j ));
-done
-done&lt;/p&gt;
-
-&lt;p&gt;九：Linux网络管理
-1、查看linux下ip的命令是：ifconfig
-2、临时修改linux下的ip：ifconfig  eth0   ip
-3、工具修改linux的ip：Setup
-4、修改ip后重启网络服务的命令：service network restart
-5、测试网络是否通畅的命令：ping ip号
-6、ftp安装见文档&lt;/p&gt;</content><summary type="html">一：《Linux系统简介及安装》
-1、linux的理解：linux是一个计算机操作系统
-2、Vmware的理解：vmware是一个虚拟主机软件
-3、Linux的版本：centos只是linux发行版本的一种，linux的版本有很多
-4、Linux的发展：linux是由unix发展过来的
-5、Linux下查看ip的命令：ifconfig  此命令必须是超级管理员才能使用
-6、Linux下切换用户的命令是：su
-7、Linux和windows的异同：都是操作系统，linux安全性能以及运行效率都比windows要高，windows操作系统安全性能较低
-8、Linux的ip理解：Linux的ip也可以作修改，可以在安装完成后使用命令setup来修改ip
-9、Linux安装的模式的理解：linux的安装可以选择图形界面安装也可以选择文本模式安装
-10、Linux运行级别的文件地址：/etc/inittab
-11、Linux常用的关机命令：halt、poweroff、shutdown -h now（立刻关机）、shutdown -h 10（10分钟后关机）
-12、Linux常用的重启命令：reboot、shutdown -r now（立刻重启）、shutdown -r 10（10分钟后重启）
-13、Linux下修改ip的文件：/etc/sysconfig/network-scripts/ifcfg-eth0</summary></entry><entry><title type="html">LAMP环境搭建</title><link href="http://localhost:4000/jekyll/update/2014/02/02/LAMP%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.html" rel="alternate" type="text/html" title="LAMP环境搭建" /><published>2014-02-02T08:33:29+08:00</published><updated>2014-02-02T08:33:29+08:00</updated><id>http://localhost:4000/jekyll/update/2014/02/02/LAMP%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2014/02/02/LAMP%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.html">&lt;p&gt;打开此文档阅读时把记事本的自动换行去掉，否则一条命令换行变成了两条&lt;/p&gt;
-
-&lt;p&gt;记事本的最上边有一个格式，把下面的自动换行前面的对号去掉即可   切记切结！！！！！！！！！！！！！！！！！！！！&lt;/p&gt;
-
-&lt;p&gt;############################################################安装前的准备工作###################################################################
-1、首先进行RPM命令安装GCC编译器：&lt;/p&gt;
-
-&lt;p&gt;mkdir /media/cdrom   //创建目录&lt;/p&gt;
-
-&lt;p&gt;mount /dev/cdrom /media/cdrom   //挂载光驱，如果挂在不上可以手动进行挂载，在linux运行界面的右下角第二个图片进行手动挂载&lt;/p&gt;
-
-&lt;p&gt;cd /media/cdrom/CentOS   //切换目录&lt;/p&gt;
-
-&lt;p&gt;//安装gcc包所需很多依赖包，依次进行安装&lt;/p&gt;
-
-&lt;p&gt;rpm -ivh cpp….按table键出现版本号&lt;/p&gt;
-
-&lt;p&gt;rpm -ivh kernel-head….按table键出现版本号&lt;/p&gt;
-
-&lt;p&gt;rpm -ivh glibc-head….按table键出现版本号&lt;/p&gt;
-
-&lt;p&gt;rpm -ivh glibc-devel….按table键出现版本号&lt;/p&gt;
-
-&lt;p&gt;rpm -ivh libgomp-….按table键出现版本号&lt;/p&gt;
-
-&lt;p&gt;rpm -ivh gcc-4….按table键出现版本号&lt;/p&gt;
-
-&lt;p&gt;which gcc   //测试是否安装完成&lt;/p&gt;
-
-&lt;p&gt;2、更改linux的系统时间&lt;/p&gt;
-
-&lt;p&gt;date -s&lt;/p&gt;
-
-&lt;p&gt;3、FTP服务器基本配置&lt;/p&gt;
-
-&lt;p&gt;mount /dev/cdrom /media/cdrom   //挂载光驱，如果挂在不上可以手动进行挂载，在linux运行界面的右下角第二个图片进行手动挂载&lt;/p&gt;
-
-&lt;p&gt;cd /media/cdrom/CentOS   //切换目录&lt;/p&gt;
-
-&lt;p&gt;rpm  -ivh  vsftpd按table键出现版本号&lt;/p&gt;
-
-&lt;p&gt;service  vsftpd  start&lt;/p&gt;
-
-&lt;p&gt;chkconfig  –level  35  vsftpd  on&lt;/p&gt;
-
-&lt;p&gt;vi /etc/vsftpd/vsftpd.conf   //打开文件进行配置&lt;/p&gt;
-
-&lt;p&gt;修改：anonymous_enable=NO   	是否允许匿名访问&lt;/p&gt;
-
-&lt;p&gt;修改：local_enable=YES 		是否允许本地用户登录&lt;/p&gt;
-
-&lt;p&gt;修改：write_enable=YES 		是否允许通常的写操作&lt;/p&gt;
-
-&lt;p&gt;把：anon_upload_enable=NO   #号去掉修改为NO    //是否允许匿名上传文件&lt;/p&gt;
-
-&lt;p&gt;把：anon_mkdir_write_enable=NO  #号去掉修改为NO //是否允许匿名创建目录&lt;/p&gt;
-
-&lt;p&gt;在windows下安装ftp工具，连接linux&lt;/p&gt;
-
-&lt;p&gt;3、制作yum源&lt;/p&gt;
-
-&lt;p&gt;//首先在/media目录下创建一个目录cdrom并将将光盘挂载到系统/media/cdrom下&lt;/p&gt;
-
-&lt;p&gt;mkdir /media/cdrom   //可能会报错，因为你在安装rpm包的时候已经创建过该目录，不用理会继续下一步&lt;/p&gt;
-
-&lt;p&gt;mount /dev/cdrom /media/cdrom/   //挂载光驱&lt;/p&gt;
-
-&lt;p&gt;//进入到/etc/yum.repos.d目录CentOS-Base.repo重命名。&lt;/p&gt;
-
-&lt;p&gt;cd /etc/yum.repos.d&lt;/p&gt;
-
-&lt;p&gt;mv CentOS-Base.repo CentOS-Base.repo.bak&lt;/p&gt;
-
-&lt;p&gt;vi CentOS-Media.repo&lt;/p&gt;
-
-&lt;p&gt;修改为&lt;/p&gt;
-
-&lt;p&gt;gpgcheck=0&lt;/p&gt;
-
-&lt;p&gt;enabled=1&lt;/p&gt;
-
-&lt;p&gt;//将所有的CentOS安装包链接到/media/CentOS&lt;/p&gt;
-
-&lt;p&gt;ln -s /media/cdrom/CentOS/ /media/CentOS&lt;/p&gt;
-
-&lt;p&gt;//更新依赖包(更新前先按照1.本地源制作.txt配置)   注意不要换行!!!!!!!
-yum -y install gcc gcc-c++ autoconf libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel libxml2 libxml2-devel zlib zlib-devel glibc glibc-devel glib2 glib2-devel bzip2 bzip2-devel ncurses ncurses-devel curl curl-devel e2fsprogs e2fsprogs-devel krb5 krb5-devel libidn libidn-devel openssl openssl-devel openldap openldap-devel nss_ldap openldap-clients openldap-servers patch&lt;/p&gt;
-
-&lt;p&gt;##########################################################安装前准备工作到此完成，开始安装php扩展库####################################################################################&lt;/p&gt;
-
-&lt;p&gt;安装libxml2最新库文件&lt;/p&gt;
-
-&lt;p&gt;cd /usr/local/src  //进入软件源码包所在目录 &lt;/p&gt;
-
-&lt;p&gt;tar zxvf libxml按table键出现版本号 //解包解压&lt;/p&gt;
-
-&lt;p&gt;cd libxml按table键出现版本号  //进入解包解压后的目录&lt;/p&gt;
-
-&lt;p&gt;./configure –prefix=/usr/local/libxml2 //选项–prefix=/usr/local/libxml2作用，是在安装时将软件安装到/usr/local/libxml2目录下。&lt;/p&gt;
-
-&lt;p&gt;make  //对软件源代码文件进行编译&lt;/p&gt;
-
-&lt;p&gt;make install  //开始安装libxml2库文件&lt;/p&gt;
-
-&lt;p&gt;cd /usr/local/libxml2/    /如果安装成功目录下将生成bin,include,lib,share四个目录。&lt;/p&gt;
-
-&lt;p&gt; &lt;/p&gt;
-
-&lt;p&gt;安装libmcrypt最新库文件&lt;/p&gt;
-
-&lt;p&gt;cd /usr/local/src&lt;/p&gt;
-
-&lt;p&gt;tar zxvf libmcrypt 按table键出现版本号&lt;/p&gt;
-
-&lt;p&gt;cd libmcrypt按table键&lt;/p&gt;
-
-&lt;p&gt;./configure –prefix=/usr/local/libmcrypt&lt;/p&gt;
-
-&lt;p&gt;make &amp;amp;&amp;amp; make install&lt;/p&gt;
-
-&lt;p&gt;cd /usr/local/src/libmcrypt按table键出现版本号  //进入软件源代码目录
-========加上=========&lt;/p&gt;
-
-&lt;p&gt;cd /usr/local/src/libmcrypt-2.5.8/libltdl&lt;/p&gt;
-
-&lt;p&gt;./configure –enable-ltdl-install  //配置ltdl库的安装&lt;/p&gt;
-
-&lt;p&gt;make  //编译&lt;/p&gt;
-
-&lt;p&gt;make install  //安装&lt;/p&gt;
-
-&lt;p&gt; 
-安装zlib最新库文件&lt;/p&gt;
-
-&lt;p&gt;cd /usr/local/src&lt;/p&gt;
-
-&lt;p&gt;tar zxvf zlib 按table键出现版本号&lt;/p&gt;
-
-&lt;p&gt;cd zlib  按table键&lt;/p&gt;
-
-&lt;p&gt;./configure –prefix=/usr/local/zlib&lt;/p&gt;
-
-&lt;p&gt;make &amp;amp;&amp;amp; make install&lt;/p&gt;
-
-&lt;p&gt; 
-安装libpng最新库文件&lt;/p&gt;
-
-&lt;p&gt;cd /usr/local/src&lt;/p&gt;
-
-&lt;p&gt;tar zxvf libpng 按table键出现版本号&lt;/p&gt;
-
-&lt;p&gt;cd libpng 按table键&lt;/p&gt;
-
-&lt;p&gt;./configure –prefix=/usr/local/libpng
-&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;em&gt;**&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;在./configure –prefix=/usr/local/libpng这步最后会提示：configure: error: ZLib not installed&lt;/p&gt;
-
-&lt;p&gt;原因是zlib安装到指定路径，libpng找不到&lt;/p&gt;
-
-&lt;p&gt;解决方法如下：&lt;/p&gt;
-
-&lt;p&gt;1.进入zlib的源文件目录，执行命令 make clean,清除zlib；&lt;/p&gt;
-
-&lt;p&gt;2.重新配置 ./configure,后面不要接–prefix参数（安装不指定路径，默认安装）；&lt;/p&gt;
-
-&lt;p&gt;3.make &amp;amp;&amp;amp; make install；(zlib)&lt;/p&gt;
-
-&lt;p&gt;4.进入libpng目录，执行命令 ./configure –prefix=/usr/local/libpng;&lt;/p&gt;
-
-&lt;p&gt;5.make &amp;amp;&amp;amp; make install；&lt;/p&gt;
-
-&lt;p&gt;6.安装成功.&lt;/p&gt;
-
-&lt;p&gt;如果安装成功将会在/usr/local/libpng目录下生成bin,include,lib和share四个目录。&lt;/p&gt;
-
-&lt;p&gt;在安装GD2库配置时，通过在configure命令选项中加上“–with-png=/usr/local/libpng”选项，指定libpng库文件的位置。
-&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;**&lt;/p&gt;
-
-&lt;p&gt;不报错继续执行
-make &amp;amp;&amp;amp; make install&lt;/p&gt;
-
-&lt;p&gt; 
-安装jpeg8最新库文件&lt;/p&gt;
-
-&lt;p&gt;mkdir /usr/local/jpeg8  //建立jpeg8软件安装目录&lt;/p&gt;
-
-&lt;p&gt;mkdir /usr/local/jpeg8/bin //建立存放命令的目录&lt;/p&gt;
-
-&lt;p&gt;mkdir /usr/local/jpeg8/lib  //创建jpeg8库文件所在目录&lt;/p&gt;
-
-&lt;p&gt;mkdir /usr/local/jpeg8/include //建立存放头文件目录&lt;/p&gt;
-
-&lt;p&gt;mkdir -p /usr/local/jpeg8/man/man1 //建立存放手册的目录&lt;/p&gt;
-
-&lt;p&gt;cd /usr/local/src&lt;/p&gt;
-
-&lt;p&gt;tar zxvf jpeg 按table键出现版本号&lt;/p&gt;
-
-&lt;p&gt;cd jpeg-8b&lt;/p&gt;
-
-&lt;p&gt;./configure –prefix=/usr/local/jpeg8/ –enable-shared –enable-static&lt;/p&gt;
-
-&lt;p&gt;make &amp;amp;&amp;amp; make install&lt;/p&gt;
-
-&lt;p&gt;安装freetype最新库文件&lt;/p&gt;
-
-&lt;p&gt;cd /usr/local/src/   //进入软件源码包所在目录&lt;/p&gt;
-
-&lt;p&gt;tar zxvf freetype-按tab键出现版本号  //解压包到freetype-2.4.9目录 &lt;/p&gt;
-
-&lt;p&gt;cd freetype-按tab键出现版本号 //进入目录freetype-2.4.9中&lt;/p&gt;
-
-&lt;p&gt;./configure –prefix=/usr/local/freetype //选项–prefix=/usr/local/freetype，是在安装时将软件安装到/usr/local/freetype目录下&lt;/p&gt;
-
-&lt;p&gt;make  //对软件源代码文件进行编译&lt;/p&gt;
-
-&lt;p&gt;make install //开始安装freetype库文件&lt;/p&gt;
-
-&lt;p&gt;如果安装成功将会在/usr/local/freetype目录下存在bin,include,lib和share四个目录。&lt;/p&gt;
-
-&lt;p&gt;安装autoconf最新的库文件&lt;/p&gt;
-
-&lt;p&gt;cd /usr/local/src&lt;/p&gt;
-
-&lt;p&gt;tar zxvf autoconf 按table键出现版本号&lt;/p&gt;
-
-&lt;p&gt;cd autoconf 按table键&lt;/p&gt;
-
-&lt;p&gt;./configure –prefix=&lt;/p&gt;
-
-&lt;p&gt;make &amp;amp;&amp;amp; make install&lt;/p&gt;
-
-&lt;p&gt;安装最新的GD库文件&lt;/p&gt;
-
-&lt;p&gt;cd /usr/local/src&lt;/p&gt;
-
-&lt;p&gt;tar zxvf gd 按table键出现版本号&lt;/p&gt;
-
-&lt;p&gt;cd gd 按table键&lt;/p&gt;
-
-&lt;p&gt;./configure –prefix=/usr/local/gd –with-jpeg=/usr/local/jpeg8/ –with-png=/usr/local/libpng/ –with-freetype=/usr/local/freetype/&lt;/p&gt;
-
-&lt;p&gt;make &amp;amp;&amp;amp; make install&lt;/p&gt;
-
-&lt;p&gt;//错误：检查png安装路径，安装路径中的文件都在&lt;/p&gt;
-
-&lt;p&gt;//重新配置编译libpng，–prefix不指定路径&lt;/p&gt;
-
-&lt;p&gt;//再重新安装gd2&lt;/p&gt;
-
-&lt;p&gt;如果安装成功会在/usr/local/gd/目录下存在bin、include和lib这三个目录。在安装PHP5时，通过在configure命令选项中加上“–with-gd=/usr/local/gd”选项，指定GD库文件的位置。&lt;/p&gt;
-
-&lt;p&gt;安装CURL扩展&lt;/p&gt;
-
-&lt;p&gt;cd /usr/local/src&lt;/p&gt;
-
-&lt;p&gt;tar zxvf curl 按table键出现版本号&lt;/p&gt;
-
-&lt;p&gt;cd curl 按table键&lt;/p&gt;
-
-&lt;p&gt;./configure –prefix=/usr/local/curl&lt;/p&gt;
-
-&lt;p&gt;make &amp;amp;&amp;amp; make install&lt;/p&gt;
-
-&lt;p&gt;在安装PHP5配置时，在configure命令的选项中加上“–with-zlib-dir=/usr/local/curl”选项，用于指定curl库文件位置。&lt;/p&gt;
-
-&lt;p&gt;安装libevent库&lt;/p&gt;
-
-&lt;p&gt;cd /usr/local/src&lt;/p&gt;
-
-&lt;p&gt;tar zxvf libevent按table键出现版本号&lt;/p&gt;
-
-&lt;p&gt;cd libevent按table键&lt;/p&gt;
-
-&lt;p&gt;./configure –prefix=/usr/local/libevent&lt;/p&gt;
-
-&lt;p&gt;make &amp;amp;&amp;amp; make install&lt;/p&gt;
-
-&lt;p&gt;在安装memcached配置时，在configure命令的选项中加上“–with-libevent=/usr/local/libevent”选项，用于指定memcached库文件位置。&lt;/p&gt;
-
-&lt;p&gt;##################################到此为止php所有扩展安装完成，LAPM环境搭建前的所有工作完成，马上开始mysql的安装，进入真正的lamp搭建########################&lt;/p&gt;
-
-&lt;p&gt;安装MySQL数据库系&lt;/p&gt;
-
-&lt;p&gt;1、增加用户名和用户组&lt;/p&gt;
-
-&lt;p&gt;groupadd mysql&lt;/p&gt;
-
-&lt;p&gt;useradd -g mysql mysql&lt;/p&gt;
-
-&lt;p&gt;2、进入源码包使用configure 检查并配置安装需要的系统环境，并生成安装配置文件&lt;/p&gt;
-
-&lt;p&gt;cd /usr/local/src&lt;/p&gt;
-
-&lt;p&gt;tar zxvf mysql按table键出现版本号&lt;/p&gt;
-
-&lt;p&gt;cd mysql按table键&lt;/p&gt;
-
-&lt;p&gt;./configure –prefix=/usr/local/mysql –with-charset=utf8 –with-extra-charsets=all –enable-thread-safe-client&lt;/p&gt;
-
-&lt;p&gt;3、编译&lt;/p&gt;
-
-&lt;p&gt;make &amp;amp;&amp;amp; make install&lt;/p&gt;
-
-&lt;p&gt;如果有错：提示ncurses没有安装，先安装ncurses(不需要指定路径)，再配置、编译、安装mysql&lt;/p&gt;
-
-&lt;p&gt;4、创建mysql数据库服务器的配置文件&lt;/p&gt;
-
-&lt;p&gt;可以使用源码包support-files目录中的my-medium.cnf文件作为模板，将其复制到/etc/目录下，命名为my.cnf文件即可。&lt;/p&gt;
-
-&lt;p&gt;cp support-files/my-medium.cnf /etc/my.cnf&lt;/p&gt;
-
-&lt;p&gt;必须创建MySQL授权表。进入到安装目录/usr/local/mysql下，执行bin目录下的mysql_install_db脚本，用来初始化MySQL数据库的授权表，其中存储了服务器访问允许。&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;p&gt;cd /usr/local/mysql&lt;/p&gt;
-
-&lt;p&gt;bin/mysql_install_db –user=mysql  //创建授权表&lt;/p&gt;
-
-&lt;p&gt;如果使用root用户运行上面的命令，应当使用–user选项，选项的值应当与你在第一步为运行服务器所创建的登录账户(mysql用户)相同。如果用mysql用户登录来运行上面的命令，可以省略–user选项。&lt;/p&gt;
-
-&lt;p&gt;5、用mysql_install_db创建mysql授权表后，需要手动重新启动服务器。&lt;/p&gt;
-
-&lt;p&gt;/usr/local/mysql/bin/mysqld_safe –user=mysql &amp;amp;&lt;/p&gt;
-
-&lt;p&gt;6、将程序二进制的所有权改为root用户，数据目录的所有权改为运行mysqld程序的mysql用户。如果现在位于安装目录(/usr/local/mysql)下，命令行如下：&lt;/p&gt;
-
-&lt;p&gt;chgrp -R mysql .  //将组属性改为mysql组
- 
-7、在所需要的东西安装完成后，应当使用下面的命令启动MySQL服务了，命令行如下：&lt;/p&gt;
-
-&lt;p&gt;/usr/local/mysql/bin/mysqld_safe –user=mysql &amp;amp;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;8、MySQL数据库服务器启动之后，查看一下它的端口3306是否打开，如果看到以下结果表明mysql服务启动成功。命令行如下&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;netstat -tnl&lt;/td&gt;
-      &lt;td&gt;grep 3306  （通过查看端口确定安装ok）显示下面的内容：&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;tcp   0    0 0.0.0.0:3306   0.0.0.0:*    LISTEN	./mysql&lt;/p&gt;
-
-&lt;p&gt;9、可以用几种方法为root账户指定密码，我们选择用其中的一种。&lt;/p&gt;
-
-&lt;p&gt;在mysql客户端命令行上使用set password指定密码，一定要使用password()函数来加密密码。例如下面设置localhost域的密码为root。其他域可以使用同样的语句，使用的SQL语句如下。&lt;/p&gt;
-
-&lt;p&gt;cd /usr/local/mysql/bin&lt;/p&gt;
-
-&lt;p&gt;./mysql -u root -p  //登陆进入mysql，因为刚刚安好的mysql管理员没有密码  所以-p后面不写参数&lt;/p&gt;
-
-&lt;p&gt;mysql&amp;gt; set password for ‘root’@’localhost’=password(‘root’);&lt;/p&gt;
-
-&lt;p&gt;Query OK, 0 rows affected (0.03 sec)&lt;/p&gt;
-
-&lt;p&gt;10、如果想退出mysql客户端，可以在mysql客户端提示符下输入命令exit或者quit，还可以按键盘ctrl+c组合键，都可以从mysql客户端退出。&lt;/p&gt;
-
-&lt;p&gt;因为已经给mysql服务器的root账号设置了密码，所以再次登录mysql客户端就要提供密码才能进入。&lt;/p&gt;
-
-&lt;p&gt;退出mysql客户端和重新启动mysql客户端的控制台命令如下。&lt;/p&gt;
-
-&lt;p&gt;mysql&amp;gt; exit
-Bye
-[root@localhost mysql]# bin/mysql -u root -h localhost –proot&lt;/p&gt;
-
-&lt;p&gt;11、如果想关闭mysql服务器，在命令行使用mysql服务器的mysqladmin命令，通过-u参数给出mysql数据库管理员用户名root和通过-p参数给出密码，即可关闭mysql服务器。如下示：&lt;/p&gt;
-
-&lt;p&gt;bin/mysqladmin -u root -p shutdown&lt;/p&gt;
-
-&lt;p&gt;11、设置mysql开机自动运行&lt;/p&gt;
-
-&lt;p&gt;mysql服务器和apache服务器一样也有必要设置为开机自动运行，设置方法进入到mysql源代码目录/usr/local/src/mysql-5.0.96,&lt;/p&gt;
-
-&lt;p&gt;将子目录support-files下的mysql.server文件复制到/etc/rc.d/init.d目录中，并重命名为mysqld,命令行如下。&lt;/p&gt;
-
-&lt;p&gt;cd /usr/local/src/mysql-5.0.96&lt;/p&gt;
-
-&lt;p&gt;cp support-files/mysql.server /etc/rc.d/init.d/mysqld&lt;/p&gt;
-
-&lt;p&gt;chown root.root /etc/rc.d/init.d/mysqld &lt;/p&gt;
-
-&lt;p&gt;chmod 755 /etc/rc.d/init.d/mysqld &lt;/p&gt;
-
-&lt;p&gt;把mysqld添加到chkconfig中&lt;/p&gt;
-
-&lt;p&gt;chkconfig –add mysqld&lt;/p&gt;
-
-&lt;p&gt;在图形和字符集界面下自动启动mysqld&lt;/p&gt;
-
-&lt;p&gt;chkconfig –level 3 mysqld on&lt;/p&gt;
-
-&lt;p&gt;chkconfig –level 5 mysqld on&lt;/p&gt;
-
-&lt;p&gt;再使用chkconfig –list命令检查设置&lt;/p&gt;
-
-&lt;p&gt;chkconfig –list mysqld&lt;/p&gt;
-
-&lt;p&gt;界面显示：
-mysqld   0:off   1:off   2:on    3:on    4:off    5:on    6:off&lt;/p&gt;
-
-&lt;p&gt;############################################################################到此为止，mysql安装完成，接下来进行apache安装###################################################&lt;/p&gt;
-
-&lt;p&gt;安装新版本的apache服务器&lt;/p&gt;
-
-&lt;p&gt;1、卸载apr、apr-util&lt;/p&gt;
-
-&lt;p&gt;yum remove apr apr-util&lt;/p&gt;
-
-&lt;p&gt;下载安装：http://apr.apache.org/download.cgi&lt;/p&gt;
-
-&lt;p&gt;cd /usr/local/src&lt;/p&gt;
-
-&lt;p&gt;tar zxvf apr-1.4.6.tar.gz&lt;/p&gt;
-
-&lt;p&gt;cd apr-1.4.6&lt;/p&gt;
-
-&lt;p&gt;./configure –prefix=/usr/local/apr-httpd/ &amp;amp;&amp;amp; make &amp;amp;&amp;amp; make install &lt;/p&gt;
-
-&lt;p&gt;下载安装：http://apr.apache.org/download.cgi&lt;/p&gt;
-
-&lt;p&gt;cd /usr/local/src&lt;/p&gt;
-
-&lt;p&gt;tar zxvf apr-util-1.4.1.tar.gz&lt;/p&gt;
-
-&lt;p&gt;cd apr-util-1.4.1&lt;/p&gt;
-
-&lt;p&gt;./configure –prefix=/usr/local/apr-util-httpd/ –with-apr=/usr/local/apr-httpd/ &amp;amp;&amp;amp; make &amp;amp;&amp;amp; make install&lt;/p&gt;
-
-&lt;p&gt;下载安装：http://sourceforge.net/projects/pcre&lt;/p&gt;
-
-&lt;p&gt;cd /usr/local/src&lt;/p&gt;
-
-&lt;p&gt;unzip -o pcre-8.10.zip&lt;/p&gt;
-
-&lt;p&gt;cd pcre-8.10&lt;/p&gt;
-
-&lt;p&gt;./configure –prefix=/usr/local/pcre&lt;/p&gt;
-
-&lt;p&gt;make&lt;/p&gt;
-
-&lt;p&gt;make install&lt;/p&gt;
-
-&lt;p&gt;//安装apache2.2时配置报错&lt;/p&gt;
-
-&lt;p&gt;cd /usr/local/src&lt;/p&gt;
-
-&lt;p&gt;tar zxvf httpd-2.2按table&lt;/p&gt;
-
-&lt;p&gt;cd httpd-2.2按table&lt;/p&gt;
-
-&lt;p&gt;./configure&lt;/p&gt;
-
-&lt;p&gt;注意：./configure 的时候如果报错，报错如下&lt;/p&gt;
-
-&lt;p&gt;checking for void pointer length… yes configure: error: Size of “void *” is less than size of “long”&lt;/p&gt;
-
-&lt;p&gt;解决方法vi configure&lt;/p&gt;
-
-&lt;p&gt;if test “$ap_cv_void_ptr_lt_long” = “yes”; then&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;as_fn_error $? &quot;Size of \&quot;void *\&quot; is less than size of \&quot;long\&quot;&quot;&quot;$LINENO&quot; 5
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;改为if test “$ap_cv_void_ptr_lt_long” != “yes”; then&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;as_fn_error $? &quot;Size of \&quot;void *\&quot; is less than size of \&quot;long\&quot;&quot;&quot;$LINENO&quot; 5
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;保存重新编译&lt;/p&gt;
-
-&lt;p&gt;./configure –prefix=/usr/local/apache2.2/ –with-apr=/usr/local/apr-httpd/ –with-apr-util=/usr/local/apr-util-httpd/ –with-pcre=/usr/local/pcre/&lt;/p&gt;
-
-&lt;p&gt;[root@localhost httpd-2.4.2]# ./configure \&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;–prefix=/usr/local/apache2.4 \
-–with-apr=/usr/local/apr-httpd/ 
-–with-apr-util=/usr/local/apr-util-httpd/ 
-–with-pcre=/usr/local/pcre/&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;make &amp;amp;&amp;amp; make install&lt;/p&gt;
-
-&lt;p&gt;安装完成后，进入/usr/local/apache2/目录下，检查是否有以下文件：&lt;/p&gt;
-
-&lt;p&gt;bin  build  cgi-bin  error  htdocs  icons  include  logs  man  manual  modules&lt;/p&gt;
-
-&lt;p&gt;启动Apache服务器，并查端口是否开启，启动Apache服务器的命令行如下：&lt;/p&gt;
-
-&lt;p&gt;#/usr/local/apache2/bin/apachectl start&lt;/p&gt;
-
-&lt;p&gt;查看端口命令行如下：&lt;/p&gt;
-
-&lt;p&gt;#netstat -tnl|grep 80
-tcp        0      0 0.0.0.0:80            0.0.0.0:*                   LIST&lt;/p&gt;
-
-&lt;p&gt;测试安装结果，打开浏览器，在地址栏中输入URL为：http://172.19.203.10&lt;/p&gt;
-
-&lt;p&gt;如果浏览器中出现It works!则表明Apache服务器可以使用。&lt;/p&gt;
-
-&lt;p&gt;每种服务器软件都有必要制成开机时自动启动，Apache服务器开机自动启动，只要在“/etc/rc.d/rc.local”文件，加上Apache服务器的启动命令即可。可以直接打开“/etc/rc.d/rc.local”文件，在最后一行写入Apache启动命令，也可以用echo命令追加进去，如下命令行示：&lt;/p&gt;
-
-&lt;p&gt;[root@localhost apache242]# echo “/usr/local/apache2.2/bin/apachectl start”» /etc/rc.d/rc.local&lt;/p&gt;
-
-&lt;p&gt;注意：&lt;/p&gt;
-
-&lt;p&gt;由于安装的过程中没有指定apache配置文件的路径，默认配置文件httpd.conf在/etc/httpd/conf/目录中&lt;/p&gt;
-
-&lt;p&gt;刚安装完成apache后无法使用service httpd restart、stop、start&lt;/p&gt;
-
-&lt;p&gt;需要这样：&lt;/p&gt;
-
-&lt;p&gt;cp /usr/local/apache2/bin/apachectl /etc/rc.d/init.d/httpd&lt;/p&gt;
-
-&lt;p&gt;编辑/etc/rc.d/init.d/httpd,在文件最前面插入下面的行，使其支持chkconfig命令：&lt;/p&gt;
-
-&lt;p&gt;vi /etc/rc.d/init.d/httpd&lt;/p&gt;
-
-&lt;p&gt;# chkconfig: 2345 85 15
-   # description: Apache is a World Wide Web server.&lt;/p&gt;
-
-&lt;p&gt;ln -s /etc/rc.d/init.d/httpd /etc/rc.d/rc5.d/S85httpd      //建立链接(85的意义后面介绍)&lt;/p&gt;
-
-&lt;p&gt;chkconfig –add httpd&lt;/p&gt;
-
-&lt;p&gt;检查apache服务是否生效：&lt;/p&gt;
-
-&lt;p&gt;chkconfig –list httpd&lt;/p&gt;
-
-&lt;p&gt;此时Apache就可以自动启动了。&lt;/p&gt;
-
-&lt;p&gt;开启apache：service httpd start
-关闭apache：service httpd stop
-重启apache：service httpd restart&lt;/p&gt;
-
-&lt;p&gt;完美安装完成！！！！！！！！！！！！！&lt;/p&gt;
-
-&lt;p&gt;安装PHP5.4  进入php-5.4.15源码包编译&lt;/p&gt;
-
-&lt;p&gt;cd /usr/local/src&lt;/p&gt;
-
-&lt;p&gt;tar zxvf php-5 按table&lt;/p&gt;
-
-&lt;p&gt;cd php-5.4 按table&lt;/p&gt;
-
-&lt;p&gt;[root@localhost php-5.4.15]# ./configure \
-–prefix=/usr/local/php5.4 \
-–with-config-file-path=/usr/local/php5.4/etc \
-–with-apxs2=/usr/local/apache2/bin/apxs \
-–with-mysql=/usr/local/mysql/ \
-–with-libxml-dir=/usr/local/libxm12/ \
-–with-png-dir=/usr/local/libpng/ \
-–with-jpeg-dir=/usr/local/jpeg8/ \
-–with-freetype-dir=/usr/local/freetype/ \
-–with-gd=/usr/local/gd/ \
-–with-zlib-dir=/usr/local/zlib/ \
-–with-mcrypt=/usr/local/libmcrypt/ \
-–with-mysqli=/usr/local/mysql/bin/mysql_config \
-–with-curl=/usr/local/curl \
-–enable-soap \
-–enable-mbstring=all \
-–enable-sockets&lt;/p&gt;
-
-&lt;p&gt;make&lt;/p&gt;
-
-&lt;p&gt;make install&lt;/p&gt;
-
-&lt;p&gt;报出错误：make: *** [ext/gd/gd.lo] 错误 1&lt;/p&gt;
-
-&lt;p&gt;解决方法：&lt;/p&gt;
-
-&lt;p&gt;vi /usr/local/gd/include/gd_io.h //编辑GD库文件&lt;/p&gt;
-
-&lt;p&gt;gdIOCtx结构中增加	void （*data）;&lt;/p&gt;
-
-&lt;p&gt;格式如下：&lt;/p&gt;
-
-&lt;p&gt;typedef struct gdIOCtx
-{
-  int (&lt;em&gt;getC) (struct gdIOCtx *);
-  int (&lt;/em&gt;getBuf) (struct gdIOCtx &lt;em&gt;, void *, int);
- 
-  void (&lt;/em&gt;putC) (struct gdIOCtx &lt;em&gt;, int);
-  int (&lt;/em&gt;putBuf) (struct gdIOCtx &lt;em&gt;, const void *, int);
- 
-  /&lt;/em&gt; seek must return 1 on SUCCESS, 0 on FAILURE. Unlike fseek! &lt;em&gt;/
-  int (&lt;/em&gt;seek) (struct gdIOCtx &lt;em&gt;, const int);
- 
-  long (&lt;/em&gt;tell) (struct gdIOCtx &lt;em&gt;);
- 
-  void (&lt;/em&gt;gd_free) (struct gdIOCtx &lt;em&gt;);
-  void (&lt;/em&gt;data);
-}
-gdIOCtx;&lt;/p&gt;
-
-&lt;p&gt;安装完成后，需要建立PHP配置文件。&lt;/p&gt;
-
-&lt;p&gt;在使用configure命令安装配置时使用“–with-config-file-path=/usr/local/php5.4/etc/”选项，指定了配置文件的位置。&lt;/p&gt;
-
-&lt;p&gt;将源码包下面的php.ini-development文件复制到/usr/local/php5.4/etc/中，并改名为php.ini作为PHP的配置文件，如下示:&lt;/p&gt;
-
-&lt;p&gt;[root@localhost php-5.4.15]# cp php.ini-development /usr/local/php5.4/etc/php.ini&lt;/p&gt;
-
-&lt;p&gt; 
-整合Apache与PHP，上面编译之前，我们使用configure命令安装配置时，&lt;/p&gt;
-
-&lt;p&gt;使用–with-apxs2=/usr/local/apache2.4/bin/apxs选项以使Apache 2.4将PHP作为功能模块使用。&lt;/p&gt;
-
-&lt;p&gt;但我们还要修改Apahce配置文件，添加PHP的支持，告诉Apache将哪些后缀作为PHP解析。&lt;/p&gt;
-
-&lt;p&gt;例如，让Apache把.php或.phtml后缀名解析为PHP.&lt;/p&gt;
-
-&lt;p&gt;使用vi打开Apache的配置文件/etc/httpd/conf/httpd.conf，若果找不到的话，就使用这个路径：&lt;/p&gt;
-
-&lt;p&gt;cd /usr/local/apache2/conf&lt;/p&gt;
-
-&lt;p&gt;再用 vi httpd.conf就可以了&lt;/p&gt;
-
-&lt;p&gt;找到AddType application/x-gzip .gz .tgz指令选项，并在其下方添加一条指令&lt;/p&gt;
-
-&lt;p&gt;AddType application/x-httpd-php .php .phtml&lt;/p&gt;
-
-&lt;p&gt;也可以将任何后缀的文件解析为PHP，只要在添加的语句中加入并用空格分开，这里以多添加一个.phtml来示例
-如下示:&lt;/p&gt;
-&lt;h1 id=&quot;if-the-addencoding-directives-above-are-commented-out-then-you&quot;&gt;If the AddEncoding directives above are commented-out, then you&lt;/h1&gt;
-&lt;h1 id=&quot;probably-should-define-those-extensions-to-indicate-media-types&quot;&gt;probably should define those extensions to indicate media types:&lt;/h1&gt;
-&lt;p&gt;#
-AddType application/x-compress .Z
-AddType application/x-gzip .gz .tgz
-AddType application/x-httpd-php .php .phtml&lt;/p&gt;
-
-&lt;p&gt;修改完成后必须重启Apache服务器，才能重新加载配置文件使修改生效。
-[root@localhost php-5.4.15]#/usr/local/apache2/bin/apachectl stop
-[root@localhost php-5.4.15]#/usr/local/apache2/bin/apachectl start&lt;/p&gt;
-
-&lt;p&gt;如果apachectl重启不成功，关闭SELinux&lt;/p&gt;
-
-&lt;p&gt;如果出现错误：httpd: Syntax error on line 54 of /usr/local/apache2.2/conf/httpd.conf: Cannot load /usr/local/apache2.2/modules/libphp5.so into server: libltdl.so.3: cannot open shared object file: No such file or directory
-解决方案：
-[root@localhost bin]#echo “/usr/local/lib”»/etc/ld.so.conf
-[root@localhost bin]#ldconfig&lt;/p&gt;
-
-&lt;p&gt;重新启动Apache
-[root@localhost php-5.4.15]#/usr/local/apache2.4/bin/apachectl stop
-[root@localhost php-5.4.15]#/usr/local/apache2.4/bin/apachectl start&lt;/p&gt;
-
-&lt;p&gt;测试PHP环境是否可以正常运行，在/usr/local/apache2.4/htdocs目录下建一个test.php或test.phtml的文件，内容如下示:
-&lt;?php
-phpinfo();
-?&gt;
-打开浏览器，在地址栏输入http://172.19.203.10/test.php来运行该文件，如果出现下图内容，说明LAMP环境安装成功。&lt;/p&gt;
-
-&lt;p&gt;———————————————————————————————————————————————————————&lt;/p&gt;
-
-&lt;p&gt;如果apache报错：
-httpd: Could not reliably determine the server’s fully qualified domain name, using 127.0.0.1 for ServerName&lt;/p&gt;
-
-&lt;p&gt;解决办法非常简单：&lt;/p&gt;
-
-&lt;p&gt;#vim /web/apache/conf/httpd.conf (在这里/web/apahce是我安装apache的目录，你默认安装的话应该是/usr/local/apache2/icons)&lt;/p&gt;
-
-&lt;p&gt;找到#ServerName www.example.com:80   把#去掉，再重启apache即可没事了。
-——————————————————————————————————————————————————————&lt;/p&gt;
-
-&lt;p&gt;到此为止，不要再装了！下面是memcache服务器，需要的话再装！&lt;/p&gt;
-
-&lt;p&gt;安装memcache服务器
-安装方法大致与freetype相同。唯一注意的地方是configure时的路径
-./configure \
-–prefix=/usr/local/memcached
-–with-libevent=/usr/local/libevent(memcache需要libevent库)&lt;/p&gt;
-
-&lt;p&gt;出错：configure: error: libevent is required.
-解决办法：libevent库，不指定路径（不设置–prefix）再配置、编译、安装一次，注意make clean&lt;/p&gt;
-
-&lt;p&gt;安装后启动memcache：
-/usr/local/memcached/bin/memcached –d start&lt;/p&gt;
-
-&lt;p&gt;报错：./memcached: error while loading shared libraries: libevent-2.0.so.5: cannot open shared object file: No such file or directory表示memcached 找不到libevent 的位置&lt;/p&gt;
-
-&lt;p&gt;所以，请先使用whereis libevent 得到位置，然后连接到memcached 所寻找的路径
-首先查看，libevent 在哪里&lt;/p&gt;
-&lt;h1 id=&quot;whereis-libevent&quot;&gt;whereis libevent&lt;/h1&gt;
-&lt;p&gt;libevent: /usr/local/lib/libevent.la /usr/local/lib/libevent.so /usr/local/lib/libevent.a
-然后，再看memcached 从哪里找它，查找的命令如下：&lt;/p&gt;
-&lt;h1 id=&quot;lddebuglibs-memcached--v-21--devnull--less&quot;&gt;LD_DEBUG=libs memcached -v 2&amp;gt;&amp;amp;1 &amp;gt; /dev/null | less&lt;/h1&gt;
-
-&lt;p&gt;可以看到：是trying file=/usr/lib/libevent-2.0.so.5，所以，创建软链
-[root@localhost tools]# ln -s /usr/local/libevent/lib/libevent-2.0.so.5 /usr/lib/libevent-2.0.so.5
-再次启动:
-#./memcached -d start -u root //以root用户启动&lt;/p&gt;
-
-&lt;p&gt;安装php的memcache扩展&lt;/p&gt;
-
-&lt;p&gt;从源码安装&lt;/p&gt;
-&lt;h1 id=&quot;tar-zxf-memcache-308tgz&quot;&gt;tar zxf memcache-3.0.8.tgz&lt;/h1&gt;
-&lt;h1 id=&quot;cd-memcache-308&quot;&gt;cd memcache-3.0.8&lt;/h1&gt;
-&lt;h1 id=&quot;usrlocalserversphp5binphpize&quot;&gt;/usr/local/servers/php5/bin/phpize&lt;/h1&gt;
-&lt;p&gt;#./configure –enable-memcache
-–with-php-config=/usr/local/php5.4/bin/php-config（3.0.8版本没错,2.2.5版本有错）&lt;/p&gt;
-&lt;h1 id=&quot;make--make-install&quot;&gt;make &amp;amp;&amp;amp; make install&lt;/h1&gt;
-
-&lt;p&gt;安装完后会有类似这样的提示：
-Installing shared extensions: 
-/usr/local/php5.4/lib/php/extensions/no-debug-zts-20100525/&lt;/p&gt;
-
-&lt;p&gt;把这个记住，然后修改php.ini，把
-extension_dir = “./”
-修改为
-extension_dir = “/usr/local/php5.4/lib/php/extensions/no-debug-zts-20100525”
-并添加一行
-extension=”memcache.so”&lt;/p&gt;
-
-&lt;p&gt;安装PDO_MYSQL扩展
-解压源码  tar -xzvf  PDO_MYSQL-1.0.2.tgz
-PDO_MYSQL源码下载地址：http://pecl.php.net/package/PDO_MYSQL
-执行以下操作 :
-#cd /usr/local/src/PDO_MYSQL-1.0.2(进入源码包)
-#/usr/local/php5.4/bin/phpize (/usr/local/php/是php的安装目录,生成配置命令)
-#./configure&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;–with-php-config=/usr/local/php5.4/bin/php-config 
-–with-pdo-mysql=/usr/local/mysql	(/usr/local/mysql为mysql的安装目录)
-再执行以下命令
-make
-出现以下错误，错误提示如下：
-In file included from /root/PDO_MYSQL-1.0.2/pdo_mysql.c:31:
-/root/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:25:19: error: mysql.h: No such file or directory
-In file included from /root/PDO_MYSQL-1.0.2/pdo_mysql.c:31:
-/root/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:36: error: expected specifier-qualifier-list before ‘MYSQL’
-/root/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:48: error: expected specifier-qualifier-list before ‘MYSQL_FIELD’
-/root/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:53: error: expected specifier-qualifier-list before ‘MYSQL_RES’
-make: &lt;em&gt;** [pdo_mysql.lo] Error 1
-解决办法:
-这是因为在编译时需要mysql的头文件，而默认搜索路径找不到头文件的位置，所以才出现这个问题，所以要将 /usr/local/mysql/include/mysql/ 目录下的mysql头文件链接到 /usr/local/include/ 的目录下：
-#ln -s /usr/local/mysql/include/mysql/&lt;/em&gt; /usr/local/include/
-#make install
-执行完后会提示以下，说明成功：
-Installing shared extensions:     /usr/local/php/lib/php/extensions/no-debug-non-zts-20100525/
-最后在php.ini添加以下一句：
-extension=pdo_mysql.so
-重启apache，安装成功&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;phpMyAdmin的安装
-1、进入软件源码所在的目录/usr/local/src/中，并解压软件包phpMyAdmin-3.5.1-all-languages.tar.gz到当前目录phpMyAdmin-3.5.1-all-languages下。
-2、把解压的目录phpMyAdmin-3.5.1-all-languages下的文件，全部复制到Apache的/usr/local/apache2.4/htdocs下，并新建一个名为phpmyadmin的目录下面，即安装完成。
-[root@localhost src]# cp -R phpMyAdmin-3.5.1-all-language /usr/local/apache2.4/htdocs/phpmyadmin
-3、在使用phpmyadmin之前，也需要先配置一下。配置的方法是通过对phpmyadmin顶层目录下的config.inc.php文件中的几个选项做一些设置即可。默认不存在config.inc.php文件，我们需要手工创建一个，也可以复制config.sample.inc.php模板得到最低限度的配置文件。
-[root@localhost src]# cd /usr/local/apache2.4/htdocs/phpmyadmin/
-[root@localhost phpmyadmin]# cp config.sample.inc.php config.inc.php
- 
-phpMyAdmin的配置
-    我们通过身份验证模式的要求，可以有两种配置方案，一种是http和cookie身份验证模式。在这两种模式下，用户必须先在一个登录窗口里输入MySQL数据库的有效用户名和密码，才能使用phpMyAdmin程序。这种做法有两个明显的好处；首先，因为MySQL数据库的密码没有出现在config.inc.php文件里，所以身份验证过程更加安全；其次，允许以不同的用户身份登录对自己的数据库进行管理。这两种身份验证模式尤其适合数据库中多个用户账号的情况。
-第二种方案是，config身份验证模式。这种情况下，密码以明文形式保存在config.inc.php文件里。只需要把MySQL用户名和密码直接写入到config.inc.php文件即可。这样，在登录phpMyAdmin时就不会提示输入用户名和密码了，而只直接用config.inc.php文件里写入的用户登录 。如果只是在一个本地测试系统上使用phpMyAdmin,可以使用这种模式。&lt;/p&gt;
-
-&lt;p&gt;1、http身份验证模式
-如果想让phpMyAdmin使用HTTP身份验证模式，首先需要在config.inc.php文件做如下修改：&lt;/p&gt;
-
-&lt;p&gt;当完成设置之后，我们启动phpMyAdmin时，屏幕上将弹出一个WEB浏览器对话框，需要在这个对话框里输入MySQL用户名和密码，才能进入phpMyAdmin操作界面。如下图示，在windows客户端用IE浏览器，访问WEB服务器的phpMyAdmin目录下的index.php文件，即可启动phpMyAdmin.
- &lt;/p&gt;
-
-&lt;p&gt;2、cookie身份验证模式
-    cookie身份验证模式是HTTP身份验证模式的补充，不能使用HTTP身份验证模式的场合都可以使用它。cookie身份验证模式要求用户必须允许来自phpMyAdmin的cookie进入自己的计算机。即用户需要在浏览器中开启客户端的cookie功能。
-   如果想让phpMyAdmin使用cookie身份验证模式，除了必须修改config.inc.php文件里的auth_type语句外，还必须向blowfish_secret参数提供一个字符串。这个字符串可以是任意的，目的是在把登录时使用的用户和密码存储在客户端电脑上的cookie之前，系统将会使用这个字符串对它们进行加密码。在config.inc.php中修改的内容如下图示：
- :wq&lt;/p&gt;
-
-&lt;p&gt;和上面启动phpMyAdmin的方式一样，我们在windows客户端使用IE浏览器，访问web服务器上的phpMyAdmin目录下的index.php文件，需要提供MySQL的用户名和密码才能登录，如下图示：
- &lt;/p&gt;
-
-&lt;p&gt;3、config身份验证模式
-如果想让phpMyAdmin使用config身份验证模式，首先需要在config.inc.php文件里做出如下所示的修改。把MySQL数据库的用户名和密码以明文的方式写入，具体修改内容如下图示:
- &lt;/p&gt;
-
-&lt;p&gt;和上面启动phpMyAdmin的方式一样，我们在windows客户端使用IE浏览器，访问WEB服务器上的phpMyAdmin目录下的index.php文件。但不用提供MySQL的用户名和密码就可以登录，它是使用config.inc.php中以明文方式写入的用户名和密码登录的。这里不在截图。
-到这里LAMP就安装完成了！&lt;/p&gt;</content><summary type="html">打开此文档阅读时把记事本的自动换行去掉，否则一条命令换行变成了两条</summary></entry></feed>
+&lt;/div&gt;</content><summary type="html">jquery教程 : http://www.w3school.com.cn/jquery/</summary></entry></feed>
