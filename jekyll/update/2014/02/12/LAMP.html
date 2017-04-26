@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>LAMP环境搭建</title>
+  <meta name="description" content="打开此文档阅读时把记事本的自动换行去掉，否则一条命令换行变成了两条">
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="http://localhost:4000/jekyll/update/2014/02/12/LAMP.html">
+  <link rel="alternate" type="application/rss+xml" title="Your awesome title" href="/feed.xml">
+  
+  
+</head>
+
+
+  <body>
+
+    <header class="site-header" role="banner">
+
+  <div class="wrapper">
+    
+    
+    <a class="site-title" href="/">Your awesome title</a>
+  
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          
+            
+            
+            <a class="page-link" href="/about/">About</a>
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+        </div>
+      </nav>
+    
+  </div>
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">LAMP环境搭建</h1>
+    <p class="post-meta">
+      <time datetime="2014-02-12T08:33:29+08:00" itemprop="datePublished">
+        
+        Feb 12, 2014
+      </time>
+      </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>打开此文档阅读时把记事本的自动换行去掉，否则一条命令换行变成了两条</p>
+
+<p>记事本的最上边有一个格式，把下面的自动换行前面的对号去掉即可   切记切结！！！！！！！！！！！！！！！！！！！！</p>
+
+<p>############################################################安装前的准备工作###################################################################
+1、首先进行RPM命令安装GCC编译器：</p>
+
+<p>mkdir /media/cdrom   //创建目录</p>
+
+<p>mount /dev/cdrom /media/cdrom   //挂载光驱，如果挂在不上可以手动进行挂载，在linux运行界面的右下角第二个图片进行手动挂载</p>
+
+<p>cd /media/cdrom/CentOS   //切换目录</p>
+
+<p>//安装gcc包所需很多依赖包，依次进行安装</p>
+
+<p>rpm -ivh cpp….按table键出现版本号</p>
+
+<p>rpm -ivh kernel-head….按table键出现版本号</p>
+
+<p>rpm -ivh glibc-head….按table键出现版本号</p>
+
+<p>rpm -ivh glibc-devel….按table键出现版本号</p>
+
+<p>rpm -ivh libgomp-….按table键出现版本号</p>
+
+<p>rpm -ivh gcc-4….按table键出现版本号</p>
+
+<p>which gcc   //测试是否安装完成</p>
+
+<p>2、更改linux的系统时间</p>
+
+<p>date -s</p>
+
+<p>3、FTP服务器基本配置</p>
+
+<p>mount /dev/cdrom /media/cdrom   //挂载光驱，如果挂在不上可以手动进行挂载，在linux运行界面的右下角第二个图片进行手动挂载</p>
+
+<p>cd /media/cdrom/CentOS   //切换目录</p>
+
+<p>rpm  -ivh  vsftpd按table键出现版本号</p>
+
+<p>service  vsftpd  start</p>
+
+<p>chkconfig  –level  35  vsftpd  on</p>
+
+<p>vi /etc/vsftpd/vsftpd.conf   //打开文件进行配置</p>
+
+<p>修改：anonymous_enable=NO   	是否允许匿名访问</p>
+
+<p>修改：local_enable=YES 		是否允许本地用户登录</p>
+
+<p>修改：write_enable=YES 		是否允许通常的写操作</p>
+
+<p>把：anon_upload_enable=NO   #号去掉修改为NO    //是否允许匿名上传文件</p>
+
+<p>把：anon_mkdir_write_enable=NO  #号去掉修改为NO //是否允许匿名创建目录</p>
+
+<p>在windows下安装ftp工具，连接linux</p>
+
+<p>3、制作yum源</p>
+
+<p>//首先在/media目录下创建一个目录cdrom并将将光盘挂载到系统/media/cdrom下</p>
+
+<p>mkdir /media/cdrom   //可能会报错，因为你在安装rpm包的时候已经创建过该目录，不用理会继续下一步</p>
+
+<p>mount /dev/cdrom /media/cdrom/   //挂载光驱</p>
+
+<p>//进入到/etc/yum.repos.d目录CentOS-Base.repo重命名。</p>
+
+<p>cd /etc/yum.repos.d</p>
+
+<p>mv CentOS-Base.repo CentOS-Base.repo.bak</p>
+
+<p>vi CentOS-Media.repo</p>
+
+<p>修改为</p>
+
+<p>gpgcheck=0</p>
+
+<p>enabled=1</p>
+
+<p>//将所有的CentOS安装包链接到/media/CentOS</p>
+
+<p>ln -s /media/cdrom/CentOS/ /media/CentOS</p>
+
+<p>//更新依赖包(更新前先按照1.本地源制作.txt配置)   注意不要换行!!!!!!!
+yum -y install gcc gcc-c++ autoconf libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel libxml2 libxml2-devel zlib zlib-devel glibc glibc-devel glib2 glib2-devel bzip2 bzip2-devel ncurses ncurses-devel curl curl-devel e2fsprogs e2fsprogs-devel krb5 krb5-devel libidn libidn-devel openssl openssl-devel openldap openldap-devel nss_ldap openldap-clients openldap-servers patch</p>
+
+<p>##########################################################安装前准备工作到此完成，开始安装php扩展库####################################################################################</p>
+
+<p>安装libxml2最新库文件</p>
+
+<p>cd /usr/local/src  //进入软件源码包所在目录 </p>
+
+<p>tar zxvf libxml按table键出现版本号 //解包解压</p>
+
+<p>cd libxml按table键出现版本号  //进入解包解压后的目录</p>
+
+<p>./configure –prefix=/usr/local/libxml2 //选项–prefix=/usr/local/libxml2作用，是在安装时将软件安装到/usr/local/libxml2目录下。</p>
+
+<p>make  //对软件源代码文件进行编译</p>
+
+<p>make install  //开始安装libxml2库文件</p>
+
+<p>cd /usr/local/libxml2/    /如果安装成功目录下将生成bin,include,lib,share四个目录。</p>
+
+<p> </p>
+
+<p>安装libmcrypt最新库文件</p>
+
+<p>cd /usr/local/src</p>
+
+<p>tar zxvf libmcrypt 按table键出现版本号</p>
+
+<p>cd libmcrypt按table键</p>
+
+<p>./configure –prefix=/usr/local/libmcrypt</p>
+
+<p>make &amp;&amp; make install</p>
+
+<p>cd /usr/local/src/libmcrypt按table键出现版本号  //进入软件源代码目录
+========加上=========</p>
+
+<p>cd /usr/local/src/libmcrypt-2.5.8/libltdl</p>
+
+<p>./configure –enable-ltdl-install  //配置ltdl库的安装</p>
+
+<p>make  //编译</p>
+
+<p>make install  //安装</p>
+
+<p> 
+安装zlib最新库文件</p>
+
+<p>cd /usr/local/src</p>
+
+<p>tar zxvf zlib 按table键出现版本号</p>
+
+<p>cd zlib  按table键</p>
+
+<p>./configure –prefix=/usr/local/zlib</p>
+
+<p>make &amp;&amp; make install</p>
+
+<p> 
+安装libpng最新库文件</p>
+
+<p>cd /usr/local/src</p>
+
+<p>tar zxvf libpng 按table键出现版本号</p>
+
+<p>cd libpng 按table键</p>
+
+<p>./configure –prefix=/usr/local/libpng
+<strong>**</strong><strong>**</strong><strong>**</strong><strong>**</strong><strong>**</strong><strong>**</strong><strong>**</strong><strong>**</strong><strong>**</strong><strong>**</strong><strong>**</strong><strong>**</strong><strong>**</strong><strong>**</strong><em>**</em></p>
+
+<p>在./configure –prefix=/usr/local/libpng这步最后会提示：configure: error: ZLib not installed</p>
+
+<p>原因是zlib安装到指定路径，libpng找不到</p>
+
+<p>解决方法如下：</p>
+
+<p>1.进入zlib的源文件目录，执行命令 make clean,清除zlib；</p>
+
+<p>2.重新配置 ./configure,后面不要接–prefix参数（安装不指定路径，默认安装）；</p>
+
+<p>3.make &amp;&amp; make install；(zlib)</p>
+
+<p>4.进入libpng目录，执行命令 ./configure –prefix=/usr/local/libpng;</p>
+
+<p>5.make &amp;&amp; make install；</p>
+
+<p>6.安装成功.</p>
+
+<p>如果安装成功将会在/usr/local/libpng目录下生成bin,include,lib和share四个目录。</p>
+
+<p>在安装GD2库配置时，通过在configure命令选项中加上“–with-png=/usr/local/libpng”选项，指定libpng库文件的位置。
+<strong>**</strong><strong>**</strong><strong>**</strong><strong>**</strong><strong>**</strong><strong>**</strong><strong>**</strong><strong>**</strong><strong>**</strong><strong>**</strong><strong>**</strong><strong>**</strong><strong>**</strong>**</p>
+
+<p>不报错继续执行
+make &amp;&amp; make install</p>
+
+<p> 
+安装jpeg8最新库文件</p>
+
+<p>mkdir /usr/local/jpeg8  //建立jpeg8软件安装目录</p>
+
+<p>mkdir /usr/local/jpeg8/bin //建立存放命令的目录</p>
+
+<p>mkdir /usr/local/jpeg8/lib  //创建jpeg8库文件所在目录</p>
+
+<p>mkdir /usr/local/jpeg8/include //建立存放头文件目录</p>
+
+<p>mkdir -p /usr/local/jpeg8/man/man1 //建立存放手册的目录</p>
+
+<p>cd /usr/local/src</p>
+
+<p>tar zxvf jpeg 按table键出现版本号</p>
+
+<p>cd jpeg-8b</p>
+
+<p>./configure –prefix=/usr/local/jpeg8/ –enable-shared –enable-static</p>
+
+<p>make &amp;&amp; make install</p>
+
+<p>安装freetype最新库文件</p>
+
+<p>cd /usr/local/src/   //进入软件源码包所在目录</p>
+
+<p>tar zxvf freetype-按tab键出现版本号  //解压包到freetype-2.4.9目录 </p>
+
+<p>cd freetype-按tab键出现版本号 //进入目录freetype-2.4.9中</p>
+
+<p>./configure –prefix=/usr/local/freetype //选项–prefix=/usr/local/freetype，是在安装时将软件安装到/usr/local/freetype目录下</p>
+
+<p>make  //对软件源代码文件进行编译</p>
+
+<p>make install //开始安装freetype库文件</p>
+
+<p>如果安装成功将会在/usr/local/freetype目录下存在bin,include,lib和share四个目录。</p>
+
+<p>安装autoconf最新的库文件</p>
+
+<p>cd /usr/local/src</p>
+
+<p>tar zxvf autoconf 按table键出现版本号</p>
+
+<p>cd autoconf 按table键</p>
+
+<p>./configure –prefix=</p>
+
+<p>make &amp;&amp; make install</p>
+
+<p>安装最新的GD库文件</p>
+
+<p>cd /usr/local/src</p>
+
+<p>tar zxvf gd 按table键出现版本号</p>
+
+<p>cd gd 按table键</p>
+
+<p>./configure –prefix=/usr/local/gd –with-jpeg=/usr/local/jpeg8/ –with-png=/usr/local/libpng/ –with-freetype=/usr/local/freetype/</p>
+
+<p>make &amp;&amp; make install</p>
+
+<p>//错误：检查png安装路径，安装路径中的文件都在</p>
+
+<p>//重新配置编译libpng，–prefix不指定路径</p>
+
+<p>//再重新安装gd2</p>
+
+<p>如果安装成功会在/usr/local/gd/目录下存在bin、include和lib这三个目录。在安装PHP5时，通过在configure命令选项中加上“–with-gd=/usr/local/gd”选项，指定GD库文件的位置。</p>
+
+<p>安装CURL扩展</p>
+
+<p>cd /usr/local/src</p>
+
+<p>tar zxvf curl 按table键出现版本号</p>
+
+<p>cd curl 按table键</p>
+
+<p>./configure –prefix=/usr/local/curl</p>
+
+<p>make &amp;&amp; make install</p>
+
+<p>在安装PHP5配置时，在configure命令的选项中加上“–with-zlib-dir=/usr/local/curl”选项，用于指定curl库文件位置。</p>
+
+<p>安装libevent库</p>
+
+<p>cd /usr/local/src</p>
+
+<p>tar zxvf libevent按table键出现版本号</p>
+
+<p>cd libevent按table键</p>
+
+<p>./configure –prefix=/usr/local/libevent</p>
+
+<p>make &amp;&amp; make install</p>
+
+<p>在安装memcached配置时，在configure命令的选项中加上“–with-libevent=/usr/local/libevent”选项，用于指定memcached库文件位置。</p>
+
+<p>##################################到此为止php所有扩展安装完成，LAPM环境搭建前的所有工作完成，马上开始mysql的安装，进入真正的lamp搭建########################</p>
+
+<p>安装MySQL数据库系</p>
+
+<p>1、增加用户名和用户组</p>
+
+<p>groupadd mysql</p>
+
+<p>useradd -g mysql mysql</p>
+
+<p>2、进入源码包使用configure 检查并配置安装需要的系统环境，并生成安装配置文件</p>
+
+<p>cd /usr/local/src</p>
+
+<p>tar zxvf mysql按table键出现版本号</p>
+
+<p>cd mysql按table键</p>
+
+<p>./configure –prefix=/usr/local/mysql –with-charset=utf8 –with-extra-charsets=all –enable-thread-safe-client</p>
+
+<p>3、编译</p>
+
+<p>make &amp;&amp; make install</p>
+
+<p>如果有错：提示ncurses没有安装，先安装ncurses(不需要指定路径)，再配置、编译、安装mysql</p>
+
+<p>4、创建mysql数据库服务器的配置文件</p>
+
+<p>可以使用源码包support-files目录中的my-medium.cnf文件作为模板，将其复制到/etc/目录下，命名为my.cnf文件即可。</p>
+
+<p>cp support-files/my-medium.cnf /etc/my.cnf</p>
+
+<p>必须创建MySQL授权表。进入到安装目录/usr/local/mysql下，执行bin目录下的mysql_install_db脚本，用来初始化MySQL数据库的授权表，其中存储了服务器访问允许。</p>
+
+<hr />
+<p>cd /usr/local/mysql</p>
+
+<p>bin/mysql_install_db –user=mysql  //创建授权表</p>
+
+<p>如果使用root用户运行上面的命令，应当使用–user选项，选项的值应当与你在第一步为运行服务器所创建的登录账户(mysql用户)相同。如果用mysql用户登录来运行上面的命令，可以省略–user选项。</p>
+
+<p>5、用mysql_install_db创建mysql授权表后，需要手动重新启动服务器。</p>
+
+<p>/usr/local/mysql/bin/mysqld_safe –user=mysql &amp;</p>
+
+<p>6、将程序二进制的所有权改为root用户，数据目录的所有权改为运行mysqld程序的mysql用户。如果现在位于安装目录(/usr/local/mysql)下，命令行如下：</p>
+
+<p>chgrp -R mysql .  //将组属性改为mysql组
+ 
+7、在所需要的东西安装完成后，应当使用下面的命令启动MySQL服务了，命令行如下：</p>
+
+<p>/usr/local/mysql/bin/mysqld_safe –user=mysql &amp;</p>
+
+<hr />
+
+<p>8、MySQL数据库服务器启动之后，查看一下它的端口3306是否打开，如果看到以下结果表明mysql服务启动成功。命令行如下</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>netstat -tnl</td>
+      <td>grep 3306  （通过查看端口确定安装ok）显示下面的内容：</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>tcp   0    0 0.0.0.0:3306   0.0.0.0:*    LISTEN	./mysql</p>
+
+<p>9、可以用几种方法为root账户指定密码，我们选择用其中的一种。</p>
+
+<p>在mysql客户端命令行上使用set password指定密码，一定要使用password()函数来加密密码。例如下面设置localhost域的密码为root。其他域可以使用同样的语句，使用的SQL语句如下。</p>
+
+<p>cd /usr/local/mysql/bin</p>
+
+<p>./mysql -u root -p  //登陆进入mysql，因为刚刚安好的mysql管理员没有密码  所以-p后面不写参数</p>
+
+<p>mysql&gt; set password for ‘root’@’localhost’=password(‘root’);</p>
+
+<p>Query OK, 0 rows affected (0.03 sec)</p>
+
+<p>10、如果想退出mysql客户端，可以在mysql客户端提示符下输入命令exit或者quit，还可以按键盘ctrl+c组合键，都可以从mysql客户端退出。</p>
+
+<p>因为已经给mysql服务器的root账号设置了密码，所以再次登录mysql客户端就要提供密码才能进入。</p>
+
+<p>退出mysql客户端和重新启动mysql客户端的控制台命令如下。</p>
+
+<p>mysql&gt; exit
+Bye
+[root@localhost mysql]# bin/mysql -u root -h localhost –proot</p>
+
+<p>11、如果想关闭mysql服务器，在命令行使用mysql服务器的mysqladmin命令，通过-u参数给出mysql数据库管理员用户名root和通过-p参数给出密码，即可关闭mysql服务器。如下示：</p>
+
+<p>bin/mysqladmin -u root -p shutdown</p>
+
+<p>11、设置mysql开机自动运行</p>
+
+<p>mysql服务器和apache服务器一样也有必要设置为开机自动运行，设置方法进入到mysql源代码目录/usr/local/src/mysql-5.0.96,</p>
+
+<p>将子目录support-files下的mysql.server文件复制到/etc/rc.d/init.d目录中，并重命名为mysqld,命令行如下。</p>
+
+<p>cd /usr/local/src/mysql-5.0.96</p>
+
+<p>cp support-files/mysql.server /etc/rc.d/init.d/mysqld</p>
+
+<p>chown root.root /etc/rc.d/init.d/mysqld </p>
+
+<p>chmod 755 /etc/rc.d/init.d/mysqld </p>
+
+<p>把mysqld添加到chkconfig中</p>
+
+<p>chkconfig –add mysqld</p>
+
+<p>在图形和字符集界面下自动启动mysqld</p>
+
+<p>chkconfig –level 3 mysqld on</p>
+
+<p>chkconfig –level 5 mysqld on</p>
+
+<p>再使用chkconfig –list命令检查设置</p>
+
+<p>chkconfig –list mysqld</p>
+
+<p>界面显示：
+mysqld   0:off   1:off   2:on    3:on    4:off    5:on    6:off</p>
+
+<p>############################################################################到此为止，mysql安装完成，接下来进行apache安装###################################################</p>
+
+<p>安装新版本的apache服务器</p>
+
+<p>1、卸载apr、apr-util</p>
+
+<p>yum remove apr apr-util</p>
+
+<p>下载安装：http://apr.apache.org/download.cgi</p>
+
+<p>cd /usr/local/src</p>
+
+<p>tar zxvf apr-1.4.6.tar.gz</p>
+
+<p>cd apr-1.4.6</p>
+
+<p>./configure –prefix=/usr/local/apr-httpd/ &amp;&amp; make &amp;&amp; make install </p>
+
+<p>下载安装：http://apr.apache.org/download.cgi</p>
+
+<p>cd /usr/local/src</p>
+
+<p>tar zxvf apr-util-1.4.1.tar.gz</p>
+
+<p>cd apr-util-1.4.1</p>
+
+<p>./configure –prefix=/usr/local/apr-util-httpd/ –with-apr=/usr/local/apr-httpd/ &amp;&amp; make &amp;&amp; make install</p>
+
+<p>下载安装：http://sourceforge.net/projects/pcre</p>
+
+<p>cd /usr/local/src</p>
+
+<p>unzip -o pcre-8.10.zip</p>
+
+<p>cd pcre-8.10</p>
+
+<p>./configure –prefix=/usr/local/pcre</p>
+
+<p>make</p>
+
+<p>make install</p>
+
+<p>//安装apache2.2时配置报错</p>
+
+<p>cd /usr/local/src</p>
+
+<p>tar zxvf httpd-2.2按table</p>
+
+<p>cd httpd-2.2按table</p>
+
+<p>./configure</p>
+
+<p>注意：./configure 的时候如果报错，报错如下</p>
+
+<p>checking for void pointer length… yes configure: error: Size of “void *” is less than size of “long”</p>
+
+<p>解决方法vi configure</p>
+
+<p>if test “$ap_cv_void_ptr_lt_long” = “yes”; then</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>as_fn_error $? "Size of \"void *\" is less than size of \"long\"""$LINENO" 5
+</code></pre>
+</div>
+
+<p>改为if test “$ap_cv_void_ptr_lt_long” != “yes”; then</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>as_fn_error $? "Size of \"void *\" is less than size of \"long\"""$LINENO" 5
+</code></pre>
+</div>
+
+<p>保存重新编译</p>
+
+<p>./configure –prefix=/usr/local/apache2.2/ –with-apr=/usr/local/apr-httpd/ –with-apr-util=/usr/local/apr-util-httpd/ –with-pcre=/usr/local/pcre/</p>
+
+<p>[root@localhost httpd-2.4.2]# ./configure \</p>
+<blockquote>
+  <p>–prefix=/usr/local/apache2.4 \
+–with-apr=/usr/local/apr-httpd/ 
+–with-apr-util=/usr/local/apr-util-httpd/ 
+–with-pcre=/usr/local/pcre/</p>
+</blockquote>
+
+<p>make &amp;&amp; make install</p>
+
+<p>安装完成后，进入/usr/local/apache2/目录下，检查是否有以下文件：</p>
+
+<p>bin  build  cgi-bin  error  htdocs  icons  include  logs  man  manual  modules</p>
+
+<p>启动Apache服务器，并查端口是否开启，启动Apache服务器的命令行如下：</p>
+
+<p>#/usr/local/apache2/bin/apachectl start</p>
+
+<p>查看端口命令行如下：</p>
+
+<p>#netstat -tnl|grep 80
+tcp        0      0 0.0.0.0:80            0.0.0.0:*                   LIST</p>
+
+<p>测试安装结果，打开浏览器，在地址栏中输入URL为：http://172.19.203.10</p>
+
+<p>如果浏览器中出现It works!则表明Apache服务器可以使用。</p>
+
+<p>每种服务器软件都有必要制成开机时自动启动，Apache服务器开机自动启动，只要在“/etc/rc.d/rc.local”文件，加上Apache服务器的启动命令即可。可以直接打开“/etc/rc.d/rc.local”文件，在最后一行写入Apache启动命令，也可以用echo命令追加进去，如下命令行示：</p>
+
+<p>[root@localhost apache242]# echo “/usr/local/apache2.2/bin/apachectl start”» /etc/rc.d/rc.local</p>
+
+<p>注意：</p>
+
+<p>由于安装的过程中没有指定apache配置文件的路径，默认配置文件httpd.conf在/etc/httpd/conf/目录中</p>
+
+<p>刚安装完成apache后无法使用service httpd restart、stop、start</p>
+
+<p>需要这样：</p>
+
+<p>cp /usr/local/apache2/bin/apachectl /etc/rc.d/init.d/httpd</p>
+
+<p>编辑/etc/rc.d/init.d/httpd,在文件最前面插入下面的行，使其支持chkconfig命令：</p>
+
+<p>vi /etc/rc.d/init.d/httpd</p>
+
+<p># chkconfig: 2345 85 15
+   # description: Apache is a World Wide Web server.</p>
+
+<p>ln -s /etc/rc.d/init.d/httpd /etc/rc.d/rc5.d/S85httpd      //建立链接(85的意义后面介绍)</p>
+
+<p>chkconfig –add httpd</p>
+
+<p>检查apache服务是否生效：</p>
+
+<p>chkconfig –list httpd</p>
+
+<p>此时Apache就可以自动启动了。</p>
+
+<p>开启apache：service httpd start
+关闭apache：service httpd stop
+重启apache：service httpd restart</p>
+
+<p>完美安装完成！！！！！！！！！！！！！</p>
+
+<p>安装PHP5.4  进入php-5.4.15源码包编译</p>
+
+<p>cd /usr/local/src</p>
+
+<p>tar zxvf php-5 按table</p>
+
+<p>cd php-5.4 按table</p>
+
+<p>[root@localhost php-5.4.15]# ./configure \
+–prefix=/usr/local/php5.4 \
+–with-config-file-path=/usr/local/php5.4/etc \
+–with-apxs2=/usr/local/apache2/bin/apxs \
+–with-mysql=/usr/local/mysql/ \
+–with-libxml-dir=/usr/local/libxm12/ \
+–with-png-dir=/usr/local/libpng/ \
+–with-jpeg-dir=/usr/local/jpeg8/ \
+–with-freetype-dir=/usr/local/freetype/ \
+–with-gd=/usr/local/gd/ \
+–with-zlib-dir=/usr/local/zlib/ \
+–with-mcrypt=/usr/local/libmcrypt/ \
+–with-mysqli=/usr/local/mysql/bin/mysql_config \
+–with-curl=/usr/local/curl \
+–enable-soap \
+–enable-mbstring=all \
+–enable-sockets</p>
+
+<p>make</p>
+
+<p>make install</p>
+
+<p>报出错误：make: *** [ext/gd/gd.lo] 错误 1</p>
+
+<p>解决方法：</p>
+
+<p>vi /usr/local/gd/include/gd_io.h //编辑GD库文件</p>
+
+<p>gdIOCtx结构中增加	void （*data）;</p>
+
+<p>格式如下：</p>
+
+<p>typedef struct gdIOCtx
+{
+  int (<em>getC) (struct gdIOCtx *);
+  int (</em>getBuf) (struct gdIOCtx <em>, void *, int);
+ 
+  void (</em>putC) (struct gdIOCtx <em>, int);
+  int (</em>putBuf) (struct gdIOCtx <em>, const void *, int);
+ 
+  /</em> seek must return 1 on SUCCESS, 0 on FAILURE. Unlike fseek! <em>/
+  int (</em>seek) (struct gdIOCtx <em>, const int);
+ 
+  long (</em>tell) (struct gdIOCtx <em>);
+ 
+  void (</em>gd_free) (struct gdIOCtx <em>);
+  void (</em>data);
+}
+gdIOCtx;</p>
+
+<p>安装完成后，需要建立PHP配置文件。</p>
+
+<p>在使用configure命令安装配置时使用“–with-config-file-path=/usr/local/php5.4/etc/”选项，指定了配置文件的位置。</p>
+
+<p>将源码包下面的php.ini-development文件复制到/usr/local/php5.4/etc/中，并改名为php.ini作为PHP的配置文件，如下示:</p>
+
+<p>[root@localhost php-5.4.15]# cp php.ini-development /usr/local/php5.4/etc/php.ini</p>
+
+<p> 
+整合Apache与PHP，上面编译之前，我们使用configure命令安装配置时，</p>
+
+<p>使用–with-apxs2=/usr/local/apache2.4/bin/apxs选项以使Apache 2.4将PHP作为功能模块使用。</p>
+
+<p>但我们还要修改Apahce配置文件，添加PHP的支持，告诉Apache将哪些后缀作为PHP解析。</p>
+
+<p>例如，让Apache把.php或.phtml后缀名解析为PHP.</p>
+
+<p>使用vi打开Apache的配置文件/etc/httpd/conf/httpd.conf，若果找不到的话，就使用这个路径：</p>
+
+<p>cd /usr/local/apache2/conf</p>
+
+<p>再用 vi httpd.conf就可以了</p>
+
+<p>找到AddType application/x-gzip .gz .tgz指令选项，并在其下方添加一条指令</p>
+
+<p>AddType application/x-httpd-php .php .phtml</p>
+
+<p>也可以将任何后缀的文件解析为PHP，只要在添加的语句中加入并用空格分开，这里以多添加一个.phtml来示例
+如下示:</p>
+<h1 id="if-the-addencoding-directives-above-are-commented-out-then-you">If the AddEncoding directives above are commented-out, then you</h1>
+<h1 id="probably-should-define-those-extensions-to-indicate-media-types">probably should define those extensions to indicate media types:</h1>
+<p>#
+AddType application/x-compress .Z
+AddType application/x-gzip .gz .tgz
+AddType application/x-httpd-php .php .phtml</p>
+
+<p>修改完成后必须重启Apache服务器，才能重新加载配置文件使修改生效。
+[root@localhost php-5.4.15]#/usr/local/apache2/bin/apachectl stop
+[root@localhost php-5.4.15]#/usr/local/apache2/bin/apachectl start</p>
+
+<p>如果apachectl重启不成功，关闭SELinux</p>
+
+<p>如果出现错误：httpd: Syntax error on line 54 of /usr/local/apache2.2/conf/httpd.conf: Cannot load /usr/local/apache2.2/modules/libphp5.so into server: libltdl.so.3: cannot open shared object file: No such file or directory
+解决方案：
+[root@localhost bin]#echo “/usr/local/lib”»/etc/ld.so.conf
+[root@localhost bin]#ldconfig</p>
+
+<p>重新启动Apache
+[root@localhost php-5.4.15]#/usr/local/apache2.4/bin/apachectl stop
+[root@localhost php-5.4.15]#/usr/local/apache2.4/bin/apachectl start</p>
+
+<p>测试PHP环境是否可以正常运行，在/usr/local/apache2.4/htdocs目录下建一个test.php或test.phtml的文件，内容如下示:
+<?php
+phpinfo();
+?>
+打开浏览器，在地址栏输入http://172.19.203.10/test.php来运行该文件，如果出现下图内容，说明LAMP环境安装成功。</p>
+
+<p>———————————————————————————————————————————————————————</p>
+
+<p>如果apache报错：
+httpd: Could not reliably determine the server’s fully qualified domain name, using 127.0.0.1 for ServerName</p>
+
+<p>解决办法非常简单：</p>
+
+<p>#vim /web/apache/conf/httpd.conf (在这里/web/apahce是我安装apache的目录，你默认安装的话应该是/usr/local/apache2/icons)</p>
+
+<p>找到#ServerName www.example.com:80   把#去掉，再重启apache即可没事了。
+——————————————————————————————————————————————————————</p>
+
+<p>到此为止，不要再装了！下面是memcache服务器，需要的话再装！</p>
+
+<p>安装memcache服务器
+安装方法大致与freetype相同。唯一注意的地方是configure时的路径
+./configure \
+–prefix=/usr/local/memcached
+–with-libevent=/usr/local/libevent(memcache需要libevent库)</p>
+
+<p>出错：configure: error: libevent is required.
+解决办法：libevent库，不指定路径（不设置–prefix）再配置、编译、安装一次，注意make clean</p>
+
+<p>安装后启动memcache：
+/usr/local/memcached/bin/memcached –d start</p>
+
+<p>报错：./memcached: error while loading shared libraries: libevent-2.0.so.5: cannot open shared object file: No such file or directory表示memcached 找不到libevent 的位置</p>
+
+<p>所以，请先使用whereis libevent 得到位置，然后连接到memcached 所寻找的路径
+首先查看，libevent 在哪里</p>
+<h1 id="whereis-libevent">whereis libevent</h1>
+<p>libevent: /usr/local/lib/libevent.la /usr/local/lib/libevent.so /usr/local/lib/libevent.a
+然后，再看memcached 从哪里找它，查找的命令如下：</p>
+<h1 id="ld_debuglibs-memcached--v-21--devnull--less">LD_DEBUG=libs memcached -v 2&gt;&amp;1 &gt; /dev/null | less</h1>
+
+<p>可以看到：是trying file=/usr/lib/libevent-2.0.so.5，所以，创建软链
+[root@localhost tools]# ln -s /usr/local/libevent/lib/libevent-2.0.so.5 /usr/lib/libevent-2.0.so.5
+再次启动:
+#./memcached -d start -u root //以root用户启动</p>
+
+<p>安装php的memcache扩展</p>
+
+<p>从源码安装</p>
+<h1 id="tar-zxf-memcache-308tgz">tar zxf memcache-3.0.8.tgz</h1>
+<h1 id="cd-memcache-308">cd memcache-3.0.8</h1>
+<h1 id="usrlocalserversphp5binphpize">/usr/local/servers/php5/bin/phpize</h1>
+<p>#./configure –enable-memcache
+–with-php-config=/usr/local/php5.4/bin/php-config（3.0.8版本没错,2.2.5版本有错）</p>
+<h1 id="make--make-install">make &amp;&amp; make install</h1>
+
+<p>安装完后会有类似这样的提示：
+Installing shared extensions: 
+/usr/local/php5.4/lib/php/extensions/no-debug-zts-20100525/</p>
+
+<p>把这个记住，然后修改php.ini，把
+extension_dir = “./”
+修改为
+extension_dir = “/usr/local/php5.4/lib/php/extensions/no-debug-zts-20100525”
+并添加一行
+extension=”memcache.so”</p>
+
+<p>安装PDO_MYSQL扩展
+解压源码  tar -xzvf  PDO_MYSQL-1.0.2.tgz
+PDO_MYSQL源码下载地址：http://pecl.php.net/package/PDO_MYSQL
+执行以下操作 :
+#cd /usr/local/src/PDO_MYSQL-1.0.2(进入源码包)
+#/usr/local/php5.4/bin/phpize (/usr/local/php/是php的安装目录,生成配置命令)
+#./configure</p>
+<blockquote>
+  <p>–with-php-config=/usr/local/php5.4/bin/php-config 
+–with-pdo-mysql=/usr/local/mysql	(/usr/local/mysql为mysql的安装目录)
+再执行以下命令
+make
+出现以下错误，错误提示如下：
+In file included from /root/PDO_MYSQL-1.0.2/pdo_mysql.c:31:
+/root/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:25:19: error: mysql.h: No such file or directory
+In file included from /root/PDO_MYSQL-1.0.2/pdo_mysql.c:31:
+/root/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:36: error: expected specifier-qualifier-list before ‘MYSQL’
+/root/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:48: error: expected specifier-qualifier-list before ‘MYSQL_FIELD’
+/root/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:53: error: expected specifier-qualifier-list before ‘MYSQL_RES’
+make: <em>** [pdo_mysql.lo] Error 1
+解决办法:
+这是因为在编译时需要mysql的头文件，而默认搜索路径找不到头文件的位置，所以才出现这个问题，所以要将 /usr/local/mysql/include/mysql/ 目录下的mysql头文件链接到 /usr/local/include/ 的目录下：
+#ln -s /usr/local/mysql/include/mysql/</em> /usr/local/include/
+#make install
+执行完后会提示以下，说明成功：
+Installing shared extensions:     /usr/local/php/lib/php/extensions/no-debug-non-zts-20100525/
+最后在php.ini添加以下一句：
+extension=pdo_mysql.so
+重启apache，安装成功</p>
+</blockquote>
+
+<p>phpMyAdmin的安装
+1、进入软件源码所在的目录/usr/local/src/中，并解压软件包phpMyAdmin-3.5.1-all-languages.tar.gz到当前目录phpMyAdmin-3.5.1-all-languages下。
+2、把解压的目录phpMyAdmin-3.5.1-all-languages下的文件，全部复制到Apache的/usr/local/apache2.4/htdocs下，并新建一个名为phpmyadmin的目录下面，即安装完成。
+[root@localhost src]# cp -R phpMyAdmin-3.5.1-all-language /usr/local/apache2.4/htdocs/phpmyadmin
+3、在使用phpmyadmin之前，也需要先配置一下。配置的方法是通过对phpmyadmin顶层目录下的config.inc.php文件中的几个选项做一些设置即可。默认不存在config.inc.php文件，我们需要手工创建一个，也可以复制config.sample.inc.php模板得到最低限度的配置文件。
+[root@localhost src]# cd /usr/local/apache2.4/htdocs/phpmyadmin/
+[root@localhost phpmyadmin]# cp config.sample.inc.php config.inc.php
+ 
+phpMyAdmin的配置
+    我们通过身份验证模式的要求，可以有两种配置方案，一种是http和cookie身份验证模式。在这两种模式下，用户必须先在一个登录窗口里输入MySQL数据库的有效用户名和密码，才能使用phpMyAdmin程序。这种做法有两个明显的好处；首先，因为MySQL数据库的密码没有出现在config.inc.php文件里，所以身份验证过程更加安全；其次，允许以不同的用户身份登录对自己的数据库进行管理。这两种身份验证模式尤其适合数据库中多个用户账号的情况。
+第二种方案是，config身份验证模式。这种情况下，密码以明文形式保存在config.inc.php文件里。只需要把MySQL用户名和密码直接写入到config.inc.php文件即可。这样，在登录phpMyAdmin时就不会提示输入用户名和密码了，而只直接用config.inc.php文件里写入的用户登录 。如果只是在一个本地测试系统上使用phpMyAdmin,可以使用这种模式。</p>
+
+<p>1、http身份验证模式
+如果想让phpMyAdmin使用HTTP身份验证模式，首先需要在config.inc.php文件做如下修改：</p>
+
+<p>当完成设置之后，我们启动phpMyAdmin时，屏幕上将弹出一个WEB浏览器对话框，需要在这个对话框里输入MySQL用户名和密码，才能进入phpMyAdmin操作界面。如下图示，在windows客户端用IE浏览器，访问WEB服务器的phpMyAdmin目录下的index.php文件，即可启动phpMyAdmin.
+ </p>
+
+<p>2、cookie身份验证模式
+    cookie身份验证模式是HTTP身份验证模式的补充，不能使用HTTP身份验证模式的场合都可以使用它。cookie身份验证模式要求用户必须允许来自phpMyAdmin的cookie进入自己的计算机。即用户需要在浏览器中开启客户端的cookie功能。
+   如果想让phpMyAdmin使用cookie身份验证模式，除了必须修改config.inc.php文件里的auth_type语句外，还必须向blowfish_secret参数提供一个字符串。这个字符串可以是任意的，目的是在把登录时使用的用户和密码存储在客户端电脑上的cookie之前，系统将会使用这个字符串对它们进行加密码。在config.inc.php中修改的内容如下图示：
+ :wq</p>
+
+<p>和上面启动phpMyAdmin的方式一样，我们在windows客户端使用IE浏览器，访问web服务器上的phpMyAdmin目录下的index.php文件，需要提供MySQL的用户名和密码才能登录，如下图示：
+ </p>
+
+<p>3、config身份验证模式
+如果想让phpMyAdmin使用config身份验证模式，首先需要在config.inc.php文件里做出如下所示的修改。把MySQL数据库的用户名和密码以明文的方式写入，具体修改内容如下图示:
+ </p>
+
+<p>和上面启动phpMyAdmin的方式一样，我们在windows客户端使用IE浏览器，访问WEB服务器上的phpMyAdmin目录下的index.php文件。但不用提供MySQL的用户名和密码就可以登录，它是使用config.inc.php中以明文方式写入的用户名和密码登录的。这里不在截图。
+到这里LAMP就安装完成了！</p>
+
+
+  </div>
+
+  
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Your awesome title</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>
+            
+              Your awesome title
+            
+            </li>
+            
+            <li><a href="mailto:your-email@domain.com">your-email@domain.com</a></li>
+            
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/jekyll"><span class="icon icon--github"><svg viewBox="0 0 16 16" width="16px" height="16px"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">jekyll</span></a>
+
+          </li>
+          
+
+          
+          <li>
+            <a href="https://twitter.com/jekyllrb"><span class="icon icon--twitter"><svg viewBox="0 0 16 16" width="16px" height="16px"><path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/></svg>
+</span><span class="username">jekyllrb</span></a>
+
+          </li>
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

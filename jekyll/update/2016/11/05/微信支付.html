@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>微信支付</title>
+  <meta name="description" content="支付模式">
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="http://localhost:4000/jekyll/update/2016/11/05/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98.html">
+  <link rel="alternate" type="application/rss+xml" title="Your awesome title" href="/feed.xml">
+  
+  
+</head>
+
+
+  <body>
+
+    <header class="site-header" role="banner">
+
+  <div class="wrapper">
+    
+    
+    <a class="site-title" href="/">Your awesome title</a>
+  
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          
+            
+            
+            <a class="page-link" href="/about/">About</a>
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+        </div>
+      </nav>
+    
+  </div>
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">微信支付</h1>
+    <p class="post-meta">
+      <time datetime="2016-11-05T12:19:35+08:00" itemprop="datePublished">
+        
+        Nov 5, 2016
+      </time>
+      </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>支付模式</p>
+
+<p>刷卡支付：刷卡支付是用户展示微信钱包内的“刷卡条码/二维码”给商户系统扫描后直接完成支付的模式。主要应用线下面对面收银的场景。</p>
+
+<p>扫码支付：扫码支付是商户系统按微信支付协议生成支付二维码，用户再用微信“扫一扫”完成支付的模式。该模式适用于PC网站支付、实体店单品或订单支付、媒体广告支付等场景。</p>
+
+<p>公众号支付是用户在微信中打开商户的H5页面，商户在H5页面通过调用微信支付提供的JSAPI接口调起微信支付模块完成支付。应用场景有： 1) 用户在微信公众账号内进入商家公众号，打开某个主页面，完成支付 2) 用户的好友在朋友圈、聊天窗口等分享商家页面连接，用户点击链接打开商家页面，完成支付 3) 将商户页面转换成二维码，用户扫描二维码后在微信浏览器中打开页面后完成支付</p>
+
+<p>APP支付：APP支付又称移动端支付，是商户通过在移动端应用APP中集成开放SDK调起微信支付模块完成支付的模式。</p>
+
+<p>1.获取订单信息</p>
+
+<p>2.根据订单信息和支付相关的账号生成sign，并且生成支付参数</p>
+
+<p>3.将支付参数信息POST到微信服务器，获取返回信息</p>
+
+<p>4.根据返回信息生成相应的支付代码（微信内部）或是支付二维码（非微信内），完成支付。</p>
+
+<p>下面分步骤的讲一下：</p>
+
+<p>1.微信支付中相关的必须的订单参数有三个，分别是：body(商品名或订单描述),out_trade_no（一般为订单号）和total_fee（订单金额，单位“分”，要注意单位问题），在不同的应用中，首先要做的就是获取订单中的相关信息，为支付参数生成做准备。</p>
+
+<p>2.其他必须的支付参数有 appid（微信appid），mch_id（申请成功后告知）,device_info(web端和微信端该参数都是统一的，为大写的”WEB“)，trade_type（根据使用场景不同，该值也是不同的，微信外部为”NATIVE“，微信内部为”JSAPI“）,nonce_str(32位随机字符串),spbill_create_ip（发起支付的终端IP，即服务器IP），notify_url（支付回调地址，微信服务器通知网站支付完成与否，修改订单状态），sign（签名），还有一个需要说明的地方，如果trade_type为JSAPI的话，openid为必填的参数。</p>
+
+<p>签名算法是比较容易出错的地方，在于签名步骤繁琐，其实很关键的是，sign不参与签名</p>
+
+<p>A：将1、2中提到的除sign外的参数赋值，放到一个数组array里面，按照字典顺序排序，其实就是键值按照A—Z的顺序进行排序。</p>
+
+<p>B：将数组转换成字符串string，格式为 k1=v1&amp;k2=v2&amp;…kN=vN</p>
+
+<p>C：在此string后加上KEY值（在微信支付商户后台用户自己设定的）现在string = k1=v1&amp;k2=v2&amp;…kN=vN&amp;key=KEY。</p>
+
+<p>D：string = md5(string)</p>
+
+<p>E: sign = strtoupper(string)</p>
+
+<p>至此，sign生成完毕。</p>
+
+<p>将sign添加到array数组里面生成新的数组。将该数组转换为XML。至此，微信支付的参数准备工作完成。</p>
+
+<p>3.将2中生成的XML，使用POST的方式发送请求到微信（https://api.mch.weixin.qq.com/pay/unifiedorder），获取返回的XML信息，将该信息转换成数组格式方便操作。返回的XML信息如下：</p>
+
+<xml>
+   <return_code>&lt;![CDATA[SUCCESS]]&gt;</return_code>
+   <return_msg>&lt;![CDATA[OK]]&gt;</return_msg>
+   <appid>&lt;![CDATA[wx2421b1c4370ec43b]]&gt;</appid>
+   <mch_id>&lt;![CDATA[10000100]]&gt;</mch_id>
+   <nonce_str>&lt;![CDATA[IITRi8Iabbblz1Jc]]&gt;</nonce_str>
+   <sign>&lt;![CDATA[7921E432F65EB8ED0CE9755F0E86D72F]]&gt;</sign>
+   <result_code>&lt;![CDATA[SUCCESS]]&gt;</result_code>
+   <prepay_id>&lt;![CDATA[wx201411101639507cbf6ffd8b0779950874]]&gt;</prepay_id>
+   <trade_type>&lt;![CDATA[JSAPI]]&gt;</trade_type>
+</xml>
+
+<p>如果是trade_type==native支付的话，还会多一个参数code_url，该URL为微信扫码支付的地址。</p>
+
+<p>4.下面就是支付的过程了。</p>
+
+<p>如果trade_type==native，那么使用一些方式将code_url转换成二维码，使用微信扫码就可以了，如果是微信内部点击支付的话，需要调用微信js-sdk中的相关东西，这一步中最关键是生成一个json格式的字符串。</p>
+
+<p>首先要生成转换json字符串的数组array_jsapi。</p>
+
+<p>A：该数组的参数包括：appId，timeStamp,nonceStr,package,signType(默认为”MD5“)，要注意大小写和上面的数组里面是不一样的。</p>
+
+<p>B：使用该数组生成paySign参数，签名方式同上。</p>
+
+<p>C：将paySign参数追加到array_jsapi数组中。</p>
+
+<p>D：将该数组使用json_encode格式化为字符串js_string。</p>
+
+<p>完成上面的工作，就可以在微信内部进行支付了。</p>
+
+<p>下面为相关支付的示例代码：</p>
+
+<script type="text/javascript">
+                    function jsApiCall()
+    {
+       WeixinJSBridge.invoke(
+        'getBrandWCPayRequest',
+        $js_string,
+        function(res){
+            WeixinJSBridge.log(res.err_msg);
+                if(res.err_msg=='get_brand_wcpay_request:ok')
+                {
+                    alert('支付成功');
+                }
+                else
+                {
+                    alert('支付失败');
+                }
+            }
+        );
+    }
+    function callpay()
+    {
+        if (typeof WeixinJSBridge == 'undefined'){
+            if( document.addEventListener ){
+                document.addEventListener('WeixinJSBridgeReady', jsApiCall, false);
+            }else if (document.attachEvent){
+                document.attachEvent('WeixinJSBridgeReady', jsApiCall);
+                document.attachEvent('onWeixinJSBridgeReady', jsApiCall);
+            }
+        }else{
+            jsApiCall();
+        }
+    }
+</script>
+
+<p>代码中js_string即为我们生成的字符串。</p>
+
+<p>HTML代码中调用callpay()函数发起支付。</p>
+
+<p>这样微信支付的支付工作就完成了。</p>
+
+<p>下面是回调工作，该功能确保订单支付成功后，有正确的状态显示给用户。</p>
+
+<p>支付完成后，微信使用POST请求，将支付结果反馈给网站服务器，网站服务器获取POST信息，根据支付成功与否，来确定是否修改订单信息。</p>
+
+<p>A：将POST参数中的sign去除，并且记录下来该值。</p>
+
+<p>B：对剩余的参数进行签名</p>
+
+<p>C：将签名结果和POST中的sign进行比对，相同说明签名正确，根据支付结果修改订单状态。</p>
+
+<p>E：返回XML信息给微信，确保微信知道网站已经收到该通知，避免微信再次推送POST，示例如下：</p>
+
+<xml>
+  <return_code>&lt;![CDATA[SUCCESS]]&gt;</return_code>
+  <return_msg>&lt;![CDATA[OK]]&gt;</return_msg>
+</xml>
+
+<p>如果失败，则返回</p>
+
+<xml>
+  <return_code>&lt;![CDATA[FAIL]]&gt;</return_code>
+  <return_msg>&lt;![CDATA[失败原因]]&gt;</return_msg>
+</xml>
+
+
+  </div>
+
+  
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Your awesome title</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>
+            
+              Your awesome title
+            
+            </li>
+            
+            <li><a href="mailto:your-email@domain.com">your-email@domain.com</a></li>
+            
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/jekyll"><span class="icon icon--github"><svg viewBox="0 0 16 16" width="16px" height="16px"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">jekyll</span></a>
+
+          </li>
+          
+
+          
+          <li>
+            <a href="https://twitter.com/jekyllrb"><span class="icon icon--twitter"><svg viewBox="0 0 16 16" width="16px" height="16px"><path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/></svg>
+</span><span class="username">jekyllrb</span></a>
+
+          </li>
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>
