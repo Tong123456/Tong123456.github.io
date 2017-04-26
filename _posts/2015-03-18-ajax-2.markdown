@@ -1,0 +1,171 @@
+---
+layout: post
+title:  "ajax"
+date:   2015-03-18 20:07:18 +0800
+categories: jekyll update
+---
+
+
+AJAX，是指一种创建交互式网页应用的网页开发技术。
+AJAX = 异步 JavaScript和XML（标准通用标记语言的子集）。
+AJAX 是一种用于创建快速动态网页的技术。
+通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。
+传统的网页（不使用 AJAX）如果需要更新内容，必须重载整个网页页面。
+
+ajax教程： http://www.w3school.com.cn/ajax/index.asp
+ajax菜鸟教程：http://www.runoob.com/ajax/ajax-tutorial.html
+
+  ajax请求
+     规定请求的类型、URL 以及是否异步处理请求。
+     method：请求的类型；GET 或 POST
+     url：文件在服务器上的位置
+     async：true（异步）或 false（同步）
+
+使用ajax四大步骤
+   
+        第一步，创建xmlhttprequest对象，var xmlhttp =new XMLHttpRequest（);XMLHttpRequest对象用来和服务器交换数据。
+	var xhttp;
+	if (window.XMLHttpRequest) {
+	//现代主流浏览器
+	xhttp = new XMLHttpRequest();
+	} else {
+	// 针对浏览器，比如IE5或IE6
+	xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+
+	第二步，使用xmlhttprequest对象的open（）和send（）方法发送资源请求给服务器。
+
+	xmlhttp.open(method,url,async) method包括get 和post，url主要是文件或资源的路径，async参数为true(代表异步)或者false（代表同步）
+
+	xhttp.send();使用get方法发送请求到服务器。
+
+	xhttp.send(string);使用post方法发送请求到服务器。
+
+	post 发送请求什么时候能够使用呢？
+
+	(1)更新一个文件或者数据库的时候。
+
+	(2)发送大量数据到服务器，因为post请求没有字符限制。
+
+	(3)发送用户输入的加密数据。
+
+	get例子：
+		
+	xhttp.open("GET", "ajax_info.txt", true);
+	xhttp.open("GET", "index.html", true);
+	xhttp.open("GET", "demo_get.asp?t=" + Math.random(), true);xhttp.send();
+
+	post例子
+		
+	xhttp.open("POST", "demo_post.asp", true);
+	xhttp.send();
+
+	post表单数据需要使用xmlhttprequest对象的setRequestHeader方法增加一个HTTP头。
+
+	post表单例子
+		
+	xhttp.open("POST", "ajax_test.aspx", true);
+	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xhttp.send("fname=Henry&lname=Ford");
+
+	async=true 当服务器准备响应时将执行onreadystatechange函数。
+		
+	xhttp.onreadystatechange = function() {
+	if (xhttp.readyState == 4 && xhttp.status == 200) {
+	document.getElementById("demo").innerHTML = xhttp.responseText;
+	}
+	};
+	xhttp.open("GET", "index.aspx", true);
+	xhttp.send();
+
+	asyn=false 则将不需要写onreadystatechange函数，直接在send后面写上执行代码。
+	?
+		
+	xhttp.open("GET", "index.aspx", false);
+	xhttp.send();
+	document.getElementById("demo").innerHTML = xhttp.responseText;
+
+	第三步，使用xmlhttprequest对象的responseText或responseXML属性获得服务器的响应。
+
+	使用responseText属性得到服务器响应的字符串数据，使用responseXML属性得到服务器响应的XML数据。
+
+	例子如下：
+	?
+	1
+		
+	document.getElementById("demo").innerHTML = xhttp.responseText;
+
+	服务器响应的XML数据需要使用XML对象进行转换。
+
+
+		
+	xmlDoc = xhttp.responseXML;
+	txt = "";
+	x = xmlDoc.getElementsByTagName("ARTIST");
+	for (i = 0; i < x.length; i++) {
+	txt += x[i].childNodes[0].nodeValue + "<br>";
+	}
+	document.getElementById("demo").innerHTML = txt;
+
+	第四步，onreadystatechange函数，当发送请求到服务器，我们想要服务器响应执行一些功能就需要使用onreadystatechange函数，每次xmlhttprequest对象的readyState发生改变都会触发onreadystatechange函数。
+
+	onreadystatechange属性存储一个当readyState发生改变时自动被调用的函数。
+
+	readyState属性，XMLHttpRequest对象的状态，改变从0到4，0代表请求未被初始化，1代表服务器连接成功，2请求被服务器接收，3处理请求，4请求完成并且响应准备。
+	status属性，200表示成功响应，404表示页面不存在。
+
+	在onreadystatechange事件中，服务器响应准备的时候发生，当readyState==4和status==200的时候服务器响应准备。
+
+		
+	function loadDoc() {
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+	if (xhttp.readyState == 4 && xhttp.status == 200) {
+	document.getElementById("demo").innerHTML = xhttp.responseText;
+	}
+	};
+	xhttp.open("GET", "ajax_info.txt", true);
+	xhttp.send();
+	} 
+	//函数作为参数调用
+	<!DOCTYPE html>
+	<html>
+	<body>
+	<p id="demo">Let AJAX change this text.</p>
+	<button type="button"
+	onclick="loadDoc('index.aspx', myFunction)">Change Content
+	</button>
+	<script>
+	function loadDoc(url, cfunc) {
+	var xhttp;
+	xhttp=new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+	if (xhttp.readyState == 4 && xhttp.status == 200) {
+	cfunc(xhttp);
+	}
+	};
+	xhttp.open("GET", url, true);
+	xhttp.send();
+	}
+	function myFunction(xhttp) {
+	document.getElementById("demo").innerHTML = xhttp.responseText;
+	}
+	</script>
+	</body>
+	</html>
+
+ AJAX运状态值
+  0 - (未初始化)还没有调用send()方法
+  1 - (载入)已调用send()方法，正在发送请求
+  2 - (载入完成)send()方法执行完成，
+  3 - (交互)正在解析响应内容
+  4 - (完成)响应内容解析完成，可以在客户端调用了
+  对于上面的状态，其中“0”状态是在定义后自动具有的状态值，而对于成功访问的状态（得到信息）我们大多数采用“4”进行判断。
+
+
+AJAX解决的问题就是“无刷新更新页面”，用传统的HTML表单方式进行页面的更新时，每次都要将请求提交到服务器，服务器返回后再重绘界面，这样界面就会经历：提交→变白→重新显示这样一个过程，用户体验非常差，使用AJAX则不会导致页面重新提交、刷新。
+　　AJAX最本质的实现是在Javascript中使用XMLHttpRequest进行Http的请求，开发中通常使用UpdatePanel、JQuery等方式简化AJAX的开发，UpdatePanel的方式实现AJAX最简单，但是数据通讯量比较大，因为要来回传整个ViewState，而且不灵活，对于复杂的需求则可以使用JQuery提供的ajax功能
+
+[jekyll-docs]: http://jekyllrb.com/docs/home
+[jekyll-gh]:   https://github.com/jekyll/jekyll
+[jekyll-talk]: https://talk.jekyllrb.com/

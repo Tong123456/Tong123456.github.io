@@ -1,0 +1,141 @@
+---
+layout: post
+title:  "ajax"
+date:   2014-11-25 10:46:41 +0800
+categories: jekyll update
+---
+
+
+
+  1.ajax定义:ajax是一种技术，它是由div+css javascript和xml技术组成
+
+  2.ajax全称：asynchronous(异步的)  javascript  and  xml
+
+  3.作用：异步存取，局部刷新，能实现无页面刷新的效果
+
+  4.优点：可以减轻服务器处理数据的压力，实现无页面刷新。
+
+  5.ajax原理
+
+      客户端浏览器通过ajax引擎发送请求，服务器接收请求后通过php访问数据库处理数据，处理完的数据通过ajax引擎响应给客户端，客户端通过js把数据放到需要的地方。
+
+  6.ajax原理图
+
+                    客户端
+
+               请求  |  |  响应
+
+                   ajax引擎
+
+                     |  |
+
+                 Web服务器apache
+
+                  访问|  |返回数据库
+
+
+
+   7.ajax对象   
+
+     a.ajax对象：var ajax= new XMLHttpRequest();
+
+     b.ajax属性
+
+    1)readyState：ajax对象的准备状态，状态从0----4发生变化
+
+　　       0：请求未初始化
+
+　　       1：服务器连接已建立
+
+　　       2：请求已接收
+
+　　       3：请求处理中
+
+　　       4：请求已完成且响应已就绪
+
+       2)responseText：响应文本  
+
+       3)status状态： 值为200表示处理成功   
+
+                      值为404表示没有找到处理文件
+
+       c.ajax事件 onreadystatechange
+
+       d.ajax方法
+
+              1)ajax.open()：与服务器建立连接 （get（提交方式）  url（地址） true（异步））
+
+              2)ajax.send()：处理请求
+
+ 
+
+   8.ajax执行步骤
+  
+    第一步：找到事件
+
+    第二步：创建ajax对象
+
+    第三步：写ajax事件
+
+    第四步：open()
+
+    第五步：send()
+
+  9.代码实现ajax
+
+   //1.创建ajax对象
+
+      var ajax= new XMLHttpRequest();
+
+   //2.ajax事件
+
+     ajax.onreadystatechange = function(){
+
+     if(ajax.readyState ==4) {
+
+     //处理语句
+
+    } 
+
+   }
+
+  //3.与服务器建立连接
+
+   ajax.open('get',url,false);
+
+  //4. 服务器处理请求
+ 
+  ajax.send(null);
+
+-------------------------------------------------------------
+ 
+
+ //创建ajax对象
+
+  var ajax= new XMLHttpRequest();
+
+ //ajax事件
+
+  ajax.onreadystatechange = function(){
+
+  if(ajax.readyState ==4)   {
+
+ } 
+
+ }
+
+  //与服务器建立连接
+
+  ajax.open('post',url,false);
+
+  ajax.setRequestHeader('Content-Type','application/x-www-form-urlencoded'); 
+
+  //处理请求
+
+  ajax.send('name='+name+”&id=”+id);
+
+
+
+[jekyll-docs]: http://jekyllrb.com/docs/home
+[jekyll-gh]:   https://github.com/jekyll/jekyll
+[jekyll-talk]: https://talk.jekyllrb.com/

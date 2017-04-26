@@ -1,0 +1,273 @@
+---
+layout: post
+title:  "php-two"
+date:   2016-10-31 08:19:35 +0800
+categories: jekyll update
+---
+
+一：：session和cookie
+	二者的定义：
+
+	当你在浏览网站的时候，WEB 服务器会先送一小小资料放在你的计算机上，Cookie 会帮你在网站上所打的文字或是一些选择，
+
+	都纪录下来。当下次你再光临同一个网站，WEB 服务器会先看看有没有它上次留下的 Cookie 资料，有的话，就会依据 Cookie
+
+	里的内容来判断使用者，送出特定的网页内容给你。 Cookie 的使用很普遍，许多有提供个人化服务的网站，都是利用 Cookie
+
+	来辨认使用者，以方便送出使用者量身定做的内容，像是 Web 接口的免费 email 网站，都要用到 Cookie。
+
+
+	具体来说cookie机制采用的是在客户端保持状态的方案，而session机制采用的是在服务器端保持状态的方案。
+
+	同时我们也看到，由于采用服务器端保持状态的方案在客户端也需要保存一个标识，所以session机制可能需要借助于cookie机制
+
+	来达到保存标识的目的，但实际上它还有其他选择。
+
+	cookie机制。正统的cookie分发是通过扩展HTTP协议来实现的，服务器通过在HTTP的响应头中加上一行特殊的指示以提示
+
+	浏览器按照指示生成相应的cookie。然而纯粹的客户端脚本如JavaScript或者VBScript也可以生成cookie。而cookie的使用
+
+	是由浏览器按照一定的原则在后台自动发送给服务器的。浏览器检查所有存储的cookie，如果某个cookie所声明的作用范围
+
+	大于等于将要请求的资源所在的位置，则把该cookie附在请求资源的HTTP请求头上发送给服务器。
+	 
+	cookie的内容主要包括：名字，值，过期时间，路径和域。路径与域一起构成cookie的作用范围。若不设置过期时间，则表示这
+
+	个cookie的生命期为浏览器会话期间，关闭浏览器窗口，cookie就消失。这种生命期为浏览器会话期的cookie被称为会话cookie。
+
+	会话cookie一般不存储在硬盘上而是保存在内存里，当然这种行为并不是规范规定的。若设置了过期时间，浏览器就会把cookie
+
+	保存到硬盘上，关闭后再次打开浏览器，这些cookie仍然有效直到超过设定的过期时间。存储在硬盘上的cookie可以在不同的浏
+
+	览器进程间共享，比如两个IE窗口。而对于保存在内存里的cookie，不同的浏览器有不同的处理方式
+
+	session机制。session机制是一种服务器端的机制，服务器使用一种类似于散列表的结构（也可能就是使用散列表）来保存信息。
+
+		  当程序需要为某个客户端的请求创建一个session时，服务器首先检查这个客户端的请求里是否已包含了一个session标识
+
+	（称为session id），如果已包含则说明以前已经为此客户端创建过session，服务器就按照session id把这个session检索出来
+
+	使用（检索不到，会新建一个），如果客户端请求不包含session id，则为此客户端创建一个session并且生成一个与此session相
+
+	关联的session id，session id的值应该是一个既不会重复，又不容易被找到规律以仿造的字符串，这个session id将被在本次响应
+
+	中返回给客户端保存。保存这个session id的方式可以采用cookie，这样在交互过程中浏览器可以自动的按照规则把这个标识发送给
+
+	服务器。一般这个cookie的名字都是类似于SEEESIONID。但cookie可以被人为的禁止，则必须有其他机制以便在cookie被禁止时
+
+	仍然能够把session id传递回服务器。
+
+	经常被使用的一种技术叫做URL重写，就是把session id直接附加在URL路径的后面。还有一种技术叫做表单隐藏字段。就是服务器
+
+	会自动修改表单，添加一个隐藏字段，以便在表单提交时能够把session id传递回服务器。比如：
+	<form name="testform" action="/xxx">
+	<input type="hidden" name="jsessionid" value="ByOK3vjFD75aPnrF7C2HmdnV6QZcEbzWoWiBYEnLerjQ99zWpBng!-145788764">
+	<input type="text">
+	</form>
+	实际上这种技术可以简单的用对action应用URL重写来代替。
+
+	cookie 和session 的区别：
+
+	1、cookie数据存放在客户的浏览器上，session数据放在服务器上。
+
+	2、cookie不是很安全，别人可以分析存放在本地的COOKIE并进行COOKIE欺骗
+	   考虑到安全应当使用session。
+
+	3、session会在一定时间内保存在服务器上。当访问增多，会比较占用你服务器的性能
+	   考虑到减轻服务器性能方面，应当使用COOKIE。
+
+	4、单个cookie保存的数据不能超过4K，很多浏览器都限制一个站点最多保存20个cookie。
+
+	5、所以个人建议：
+	   将登陆信息等重要信息存放为SESSION
+	   其他信息如果需要保留，可以放在COOKIE中
+
+    二：PHP部分函数
+        
+
+        php_strip_whitespace （参数1个php文件的路径）
+
+            — 返回删除注释和空格后的PHP源码，返回删除注释和空格后 filename 的PHP源码。
+
+            这对实际代码数量和注释数量的对比很有用。 此函数与 命令行 下执行 php -w 相似。
+
+        var_export（参数1传入的字符串，参数2是否为true） — 输出或返回一个变量的字符串表示
+
+            将函数的第二个参数设置为      TRUE，从而返回变量的表示。 
+
+        token_get_all($source一个参数，为php源代码或者是文件中的内容)
+
+            将提供的源码按 PHP 标记进行分割
+
+            分割时会多出引号
+
+        base64_encode （string $data,一个参数需要编码的数据）
+
+            设计此种编码是为了使二进制数据可以通过非纯    8-bit 的传输层传输
+
+            Base64-encoded 数据要比原始数据多占用 33% 左右的空间。
+
+        chunk_split(参数1是要分割的字符，参数2分割的尺寸，参数3行尾序列符号)
+
+            返回值是，分割后的字符串
+
+            将字符串分割成小块
+
+            一般和base64_encode一块用
+
+        realpath(参数1)
+
+            返回规范化的绝对路径名
+
+            参数1要检查的路径
+
+        json_decode(参数1，参数2，参数3，参数4)
+
+            对json格式的字符串进行编码
+
+            参数1带解码的json string格式的字符串
+
+            参数2当为true时将返回array而不是object
+
+            参数3(int $depth=512) 参数4默认将大整数设为浮动
+
+        json_encode(参数1，参数2)
+
+            对变量进行json编码，成功返回一个一json形式便是的string，否侧返回false
+
+            参数1待编码的value，除了resource类型之外的任何类型，只接受utf-8的编码数据
+
+            参数2由一下常量组成二进制掩码：
+
+            JSON_HEX_TAG (integer)
+
+            所有的 < 和 > 转换成 \u003C 和 \u003E。 自 PHP 5.3.0 起生效。
+
+            JSON_HEX_AMP (integer)
+
+            所有的 & 转换成 \u0026。 自 PHP 5.3.0 起生效。
+
+            JSON_HEX_APOS (integer)
+
+            所有的 ' 转换成 \u0027。 自 PHP 5.3.0 起生效。
+
+            JSON_HEX_QUOT (integer)
+
+            所有的 " 转换成 \u0022。 自 PHP 5.3.0 起生效。
+
+            JSON_FORCE_OBJECT (integer)
+
+            使一个非关联数组输出一个类（Object）而非数组。 在数组为空而接受者需要一个类（Object）的时候尤其有用。 自 PHP 5.3.0 起生效。
+
+            JSON_NUMERIC_CHECK (integer)
+
+            将所有数字字符串编码成数字（numbers）。 自 PHP 5.3.3 起生效。
+
+            JSON_BIGINT_AS_STRING (integer)
+
+            将大数字编码成原始字符原来的值。 自 PHP 5.4.0 起生效。
+
+            JSON_PRETTY_PRINT (integer)
+
+            用空白字符格式化返回的数据。 自 PHP 5.4.0 起生效。
+
+            JSON_UNESCAPED_SLASHES (integer)
+
+            不要编码 /。 自 PHP 5.4.0 起生效。
+
+            JSON_UNESCAPED_UNICODE (integer)
+
+            以字面编码多字节 Unicode 字符（默认是编码成 \uXXXX）。 自 PHP 5.4.0 起生效。
+
+        uniqid(参数1，参数2)
+
+            生成一个唯一id，基于当前时间微妙数的唯一id
+
+            参数1返回的字符串长度为13
+
+            参数2如果为more_entropy=true会在返回的字符串结尾增加额外的煽
+
+        http_build_query(参数1，参数2，参数3，参数4)
+
+            生成url-encode之后的请求字符串
+
+            参数1可以是数组或包含属性的对象（只有public的会加入）
+
+            参数2参数3参数4省略
+
+        spl_autoload_register(参数1)
+
+            注册__autoload()函数 成功返回true  否则返回false
+
+            参数1欲注册的自动装载函数，如果没有提供任何函数，则自动注册autoload的默认实现函数spl_autoload()
+
+        get_headers(参数1，参数2)
+
+            取得服务器响应一个http请求所发送的所有标头，成功返回一个索引或关联数组，失败返回false
+
+            参数1  目标url
+
+            参数2 如果设置为1get_headers()会解析相应的信息并设定数组的键名
+
+        ini_set(参数1，参数2)
+
+            为一个配置选项设置值，成功返回旧的值，失败返回false
+
+            参数1为固定的某些值
+
+            参数2选项新的值
+
+        strpos(参数1，参数2，参数3)
+
+            查找字符串首次出现的位置，存在返回当前的位置（默认从0开始），失败返回false
+
+            参数1在该字符串中查找
+
+            参数2如果neddle不是一个字符串，那么他将被转换为整形被视为字符的顺序值
+
+            参数3如果给了，搜索会从字符串该字符的起始位置开始统计，不能为负数
+
+        bool  defined(str参数1)
+
+            检测某个名称的常量是否存在，存在返回true，失败返回false
+
+            参数1，常量的名称
+
+        sha1(参数1，参数2)
+
+            计算字符串的sha1散列值，返回sha1散列值字符串
+
+            参数1，输入的字符串
+
+            参数2，如果为true那么sha1摘要将以20字符长度的原始格式返回，否则返回值是一个40字符串长度的16进制数字
+
+        mcrypt_encrypt（参数1，参数2，参数3，参数4）
+
+            使用给定的参数加密明文，返回加密后的密文，失败返回false
+
+            参数1，字符串值的算法名称或者MCRYPT_ciphername是常量中的一个MCRYPT_RIJNDAEL_128
+
+            参数2，加密密匙，如果长度不是该算法所能够支持的有效长度，则函数将会发出警告并返回false
+
+            参数3，需要加密的串
+
+            参数4，MCRYPT_MODE_modename 常量中的一个，或以下字符串中的一个："ecb"，"cbc"，"cfb"，"ofb"，"nofb" 和 "stream"。MCRYPT_MODE_CBC
+
+            参数5， $iv = mcrypt_create_iv($iv_size, MCRYPT_RAND);
+
+        list(参数1，参数2，参数3)
+
+            把数组中的值赋给一些变量，返回指定的数组
+
+            参数1一个变量
+
+            ​$info = array('coffee', 'brown', 'caffeine');
+            list($a[0], $a[1], $a[2]) = $info;
+
+
+
+
+
+[jekyll-docs]: http://jekyllrb.com/docs/home
+[jekyll-gh]:   https://github.com/jekyll/jekyll
+[jekyll-talk]: https://talk.jekyllrb.com/

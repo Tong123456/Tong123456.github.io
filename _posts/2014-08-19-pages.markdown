@@ -1,0 +1,163 @@
+---
+layout: post
+title:  "jQuery+Ajax+PHP+Mysql实现分页显示数据"
+date:   2014-08-19 19:55:23 +0800
+categories: jekyll update
+---
+
+jQuery+Ajax+PHP+Mysql实现分页显示数据
+
+HTML
+
+<div id="list"> 
+    <ul></ul> 
+</div> 
+<div id="pagecount"></div> 
+
+页面中，#list用来展示数据列表，包括本例要展示的商品图片和标题，#pagecount用来展示分页条，即本例中的上一页、下一页。
+
+当然，别忘了，在head中预先载入jquery库文件。
+CSS
+
+我们需要将商品图片进行排列，以及设置分页条样式，当然这些样式的设计可以根据读取成功后的数据进行设置，本例中我们先把css代码贴出来。
+
+#list{width:680px; height:530px; margin:2px auto; position:relative} 
+#list ul li{float:left;width:220px; height:260px; margin:2px} 
+#list ul li img{width:220px; height:220px} 
+#list ul li p{line-height:22px} 
+#pagecount{width:500px; margin:10px auto; text-align:center} 
+#pagecount span{margin:4px; font-size:14px} 
+#list ul li#loading{width:120px; height:32px; border:1px solid #d3d3d3;  
+position:absolute; top:35%; left:42%; text-align:center; background:#f7f7f7  
+url(loading.gif) no-repeat 8px 8px;-moz-box-shadow:1px 1px 2px rgba(0,0,0,.2);  
+-webkit-box-shadow:1px 1px 2px rgba(0,0,0,.2); box-shadow:1px 1px 2px rgba(0,0,0,.2);} 
+
+jQuery
+
+我们先声明变量，后面的代码要用到以下变量。
+
+var curPage = 1; //当前页码 
+var total,pageSize,totalPage; //总记录数，每页显示数，总页数 
+
+接下来，我们自定义一个函数：getData()，用来获取当前页数据。函数中，我们利用$.ajax()向后台pages.php发送POST异步请求，将当前页码以JSON格式传递给后台。
+
+//获取数据 
+function getData(page){  
+    $.ajax({ 
+        type: 'POST', 
+        url: 'pages.php', 
+        data: {'pageNum':page-1}, 
+        dataType:'json', 
+        beforeSend:function(){ 
+            $("#list ul").append("<li id='loading'>loading...</li>");//显示加载动画 
+        }, 
+        success:function(json){ 
+            $("#list ul").empty();//清空数据区 
+            total = json.total; //总记录数 
+            pageSize = json.pageSize; //每页显示条数 
+            curPage = page; //当前页 
+            totalPage = json.totalPage; //总页数 
+            var li = ""; 
+            var list = json.list; 
+            $.each(list,function(index,array){ //遍历json数据列 
+                li += "<li><a href='#'><img src='"+array['pic']+"'>"+array['title'] 
+                +"</a></li>"; 
+            }); 
+            $("#list ul").append(li); 
+        }, 
+        complete:function(){ //生成分页条 
+            getPageBar(); 
+        }, 
+        error:function(){ 
+            alert("数据加载失败"); 
+        } 
+    }); 
+} 
+
+请求成功后并返回数据，将相应的数据附给变量，并将返回的商品数据列表循环展示到对应容器#list ul中。当数据完全加载完毕后，调用分页条函数getPageBar()生成分页条。
+
+//获取分页条 
+function getPageBar(){ 
+    //页码大于最大页数 
+    if(curPage>totalPage) curPage=totalPage; 
+    //页码小于1 
+    if(curPage<1) curPage=1; 
+    pageStr = "<span>共"+total+"条</span><span>"+curPage 
+    +"/"+totalPage+"</span>"; 
+     
+    //如果是第一页 
+    if(curPage==1){ 
+        pageStr += "<span>首页</span><span>上一页</span>"; 
+    }else{ 
+        pageStr += "<span><a href='javascript:void(0)' rel='1'>首页</a></span> 
+        <span><a href='javascript:void(0)' rel='"+(curPage-1)+"'>上一页</a></span>"; 
+    } 
+     
+    //如果是最后页 
+    if(curPage>=totalPage){ 
+        pageStr += "<span>下一页</span><span>尾页</span>"; 
+    }else{ 
+        pageStr += "<span><a href='javascript:void(0)' rel='"+(parseInt(curPage)+1)+"'> 
+        下一页</a></span><span><a href='javascript:void(0)' rel='"+totalPage+"'>尾页</a> 
+        </span>"; 
+    } 
+         
+    $("#pagecount").html(pageStr); 
+} 
+
+最后，当页面第一次加载时，我们加载第一页数据即getData(1)，当点击分页条中的分页链接时，调用getData(page)加载对应页码的数据。我们通过getPageBar()函数已预先在翻页连接的属性rel中在埋入了数字页码。
+
+$(function(){ 
+    getData(1); 
+    $("#pagecount span a").live('click',function(){ 
+        var rel = $(this).attr("rel"); 
+        if(rel){ 
+            getData(rel); 
+        } 
+    }); 
+}); 
+
+PHP
+
+pages.php接收每次前端页面的ajax请求，根据提交的页码pageNum值，从mysql数据库中获取数据，计算总记录数和总页数，读取对应页码下的数据列表，并将最终结果以JSON格式返回给前端页面。
+
+include_once('connect.php'); //连接数据库，略过，具体请下载源码查看 
+ 
+$page = intval($_POST['pageNum']); //当前页 
+ 
+$result = mysql_query("select id from food"); 
+$total = mysql_num_rows($result);//总记录数 
+$pageSize = 6; //每页显示数 
+$totalPage = ceil($total/$pageSize); //总页数 
+ 
+$startPage = $page*$pageSize; //开始记录 
+//构造数组 
+$arr['total'] = $total; 
+$arr['pageSize'] = $pageSize; 
+$arr['totalPage'] = $totalPage; 
+$query = mysql_query("select id,title,pic from food order by id asc limit  
+$startPage,$pageSize"); //查询分页数据 
+while($row=mysql_fetch_array($query)){ 
+     $arr['list'][] = array( 
+         'id' => $row['id'], 
+        'title' => $row['title'], 
+        'pic' => $row['pic'], 
+     ); 
+} 
+echo json_encode($arr); //输出JSON数据 
+
+这时再回到前端页面，即看到数据已分号页，点击“下一页”看看是不是你要的效果，查看DEMO，分页条的样式大家可以自己定制，我给的是最基本的样式。
+
+最后，附上Mysql表结构，
+
+CREATE TABLE IF NOT EXISTS `food` ( 
+  `id` int(11) NOT NULL AUTO_INCREMENT, 
+  `title` varchar(100) NOT NULL, 
+  `pic` varchar(255) NOT NULL, 
+  PRIMARY KEY (`id`) 
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+
+
+[jekyll-docs]: http://jekyllrb.com/docs/home
+[jekyll-gh]:   https://github.com/jekyll/jekyll
+[jekyll-talk]: https://talk.jekyllrb.com/

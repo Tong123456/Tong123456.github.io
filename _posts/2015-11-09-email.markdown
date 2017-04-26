@@ -1,0 +1,69 @@
+---
+layout: post
+title:  "发送邮件"
+date:   2015-11-09 19:46:13 +0800
+categories: jekyll update
+---
+
+知识点：邮件相关的协议：
+smtp：发邮件，端口：25
+pop3：收邮件，端口：110
+
+1、要有邮件服务器
+a)	自己搭建一个邮箱服务器
+b)	使用现有的：126、163等等。
+163发邮件的接口：smtp.163.com    ssl://smtp.qq.com
+2、在163注册一个邮箱账号
+在php中发送邮件使用一个 phpmailer的类。
+phpmailer发送邮件示例
+注意事项：
+启用fsockopen函数
+首先，在php.ini中去掉下面的两个分号
+复制代码 代码示例:
+extension=php_sockets.dll 
+extension=php_openssl.dll 
+
+代码案例：
+<?php
+ require 'PHPMailer/class.phpmailer.php';
+ $mail             = new PHPMailer();
+/*服务器相关信息*/
+		$mail->IsSMTP();                        //设置使用SMTP服务器发送
+		$mail->SMTPAuth   = true;               //开启SMTP认证
+		$mail->Host       = 'smtp.163.com';   	    //设置 SMTP 服务器,自己注册邮箱服务器地址
+		$mail->Username   = 'lau0400810121';  		//发信人的邮箱名称
+		$mail->Password   = 'lau13142yun';          //发信人的邮箱密码
+		/*内容信息*/
+		$mail->IsHTML(true); 			         //指定邮件格式为：html
+		$mail->CharSet    ="UTF-8";			     //编码
+		$mail->From       = 'lau0400810121@163.com';			 //发件人完整的邮箱名称
+		$mail->FromName   = '地球球长委员会';			 //发信人署名
+		$mail->Subject    = "地球的球长选举";  			 //信的标题
+		$mail->MsgHTML("尊敬的用户：明天开会，会后，我请客");  				 //发信主体内容
+        /*发送邮件*/
+		$mail->AddAddress(“18665455185@163.com");  			 //收件人地址
+        //使用send函数进行发送
+		if($mail->Send()) {
+			echo 'ok ok';
+		} else {
+            echo $mail->ErrorInfo;//如果发送失败，则返回错误提示
+		}
+
+完成用户注册完成后，要通过邮箱验证。如果用户密码忘了，可以通过邮箱找回密码
+create table ci_user1(
+            id int primary key auto_increment,
+            username   varchar(32) not null comment '用户的名称',
+            password   char(32) not null comment '用户的密码',
+            active  tinyint  not null default 0  comment '激活的标志，0表示没有激活，1表示已经激活',
+            validate varchar(32) not null comment '激活的用户的校验码',
+            question varchar(32) not null comment '问题的名称',
+            answer varchar(32) not null comment '问题的答案'
+)
+完成用户注册，找回密码案例
+
+
+
+
+[jekyll-docs]: http://jekyllrb.com/docs/home
+[jekyll-gh]:   https://github.com/jekyll/jekyll
+[jekyll-talk]: https://talk.jekyllrb.com/

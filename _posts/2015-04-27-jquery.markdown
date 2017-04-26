@@ -1,0 +1,180 @@
+---
+layout: post
+title:  "jquery"
+date:   2015-04-27 20:43:05 +0800
+categories: jekyll update
+---
+
+jquery教程 : http://www.w3school.com.cn/jquery/
+
+ JQuery的用途和功能 
+    一、取得页面中的元素。
+        如果不使用JavaScript库，遍历DOM树，以及查找HTML文档结构中某个特殊的部分，必需编写很多代码。jQuery为准确获取需要操纵的文档元素，提供了可靠而富有效率的选择符机制。
+    二、修改页面的外观。
+        CSS虽然为呈现方式提供了一种强大的手段，但当所有浏览器不完全支持相同的标准时，单纯使用CSS就会显得力不从心。jQuery可以弥补这一不足，它提供了跨浏览器的标准来解决方案。而且即使在页面已经呈现之后，jQuery仍然能够改变文档中某个部分的类或都个别的样式属性。
+    三、改变页面的内容。
+        jQuery能够影响的范围并不局限于简单的外观变化，使用少量的代码，jQuery就能改变文档的内容，可以改变文本、插入或都翻转图像、对列表重新排序，甚至对HTML文档的整个结构都能重写和扩充——所有这些只需要一个简单易用的API。
+    四、响应用户的页面操作。
+    即使是最强大和最精心的设计的行为，如果我们无法控制它何时发生，那它也毫无用处。jQuery提供了截取形形色色的页面事件（比如用户单击一个链接）的适当方式，而不需要使用事件处理程序搞乱HTML代码。此外，它的事件处理API也消除了经常困扰Web开发人员的浏览器不一致性。
+    五、为页面添加动态效果。
+        为了实现某种交互式行为，设计者也必须向用户提供视觉上的反馈。jQuery中内置的一批淡入、擦除之类的效果，以及制作新效果的工具包，为此提供了便利。
+    六、无需刷新页面。
+        即可从服务器获取信息，这种编程模式就是从所周知的AJAX（Asyynchoronous JavaScript and XML），它能辅助Web开发人员创建出反应灵敏、功能丰富的网站。jQuery通过消除这一过程中的浏览器特定的复杂性，使开发人员得以专注于服务器端的功能设计。
+    七、简化常见的JavaScript任务。
+        除了这些完全针对文档的特性之外，jQuery也提供了对基本的JavaScript结构（例如迭代和数组操作等）的增强。
+
+
+jQuery 选择器
+	选择器 	实例 	选取
+	* 	$("*") 	所有元素
+	#id 	$("#lastname") 	id="lastname" 的元素
+	.class 	$(".intro") 	所有 class="intro" 的元素
+	element 	$("p") 	所有 <p> 元素
+	.class.class 	$(".intro.demo") 	所有 class="intro" 且 class="demo" 的元素
+			 
+	:first 	$("p:first") 	第一个 <p> 元素
+	:last 	$("p:last") 	最后一个 <p> 元素
+	:even 	$("tr:even") 	所有偶数 <tr> 元素
+	:odd 	$("tr:odd") 	所有奇数 <tr> 元素
+			 
+	:eq(index) 	$("ul li:eq(3)") 	列表中的第四个元素（index 从 0 开始）
+	:gt(no) 	$("ul li:gt(3)") 	列出 index 大于 3 的元素
+	:lt(no) 	$("ul li:lt(3)") 	列出 index 小于 3 的元素
+	:not(selector) 	$("input:not(:empty)") 	所有不为空的 input 元素
+			 
+	:header 	$(":header") 	所有标题元素 <h1> - <h6>
+	:animated 	  	所有动画元素
+			 
+	:contains(text) 	$(":contains('W3School')") 	包含指定字符串的所有元素
+	:empty 	$(":empty") 	无子（元素）节点的所有元素
+	:hidden 	$("p:hidden") 	所有隐藏的 <p> 元素
+	:visible 	$("table:visible") 	所有可见的表格
+			 
+	s1,s2,s3 	$("th,td,.intro") 	所有带有匹配选择的元素
+			 
+	[attribute] 	$("[href]") 	所有带有 href 属性的元素
+	[attribute=value] 	$("[href='#']") 	所有 href 属性的值等于 "#" 的元素
+	[attribute!=value] 	$("[href!='#']") 	所有 href 属性的值不等于 "#" 的元素
+	[attribute$=value] 	$("[href$='.jpg']") 	所有 href 属性的值包含以 ".jpg" 结尾的元素
+			 
+	:input 	$(":input") 	所有 <input> 元素
+	:text 	$(":text") 	所有 type="text" 的 <input> 元素
+	:password 	$(":password") 	所有 type="password" 的 <input> 元素
+	:radio 	$(":radio") 	所有 type="radio" 的 <input> 元素
+	:checkbox 	$(":checkbox") 	所有 type="checkbox" 的 <input> 元素
+	:submit 	$(":submit") 	所有 type="submit" 的 <input> 元素
+	:reset 	$(":reset") 	所有 type="reset" 的 <input> 元素
+	:button 	$(":button") 	所有 type="button" 的 <input> 元素
+	:image 	$(":image") 	所有 type="image" 的 <input> 元素
+	:file 	$(":file") 	所有 type="file" 的 <input> 元素
+			 
+	:enabled 	$(":enabled") 	所有激活的 input 元素
+	:disabled 	$(":disabled") 	所有禁用的 input 元素
+	:selected 	$(":selected") 	所有被选取的 input 元素
+	:checked 	$(":checked") 	所有被选中的 input 元素
+
+元素事件列表说明
+	注：不带参数的函数，其参数为可选的 fn。jQuery不支持form元素的reset事件。
+	事件 描述 支持元素或对象
+	blur( ) 元素失去焦点 a, input, textarea, button, select, label, map, area
+	change( ) 用户改变域的内容 input, textarea, select
+	click( ) 鼠标点击某个对象 几乎所有元素
+	dblclick( ) 鼠标双击某个对象 几乎所有元素
+	error( ) 当加载文档或图像时发生某个错误 window, img
+	focus( ) 元素获得焦点 a, input, textarea, button, select, label, map, area
+	keydown( ) 某个键盘的键被按下 几乎所有元素
+	keypress( ) 某个键盘的键被按下或按住 几乎所有元素
+	keyup( ) 某个键盘的键被松开 几乎所有元素
+	load( fn ) 某个页面或图像被完成加载 window, img
+	mousedown( fn ) 某个鼠标按键被按下 几乎所有元素
+	mousemove( fn ) 鼠标被移动 几乎所有元素
+	mouseout( fn ) 鼠标从某元素移开 几乎所有元素
+	mouseover( fn ) 鼠标被移到某元素之上 几乎所有元素
+	mouseup( fn ) 某个鼠标按键被松开 几乎所有元素
+	resize( fn ) 窗口或框架被调整尺寸 window, iframe, frame
+	scroll( fn ) 滚动文档的可视部分时 window
+	select( ) 文本被选定 document, input, textarea
+	submit( ) 提交按钮被点击 form
+	unload( fn ) 用户退出页面 window
+
+获取值:
+	文本框,文本区域:$("#txt").attr("value");
+	多选框checkbox:$("input[name='checkbox':checked]").each(function(){
+	var val = $(this).val();
+	});
+	单选组radio: $("input[type=radio][checked]").val();
+	下拉框select的value值: $('select').val();
+	下拉框select选中的text 值:$("select").find("option:selected").text();
+	控制表单元素:
+	文本框,文本区域:$("#txt").attr("value","); //清空内容
+	$("#txt").attr("value",'11′); //填充内容
+  jQuery获取Radio选择的Value值
+	
+	$("input[name='radio_name'][checked]").val(); //选择被选中Radio的Value值
+	$("#text_id").focus(function(){//code...}); //事件 当对象text_id获取焦点时触发
+	$("#text_id").blur(function(){//code...}); //事件 当对象text_id失去焦点时触发
+	$("#text_id").select(); //使文本框的Vlaue值成选中状态
+	$("input[name='radio_name'][value='要选中Radio的Value值'").
+	attr("checked",true); //根据Value值设置Radio为选中状态
+	jQuery获取CheckBox选择的Value值
+	$("input[name='checkbox_name'][checked]"); //选择被选中CheckBox元素的集合 如果你想得到
+        Value值你需要遍历这个集合
+	$($("input[name='checkbox_name'][checked]")).
+	each(function(){arrChk+=this.value + ',';});//遍历被选中CheckBox元素的集合 得到Value值
+	$("#checkbox_id").attr("checked"); //获取一个CheckBox的状态(有没有被选中,返回true/false)
+	$("#checkbox_id").attr("checked",true); //设置一个CheckBox的状态为选中(checked=true)
+	$("#checkbox_id").attr("checked",false); //设置一个CheckBox的状态为不选中(checked=false)
+	$("input[name='checkbox_name']").attr
+	("checked",$("#checkbox_id").attr("checked"));//根据3,4,5条,你可以分析分析这句代码的意思
+	$("#text_id").val().split(","); //将Text的Value值以','分隔 返回一个数组
+
+    jquery给input赋值val(val)  
+      
+    val(val)是jquery函数，最容易混淆的是获取input的函数是val()；  
+      
+    区别非常小，一个是带参数，一个是不带参数；  
+      
+    <input name="user" class="txtshort" id="user" value="输入手机号码或邮箱" />  
+      
+    $("#user").val(""); 清空ID为user的值；  
+      
+    以下是一段常用的在登录时在文本框内用文字提示用户输入的代码  
+      
+    $(document).ready(function() {  
+      
+    $("#user").addClass('phplike_blur');  
+      
+    $("#password").addClass('phplike_focus');  //添加样式，如果无，可以不写  
+      
+    $("#user").focus(function(){ $(this).removeClass('phplike_blur');  
+      
+    if ($("#user").val() == '输入手机号码或邮箱')  //如果值为提示信息，获得焦点时，清空提示信息，样式说明在此省略  
+      
+    {  
+      
+    $(this).addClass('phplike_focus');$("#user").val("");  
+      
+    }  
+      
+    else { $(this).removeClass('phplike_blur'); }  
+      
+    }) $("#user").blur(function(){  
+      
+    if ($("#user").val() == '') //失去焦点时，如果文本框内容为空，则显示提示信息  
+      
+    { $("#user").val("输入手机号码或邮箱");  
+      
+    $(this).addClass('phplike_blur'); }  
+      
+    })  
+      
+    })  
+
+
+
+
+
+
+[jekyll-docs]: http://jekyllrb.com/docs/home
+[jekyll-gh]:   https://github.com/jekyll/jekyll
+[jekyll-talk]: https://talk.jekyllrb.com/

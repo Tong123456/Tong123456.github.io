@@ -1,0 +1,110 @@
+---
+layout: post
+title:  "虚拟主机域名配置"
+date:   2014-04-16 10:38:57 +0800
+categories: jekyll update
+---
+
+RBAC权限控制复习
+1、建表：用户表   角色表  权限表    根据关系分析出另外两张关系表  这是最基本的五张表  只要是RBAC一般都是五张表
+注：权限表的p_path字段代表的是父级权限id，可以这么说：当前记录的p_path就是父级记录的p_id
+2、初始化好表数据，例如用户信息，角色信息，基本的权限信息
+3、搭建tp框架，首先做登录（防非法登录，即存session的问题，引入第三方类判断session）
+4、登录完成后可以获取到刚登陆的用户的id，根据用户id查询出对应的权限菜单，SQL如下：
+select power.p_id,p_name,method,p_path from u_r i
+select power.p_id,p_name,method,p_path from u_r i
+nner join r_p on u_r.r_id=r_p.r_id inner join pow
+nner join r_p on u_r.r_id=r_p.r_id inner join pow
+er on power.p_id=r_p.p_id where u_r.u_id="
+er on power.p_id=r_p.p_id where u_r.u_id="
+.登陆后的用户id
+
+
+
+
+tp中的代码：
+  登录的控制器
+
+     <?php
+	namespace Home\Controller;
+	use Think\Controller;
+	class IndexController extends Controller {
+	    public function index(){
+			$this->display('deng');
+	    }
+		//登录
+		function deng()
+		{
+			$u_name=$_POST['u_name'];
+			$u_pwd=$_POST['u_pwd'];
+			$a=D('user');
+			$er=$a->where("u_name='$u_name'")->find();
+			if($er)
+			{
+				if($er['u_pwd']=$u_pwd)
+				{
+					$arr=$a->query("SELECT * FROM user INNER JOIN u_r on user.u_id=u_r.u_id
+			   INNER JOIN role on u_r.r_id=role.r_id
+			   INNER JOIN r_q on role.r_id=r_q.r_id
+			   INNER JOIN quan on r_q.q_id=quan.q_id where user.u_name='$u_name'");
+				    foreach($arr as $v)
+					{
+						$method[]=$v['q_method'];
+					}
+					session('u_name',$u_name);
+					session('r_name',$r_name);
+					session("method",$method);
+					if($arr[0]['r_name']=='学生')
+					{
+						$this->success('欢迎'.$u_name.'同学登录',U("Student/u_list"));
+					}
+					else if($arr[0]['r_name']=='老师')
+					{
+						$this->success('欢迎'.$u_name.'老师登录',U("Tearcher/u_list"));
+					}
+					else if($arr[0]['r_name']=='主任')
+					{
+						$this->success('欢迎'.$u_name.'主任登录',U("Zhu/u_list"));
+					}
+				}
+				else
+				{
+					$this->error('密码不正确');
+				}
+			}
+			else
+			{
+					$this->error('用户名不正确');
+			}
+		}
+	}
+  common控制器
+
+  <?php
+	namespace Home\Controller;
+	use Think\Controller;
+	class CommonController extends IndexController {
+	    public function __construct(){
+			parent::__construct();
+			$method=session("method");
+			$action=ACTION_NAME;
+			$CONTROLLER=CONTROLLER_NAME;
+			//echo $CONTROLLER."/".$action;
+			if(in_array($CONTROLLER,$method))
+			{
+				if(!(in_array($CONTROLLER."/".$action,$method)))
+				{
+					$this->error('您没有该权限');die;
+				}
+			}
+			else
+			{
+				$this->error('您没有该控制器权限');die;
+			}
+	    }
+	}
+ 
+ 主要的就是这些了， 然后根据要求，继续完成你的业务即可
+[jekyll-docs]: http://jekyllrb.com/docs/home
+[jekyll-gh]:   https://github.com/jekyll/jekyll
+[jekyll-talk]: https://talk.jekyllrb.com/

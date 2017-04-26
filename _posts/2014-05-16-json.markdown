@@ -1,0 +1,78 @@
+---
+layout: post
+title:  "json解决跨域的五种方法"
+date:   2014-05-16 12:58:23 +0800
+categories: jekyll update
+---
+
+
+
+1.jsonp。
+
+   ajax请求，dataType为jsonp。这种形式需要请求在服务端调整为返回callback([json-object])的形式。如果服务端返回的是普通json对象。那么调试的时候，在chrome浏览器的控制台会报"Uncaught SyntaxError: Unexpected token"错误；在firefox浏览器的控制台会报"SyntaxError: missing ; before statement"错误。
+
+2.iframe跨域。
+
+   页面中增加一个iframe元素，在需要调用get请求的时候，将iframe的src设置为get请求的url即可发起get请求的调用。
+
+复制代码 代码如下:
+
+var url = "http://xxx.xxx.xxx?p1=1&p2=2";
+$("#iframe").attr("src", url);//跨域，使用iframe
+
+iframe方式强于jsonp，除了可以处理http请求，还能够跨域实现js调用。
+
+3.script元素的src属性处理
+
+   iframe、img、style、script等元素的src属性可以直接向不同域请求资源，jsonp正是利用script标签跨域请求资源的简单实现，所以这个和jsonp本质一样，同样需要服务端请求返回callback...形式。
+
+复制代码 代码如下:
+
+var url="http://xxx.xxx.xxx?p1=1";
+var script = document.createElement('script');
+script.setAttribute('src', url);
+document.getElementsByTagName('head')[0].appendChild(script);
+
+4.在服务器使用get处理。
+
+   对于业务上没有硬性要求在前端处理的，可以在服务端做一次封装，再服务端发起调用，这样就可以解决跨域的问题。然后再根据请求是发出就完，还是需要获取返回值，来决定代码使用同步或者异步模式。
+
+复制代码 代码如下:
+
+        private static void CreateGetHttpResponse(string url, int? timeout, string userAgent, CookieCollection cookies)
+        {
+            if (string.IsNullOrEmpty(url))
+            {
+                throw new ArgumentNullException("url");
+            }
+            var request = WebRequest.Create(url) as HttpWebRequest;
+            request.Method = "GET";
+            if (!string.IsNullOrEmpty(userAgent))
+            {
+                request.UserAgent = userAgent;
+            }
+            if (timeout.HasValue)
+            {
+                request.Timeout = timeout.Value;
+            }
+            if (cookies != null)
+            {
+                request.CookieContainer = new CookieContainer();
+                request.CookieContainer.Add(cookies);
+            }
+            request.BeginGetResponse(null,null);//异步
+            //return request.GetResponse() as HttpWebResponse;
+        }
+
+5.flash跨域
+
+过于尖端了==，再研究
+
+总结：以上5种方法就是常见的解决js跨域问题的处理方法了，最后一种比较高端，等我研究清楚了再补上吧。
+
+
+
+
+[jekyll-docs]: http://jekyllrb.com/docs/home
+[jekyll-gh]:   https://github.com/jekyll/jekyll
+[jekyll-talk]: https://talk.jekyllrb.com/

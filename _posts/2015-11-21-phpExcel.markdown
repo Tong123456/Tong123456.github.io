@@ -1,0 +1,154 @@
+---
+layout: post
+title:  "利用phpExcel实现Excel数据的导入导出"
+date:   2015-11-21 14:52:13 +0800
+categories: jekyll update
+---
+
+利用phpExcel实现Excel数据的导入导出(全步骤详细解析)
+
+很多文章都有提到关于使用phpExcel实现Excel数据的导入导出，大部分文章都差不多，或者就是转载的，都会出现一些问题，下面是本人研究phpExcel的使用例程总结出来的使用方法，接下来直接进入正题。 
+首先先说一下，本人的这段例程是使用在Thinkphp的开发框架上，要是使用在其他框架也是同样的方法，很多人可能不能正确的实现Excel的导入导出，问题基本上都是phpExcel的核心类引用路径出错，如果有问题大家务必要对路劲是否引用正确进行测试。
+（一）导入Excel
+第一，在前台html页面进行上传文件：如：
+复制代码 代码如下:
+
+<form method="post" action="php文件" enctype="multipart/form-data">
+         <h3>导入Excel表：</h3><input  type="file" name="file_stu" />
+           <input type="submit"  value="导入" />
+</form>
+
+第二，在对应的php文件进行文件的处理
+复制代码 代码如下
+ if (! empty ( $_FILES ['file_stu'] ['name'] )) 
+ {
+    $tmp_file = $_FILES ['file_stu'] ['tmp_name'];
+    $file_types = explode ( ".", $_FILES ['file_stu'] ['name'] );
+    $file_type = $file_types [count ( $file_types ) - 1];
+     /*判别是不是.xls文件，判别是不是excel文件*/
+     if (strtolower ( $file_type ) != "xls")              
+    {
+          $this->error ( '不是Excel文件，重新上传' );
+     }
+    /*设置上传路径*/
+     $savePath = SITE_PATH . '/public/upfile/Excel/';
+    /*以时间来命名上传的文件*/
+     $str = date ( 'Ymdhis' ); 
+     $file_name = $str . "." . $file_type;
+     /*是否上传成功*/
+     if (! copy ( $tmp_file, $savePath . $file_name )) 
+      {
+          $this->error ( '上传失败' );
+      }
+    /*
+       *对上传的Excel数据进行处理生成编程数据,这个函数会在下面第三步的ExcelToArray类中
+      注意：这里调用执行了第三步类里面的read函数，把Excel转化为数组并返回给$res,再进行数据库写入
+    */
+  $res = Service ( 'ExcelToArray' )->read ( $savePath . $file_name );
+   /*
+        重要代码 解决Thinkphp M、D方法不能调用的问题   
+        如果在thinkphp中遇到M 、D方法失效时就加入下面一句代码
+    */
+   //spl_autoload_register ( array ('Think', 'autoload' ) );
+   /*对生成的数组进行数据库的写入*/
+   foreach ( $res as $k => $v ) 
+   {
+       if ($k != 0) 
+      {
+           $data ['uid'] = $v [0];
+           $data ['password'] = sha1 ( '111111' );
+           $data ['email'] = $v [1];
+           $data ['uname'] = $v [3];
+          $data ['institute'] = $v [4];
+         $result = M ( 'user' )->add ( $data );
+         if (! $result) 
+         {
+              $this->error ( '导入数据库失败' );
+          }
+      }
+   }
+}
+
+第三：ExcelToArrary类,用来引用phpExcel并处理Excel数据的
+复制代码 代码如下:
+
+class ExcelToArrary extends Service{
+ public function __construct() {
+     /*导入phpExcel核心类    注意 ：你的路径跟我不一样就不能直接复制*/
+     include_once('./Excel/PHPExcel.php');
+ }
+/**
+* 读取excel $filename 路径文件名 $encode 返回数据的编码 默认为utf8
+*以下基本都不要修改
+*/ 
+public function read($filename,$encode='utf-8'){
+          $objReader = PHPExcel_IOFactory::createReader('Excel5'); 
+          $objReader->setReadDataOnly(true); 
+          $objPHPExcel = $objReader->load($filename); 
+          $objWorksheet = $objPHPExcel->getActiveSheet(); 
+　　　 $highestRow = $objWorksheet->getHighestRow(); 
+　　　 $highestColumn = $objWorksheet->getHighestColumn(); 
+　　    $highestColumnIndex = PHPExcel_Cell::columnIndexFromString($highestColumn); 
+ 　　   $excelData = array(); 
+ 　　　for ($row = 1; $row <= $highestRow; $row++) { 
+    　　  for ($col = 0; $col < $highestColumnIndex; $col++) { 
+                 $excelData[$row][] =(string)$objWorksheet->getCellByColumnAndRow($col, $row)->getValue();
+           } 
+         } 
+        return $excelData; 
+    }     
+ }
+
+第四，以上就是导入的全部内容，phpExcel包附在最后。
+（二）Excel的导出（相对于导入简单多了）
+第一，先查出数据库里面要生成Excel的数据，如：
+$data= M('User')->findAll();   //查出数据
+$name='Excelfile';    //生成的Excel文件文件名
+$res=service('ExcelToArrary')->push($data,$name);
+第二，ExcelToArrary类,用来引用phpExcel并处理数据的    
+复制代码 代码如下:
+
+class ExcelToArrary extends Service{
+       public function __construct() {
+              /*导入phpExcel核心类    注意 ：你的路径跟我不一样就不能直接复制*/
+               include_once('./Excel/PHPExcel.php');
+       }
+     /* 导出excel函数*/
+    public function push($data,$name='Excel'){
+          error_reporting(E_ALL);
+          date_default_timezone_set('Europe/London');
+         $objPHPExcel = new PHPExcel();
+        /*以下是一些设置 ，什么作者  标题啊之类的*/
+         $objPHPExcel->getProperties()->setCreator("转弯的阳光")
+                               ->setLastModifiedBy("转弯的阳光")
+                               ->setTitle("数据EXCEL导出")
+                               ->setSubject("数据EXCEL导出")
+                               ->setDescription("备份数据")
+                               ->setKeywords("excel")
+                              ->setCategory("result file");
+         /*以下就是对处理Excel里的数据， 横着取数据，主要是这一步，其他基本都不要改*/
+        foreach($data as $k => $v){
+             $num=$k+1;
+             $objPHPExcel->setActiveSheetIndex(0)
+                         //Excel的第A列，uid是你查出数组的键值，下面以此类推
+                          ->setCellValue('A'.$num, $v['uid'])    
+                          ->setCellValue('B'.$num, $v['email'])
+                          ->setCellValue('C'.$num, $v['password'])
+            }
+            $objPHPExcel->getActiveSheet()->setTitle('User');
+            $objPHPExcel->setActiveSheetIndex(0);
+             header('Content-Type: application/vnd.ms-excel');
+             header('Content-Disposition: attachment;filename="'.$name.'.xls"');
+             header('Cache-Control: max-age=0');
+             $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
+             $objWriter->save('php://output');
+             exit;
+      }
+
+以上就是导出的全部内容。
+
+
+
+[jekyll-docs]: http://jekyllrb.com/docs/home
+[jekyll-gh]:   https://github.com/jekyll/jekyll
+[jekyll-talk]: https://talk.jekyllrb.com/
