@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "date函数，时间转换"
-date:   2016-11-05 12:19:35 +0800
+date:   2014-11-24 12:19:35 +0800
 categories: jekyll update
 ---
 
