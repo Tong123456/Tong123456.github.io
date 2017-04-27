@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "ajax"
+title:  "ajax步骤"
 date:   2015-03-18 20:07:18 +0800
 categories: jekyll update
 ---
